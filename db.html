@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spring Data &mdash; Inżynieria oprogramowania laboratorium 0.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spring MVC" href="mvc.html" />
+    <link rel="prev" title="Spring I" href="spring1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Inżynieria oprogramowania laboratorium
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Zawartość</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="zaliczenie.html">Zasady zaliczenia laboratoriów</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git - podstawowe narzędzie programisty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restapi.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring1.html">Spring I</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-wykonania-przed-zajeciami">Zadania do wykonania przed zajęciami</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-realizacji-podczas-zajec">Zadania do realizacji podczas zajęć</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-i-polaczenie-bazy-danych">Ćwiczenie I - połączenie bazy danych</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-ii-relacje">Ćwiczenie II - relacje</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sprawozdanie">Sprawozdanie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-i">Ćwiczenie I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-ii">Ćwiczenie II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kapka-teorii">Kapka teorii</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mvc.html">Spring MVC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Spring Security na ocenę max 4.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security2.html">Spring Security na ocenę max 5.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Kontenery Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dokumentacja.html">Dokumentacja</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">Wdrożenie aplikacji na CLOUD</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Inżynieria oprogramowania laboratorium</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Spring Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/db.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spring-data">
+<h1>Spring Data<a class="headerlink" href="#spring-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="zadania-do-wykonania-przed-zajeciami">
+<h2>Zadania do wykonania przed zajęciami<a class="headerlink" href="#zadania-do-wykonania-przed-zajeciami" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Zapoznaj się z pojęciem relacyjnej bazy danych np. tutaj: <a class="reference external" href="https://www.samouczekprogramisty.pl/wstep-do-relacyjnych-baz-danych/">https://www.samouczekprogramisty.pl/wstep-do-relacyjnych-baz-danych/</a></p></li>
+<li><p>Zapoznaj się z pojęciem mapowania obietkwo-relacyjnego: <a class="reference external" href="https://bit.ly/3azUiy7">https://bit.ly/3azUiy7</a></p></li>
+<li><p>Utrwal sobie podstawowe pojęcia :</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Hibernate <a class="reference external" href="https://javastart.pl/baza-wiedzy/frameworki/hibernate">https://javastart.pl/baza-wiedzy/frameworki/hibernate</a></p></li>
+<li><p>JPA <a class="reference external" href="https://kobietydokodu.pl/13-baza-danych-z-jpa-cz-1/">https://kobietydokodu.pl/13-baza-danych-z-jpa-cz-1/</a></p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Prześledź jak korzystać z adnotacji określających relacje między tabelami na poziomie kodu (przykład z wbudowaną bazą danych H2): <a class="reference external" href="https://gniado.it/2018/08/15/kurs-springa-czesc-2-adnotacje-jpa-i-baza-danych/">https://gniado.it/2018/08/15/kurs-springa-czesc-2-adnotacje-jpa-i-baza-danych/</a></p></li>
+<li><p>Zainstaluj PostgreSQL 12 Server + pgAdmin 4 + Stack Builder (opcjonalnie) + Command Line Tools: <a class="reference external" href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Podczas instalacji proszę wybrać domyślne ustawienie locale: <em>Polish, Poland</em>.
+Podczas instalacji tworzony jest użytkownik (administrator) bazy danych. Zapamiętaj hasło do niego. Zazwyczaj domyśly login to <em>postgres</em>.
+Niektóre instalatory mogą poprosić o jego nadanie lub zaczerpnąć np. nazwę zalogowango użytkownika w systemie operacyjnym.</p>
+</div>
+<ol class="arabic" start="6">
+<li><p>Zaloguj się do serwera za pomocą interfejsu graficznego pgAdmin i sprawdź czy utoworzyła się automatycznie baza danych:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/pgad.png"><img alt="_images/pgad.png" class="align-center" src="_images/pgad.png" style="width: 250px;" /></a>
+<p>Jeżeli baza się nie utworzyła, kliknij prawym przyciskiem na <em>Databases</em> -&gt; <em>Create</em> i uzupełnij nazwę bazy.</p>
+</div></blockquote>
+</li>
+<li><p>Obejrzyj / wykonaj tutorial: <a class="reference external" href="https://youtu.be/_47nGrKz2ds">https://youtu.be/_47nGrKz2ds</a></p></li>
+</ol>
+</div>
+<div class="section" id="zadania-do-realizacji-podczas-zajec">
+<h2>Zadania do realizacji podczas zajęć<a class="headerlink" href="#zadania-do-realizacji-podczas-zajec" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rozwój aplikacji będzie kontynuwany w ramach następnych laboratoriów. Rozwijając projekt proszę <strong>stosować zasady git flow</strong>,
+które będą podlegać ocenie. Na masterze powinny się znaleźć tylko i wyłącznie wersje otagowane, gotowe do oceny.</p>
+</div>
+<p>Schemat tagowania:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">nr</span> <span class="n">laboratoriów</span><span class="p">]</span><span class="o">.</span><span class="p">[</span><span class="n">nr</span> <span class="n">ćwiczenia</span><span class="p">]</span><span class="o">.</span><span class="p">[</span><span class="n">nr</span> <span class="n">poprawki</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><em>nr laboratoriów</em> - numerujemy od <strong>1</strong> (te laboratoria - Spring data), 2 (kolejne - Spring MVC), itd.</div>
+<div class="line"><em>nr ćwiczenia</em> - proszę podać liczbą arabską</div>
+<div class="line"><em>nr poprawki</em> - większe od zera w przypadku naniesienia poprawek do ćwiczenia po wcześniejszym otagowaniu jako gotowe do oceny (hotfix)</div>
+</div>
+<div class="section" id="cwiczenie-i-polaczenie-bazy-danych">
+<h3>Ćwiczenie I - połączenie bazy danych<a class="headerlink" href="#cwiczenie-i-polaczenie-bazy-danych" title="Permalink to this headline">¶</a></h3>
+<p>Zadaniem aplikacji z tego ćwiczenia jest utworzenie tabeli w bazie danych i wypełnienie jej przykładowymi danymi.</p>
+<ol class="arabic">
+<li><p>Analogicznie do tutorialu z punktu 7. uwtórz projekt spring bootowy i zamodeluj obiekt <em>Product</em> (analogicznie do obiektu <em>Car</em> w tutorialu), który jest zdefiniowany następująco:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/product.png"><img alt="_images/product.png" class="align-center" src="_images/product.png" style="width: 200px;" /></a>
+</div></blockquote>
+</li>
+<li><p>Połącz się do wbudowanej bazy danych H2 i wypełnij ją z poziomu kodu kilkoma (2-5) przykładowymi produktami ferowanymi przez jakiś wobrażony sklep.</p></li>
+<li><p>Zaloguj się do bazy danych z poziomu przeglądarki i sprawdź czy produkty zostały prawidłowo umieszczone w tabeli.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Aby możliwe było połączenie do wbudowanej bazy danych H2 aplikacja, w której ją konfigurowaliśmy musi być uruchomiona</p>
+</div>
+<ol class="arabic" start="4">
+<li><p>Zamiast korzystać z bazy H2 połącz się do bazy danych PosgtreSQL i uruchom aplikację.
+Pamiętaj o odpowienich zmianach w pliku <em>application.properties</em>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spring</span><span class="o">.</span><span class="n">datasource</span><span class="o">.</span><span class="n">url</span><span class="o">=</span><span class="n">jdbc</span><span class="p">:</span><span class="n">postgresql</span><span class="p">:</span><span class="o">...</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">datasource</span><span class="o">.</span><span class="n">username</span><span class="o">=...</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">datasource</span><span class="o">.</span><span class="n">password</span><span class="o">=...</span>
+</pre></div>
+</div>
+<p>Wszystkie wymagane dane uzupełnij na podstawie wykonanej wcześniej konfiguracji serwera PostgreSQL.</p>
+<p>Pamiętaj również o dadaniu odpowiedniej zależności w <em>pom.xml</em>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PosgreSQL Server musi być uruchomiony na komputerze aby możliwe było ustanowienie połączenia.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>Zaloguj się do pgAdmin i sprawdź czy tabela została poprawnie utworzona i wypełniona.</p></li>
+<li><p>Zapoznaj się z opcjami konfiguracji następujących właściwości aplikacji:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spring</span><span class="o">.</span><span class="n">jpa</span><span class="o">.</span><span class="n">hibernate</span><span class="o">.</span><span class="n">ddl</span><span class="o">-</span><span class="n">auto</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">jpa</span><span class="o">.</span><span class="n">show</span><span class="o">-</span><span class="n">sql</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="cwiczenie-ii-relacje">
+<h3>Ćwiczenie II - relacje<a class="headerlink" href="#cwiczenie-ii-relacje" title="Permalink to this headline">¶</a></h3>
+<p>Zadaniem aplikacji z tego ćwiczenia jest utworzenie tabel będących w relacjach jeden do wielu i wiele do wielu w bazie danych, oraz wypełnienie ich przykładowymi danymi.</p>
+<ol class="arabic simple">
+<li><p>Rozbuduj aplikację z ćwiczenia pierwszego rozszerzając ją o dodatkowe obiekty, zgodnie z przedstawionym diagramem:</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/db_class_2.png"><img alt="_images/db_class_2.png" class="align-center" src="_images/db_class_2.png" style="width: 800px;" /></a>
+<ol class="loweralpha simple">
+<li><p>za pomocą odpowednich adnotacji w kodzie określ zależności pomiędzy encjami,</p></li>
+<li><p>zauważ, że słówkiem kluczowym w języku SQL jest słowo <em>order</em>, użyj adnotacji <em>&#64;Table</em> do zmiany nazwy tabeli aby uniknąć błędów w automatycznie genrowanych poleceniach SQL,</p></li>
+<li><p>klasa <em>DbMockData</em> służy wyłącznie do wypełnienia bazy danych przykładowymi danymi, przykład implementacji:</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DbMockData</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">ProductRepository</span> <span class="n">productRepository</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">OrderRepository</span> <span class="n">orderRepository</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">CustomerRepository</span> <span class="n">customerRepository</span><span class="p">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">DbMockData</span><span class="p">(</span><span class="n">ProductRepository</span> <span class="n">productRepository</span><span class="p">,</span> <span class="n">OrderRepository</span> <span class="n">orderRepository</span><span class="p">,</span> <span class="n">CustomerRepository</span> <span class="n">customerRepository</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">productRepository</span> <span class="o">=</span> <span class="n">productRepository</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">orderRepository</span> <span class="o">=</span> <span class="n">orderRepository</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">customerRepository</span> <span class="o">=</span> <span class="n">customerRepository</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@EventListener</span><span class="p">(</span><span class="n">ApplicationReadyEvent</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fill</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Product</span> <span class="n">product</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Product</span><span class="p">(</span><span class="s">&quot;Korek&quot;</span><span class="p">,</span> <span class="mf">2.55f</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="n">Product</span> <span class="n">product1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Product</span><span class="p">(</span><span class="s">&quot;Rura&quot;</span><span class="p">,</span> <span class="mf">5f</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Jak Kowalski&quot;</span><span class="p">,</span> <span class="s">&quot;Wrocław&quot;</span><span class="p">);</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span> <span class="n">products</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">()</span> <span class="p">{</span>
+            <span class="p">{</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">product</span><span class="p">);</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">product1</span><span class="p">);</span>
+            <span class="p">}};</span>
+        <span class="n">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Order</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span> <span class="s">&quot;in progress&quot;</span><span class="p">);</span>
+
+        <span class="n">productRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">product</span><span class="p">);</span>
+        <span class="n">productRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">product1</span><span class="p">);</span>
+        <span class="n">customerRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+        <span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">order</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Uruchom aplikację.</p></li>
+<li><p>Za pomocą konsoli H2 lub pgAdmina sprawdź czy tabele utworzyły prawidłowo i czy zostały poprawnie wypełnione. Zwróć uwagę na automatycznie wygenerowaną tabelę łącznikową.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>W przypadku wystąpienia błędu związanego z nieprawidłowym wykonywaniem polecenia SQL <em>drop</em> na tabelach bazy danych proszę się zastanowić nad pożądanym
+ustawieniem właściowości <em>spring.jpa.hibernate.ddl-auto</em>. Proszę pamiętać, że bazę danych możemy zarządzać z poziomu panelu administaratora: konsoli H2
+lub pgAdmina wykonując na niej odpowiednie polecenia. W przypadku chęci zautomatyzowania procesu usuwania tabeli z poziomu kodu proszę prześledzić
+wątek: <a class="reference external" href="https://stackoverflow.com/questions/59561551/hibernate-h2-specify-drop-table-order">https://stackoverflow.com/questions/59561551/hibernate-h2-specify-drop-table-order</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="sprawozdanie">
+<h2>Sprawozdanie<a class="headerlink" href="#sprawozdanie" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Link do repozytorium (po wcześniejszym nadaniu uprawnień dostępu prowadzącemu)</p></li>
+</ol>
+<div class="section" id="cwiczenie-i">
+<h3>Ćwiczenie I<a class="headerlink" href="#cwiczenie-i" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Zrzut ekranu z konsoli H2 przedstawiający wypełnioną tabelę (podpunkt 3. ćwiczenia pierwszego)</p></li>
+<li><p>Zrzut ekranu z pgAdmina przedstawiający wypełnioną tabelę (podpunkt 5. ćwiczenia pierwszego)</p></li>
+</ol>
+</div>
+<div class="section" id="cwiczenie-ii">
+<h3>Ćwiczenie II<a class="headerlink" href="#cwiczenie-ii" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Zrzuty ekranu z konsoli H2 lub z pgAdmia przedstawiające wypełnione cztery tabele (podpunkt 3. ćwiczenia pierwszego)</p></li>
+</ol>
+</div>
+<div class="section" id="kapka-teorii">
+<h3>Kapka teorii<a class="headerlink" href="#kapka-teorii" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Jak oceniasz w skali 0-10 trudność zadań ze Spring Data.</p></li>
+<li><p>Co sprawiło najwięcej problemów.</p></li>
+<li><p>Opisz, krótko, własnymi słowami (maks 5 zdań):</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>czym jest relacyjna baza danych,</p></li>
+<li><p>czym jest ORM,</p></li>
+<li><p>czym jest tabela łącznikowa.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mvc.html" class="btn btn-neutral float-right" title="Spring MVC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="spring1.html" class="btn btn-neutral float-left" title="Spring I" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Arkadiusz Ziółkowski, Mateusz Milian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+Spring Data
+======================
+
+Zadania do wykonania przed zajęciami
+---------------------------------------
+
+1. Zapoznaj się z pojęciem relacyjnej bazy danych np. tutaj: https://www.samouczekprogramisty.pl/wstep-do-relacyjnych-baz-danych/
+
+2. Zapoznaj się z pojęciem mapowania obietkwo-relacyjnego: https://bit.ly/3azUiy7
+
+3. Utrwal sobie podstawowe pojęcia :
+
+    a. Hibernate https://javastart.pl/baza-wiedzy/frameworki/hibernate
+    b. JPA https://kobietydokodu.pl/13-baza-danych-z-jpa-cz-1/
+
+4. Prześledź jak korzystać z adnotacji określających relacje między tabelami na poziomie kodu (przykład z wbudowaną bazą danych H2): https://gniado.it/2018/08/15/kurs-springa-czesc-2-adnotacje-jpa-i-baza-danych/
+
+5. Zainstaluj PostgreSQL 12 Server + pgAdmin 4 + Stack Builder (opcjonalnie) + Command Line Tools: https://www.postgresql.org/download/
+
+.. note::
+
+    Podczas instalacji proszę wybrać domyślne ustawienie locale: *Polish, Poland*.
+    Podczas instalacji tworzony jest użytkownik (administrator) bazy danych. Zapamiętaj hasło do niego. Zazwyczaj domyśly login to *postgres*.
+    Niektóre instalatory mogą poprosić o jego nadanie lub zaczerpnąć np. nazwę zalogowango użytkownika w systemie operacyjnym.
+
+6. Zaloguj się do serwera za pomocą interfejsu graficznego pgAdmin i sprawdź czy utoworzyła się automatycznie baza danych:
+
+    .. image:: img/pgad.png
+        :width: 250
+        :align: center
+
+    Jeżeli baza się nie utworzyła, kliknij prawym przyciskiem na *Databases* -> *Create* i uzupełnij nazwę bazy.
+
+7. Obejrzyj / wykonaj tutorial: https://youtu.be/_47nGrKz2ds
+
+Zadania do realizacji podczas zajęć
+-------------------------------------
+
+.. note::
+
+    Rozwój aplikacji będzie kontynuwany w ramach następnych laboratoriów. Rozwijając projekt proszę **stosować zasady git flow**,
+    które będą podlegać ocenie. Na masterze powinny się znaleźć tylko i wyłącznie wersje otagowane, gotowe do oceny.
+
+Schemat tagowania:
+
+.. code-block::
+
+    [nr laboratoriów].[nr ćwiczenia].[nr poprawki]
+
+| *nr laboratoriów* - numerujemy od **1** (te laboratoria - Spring data), 2 (kolejne - Spring MVC), itd.
+| *nr ćwiczenia* - proszę podać liczbą arabską
+| *nr poprawki* - większe od zera w przypadku naniesienia poprawek do ćwiczenia po wcześniejszym otagowaniu jako gotowe do oceny (hotfix)
+
+
+Ćwiczenie I - połączenie bazy danych
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Zadaniem aplikacji z tego ćwiczenia jest utworzenie tabeli w bazie danych i wypełnienie jej przykładowymi danymi.
+
+1. Analogicznie do tutorialu z punktu 7. uwtórz projekt spring bootowy i zamodeluj obiekt *Product* (analogicznie do obiektu *Car* w tutorialu), który jest zdefiniowany następująco:
+
+    .. image:: img/product.png
+        :width: 200
+        :align: center
+
+2. Połącz się do wbudowanej bazy danych H2 i wypełnij ją z poziomu kodu kilkoma (2-5) przykładowymi produktami ferowanymi przez jakiś wobrażony sklep.
+3. Zaloguj się do bazy danych z poziomu przeglądarki i sprawdź czy produkty zostały prawidłowo umieszczone w tabeli.
+
+.. note::
+
+    Aby możliwe było połączenie do wbudowanej bazy danych H2 aplikacja, w której ją konfigurowaliśmy musi być uruchomiona
+
+4. Zamiast korzystać z bazy H2 połącz się do bazy danych PosgtreSQL i uruchom aplikację.
+   Pamiętaj o odpowienich zmianach w pliku *application.properties*:
+
+    .. code-block::
+
+        spring.datasource.url=jdbc:postgresql:...
+        spring.datasource.username=...
+        spring.datasource.password=...
+
+    Wszystkie wymagane dane uzupełnij na podstawie wykonanej wcześniej konfiguracji serwera PostgreSQL.
+
+    Pamiętaj również o dadaniu odpowiedniej zależności w *pom.xml*:
+
+    .. code-block:: xml
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+    .. note::
+
+        PosgreSQL Server musi być uruchomiony na komputerze aby możliwe było ustanowienie połączenia.
+
+5. Zaloguj się do pgAdmin i sprawdź czy tabela została poprawnie utworzona i wypełniona.
+6. Zapoznaj się z opcjami konfiguracji następujących właściwości aplikacji:
+
+    .. code-block::
+
+        spring.jpa.hibernate.ddl-auto
+        spring.jpa.show-sql
+
+Ćwiczenie II - relacje
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Zadaniem aplikacji z tego ćwiczenia jest utworzenie tabel będących w relacjach jeden do wielu i wiele do wielu w bazie danych, oraz wypełnienie ich przykładowymi danymi.
+
+1. Rozbuduj aplikację z ćwiczenia pierwszego rozszerzając ją o dodatkowe obiekty, zgodnie z przedstawionym diagramem:
+
+.. image:: img/db_class_2.png
+    :width: 800
+    :align: center
+
+a. za pomocą odpowednich adnotacji w kodzie określ zależności pomiędzy encjami,
+b. zauważ, że słówkiem kluczowym w języku SQL jest słowo *order*, użyj adnotacji *@Table* do zmiany nazwy tabeli aby uniknąć błędów w automatycznie genrowanych poleceniach SQL,
+c. klasa *DbMockData* służy wyłącznie do wypełnienia bazy danych przykładowymi danymi, przykład implementacji:
+
+.. code-block:: java
+
+    @Component
+    public class DbMockData {
+        private ProductRepository productRepository;
+        private OrderRepository orderRepository;
+        private CustomerRepository customerRepository;
+
+        @Autowired
+        public DbMockData(ProductRepository productRepository, OrderRepository orderRepository, CustomerRepository customerRepository) {
+            this.productRepository = productRepository;
+            this.orderRepository = orderRepository;
+            this.customerRepository = customerRepository;
+        }
+
+        @EventListener(ApplicationReadyEvent.class)
+        public void fill() {
+            Product product = new Product("Korek", 2.55f, true);
+            Product product1 = new Product("Rura", 5f, true);
+            Customer customer = new Customer("Jak Kowalski", "Wrocław");
+            Set<Product> products = new HashSet<>() {
+                {
+                    add(product);
+                    add(product1);
+                }};
+            Order order = new Order(customer, products, LocalDateTime.now(), "in progress");
+
+            productRepository.save(product);
+            productRepository.save(product1);
+            customerRepository.save(customer);
+            orderRepository.save(order);
+        }
+    }
+
+2. Uruchom aplikację.
+3. Za pomocą konsoli H2 lub pgAdmina sprawdź czy tabele utworzyły prawidłowo i czy zostały poprawnie wypełnione. Zwróć uwagę na automatycznie wygenerowaną tabelę łącznikową.
+
+.. note::
+
+    W przypadku wystąpienia błędu związanego z nieprawidłowym wykonywaniem polecenia SQL *drop* na tabelach bazy danych proszę się zastanowić nad pożądanym
+    ustawieniem właściowości *spring.jpa.hibernate.ddl-auto*. Proszę pamiętać, że bazę danych możemy zarządzać z poziomu panelu administaratora: konsoli H2
+    lub pgAdmina wykonując na niej odpowiednie polecenia. W przypadku chęci zautomatyzowania procesu usuwania tabeli z poziomu kodu proszę prześledzić
+    wątek: https://stackoverflow.com/questions/59561551/hibernate-h2-specify-drop-table-order
+
+Sprawozdanie
+---------------------
+
+1. Link do repozytorium (po wcześniejszym nadaniu uprawnień dostępu prowadzącemu)
+
+Ćwiczenie I
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Zrzut ekranu z konsoli H2 przedstawiający wypełnioną tabelę (podpunkt 3. ćwiczenia pierwszego)
+2. Zrzut ekranu z pgAdmina przedstawiający wypełnioną tabelę (podpunkt 5. ćwiczenia pierwszego)
+
+Ćwiczenie II
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Zrzuty ekranu z konsoli H2 lub z pgAdmia przedstawiające wypełnione cztery tabele (podpunkt 3. ćwiczenia pierwszego)
+
+Kapka teorii
+^^^^^^^^^^^^^^^^
+
+1. Jak oceniasz w skali 0-10 trudność zadań ze Spring Data.
+2. Co sprawiło najwięcej problemów.
+3. Opisz, krótko, własnymi słowami (maks 5 zdań):
+
+    a. czym jest relacyjna baza danych,
+    b. czym jest ORM,
+    c. czym jest tabela łącznikowa.

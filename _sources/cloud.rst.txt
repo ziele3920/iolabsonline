@@ -1,0 +1,168 @@
+Wdrożenie aplikacji na CLOUD
+==============================
+
+Zadania do wykonania przed zajęciami
+---------------------------------------
+
+* Założenie konta studenckiego na `Google Cloud <https://edu.google.com/programs/students/>`_
+* Instalacja na swoim komputerze Google Cloud SDK zgodnie z `instrukcją <https://cloud.google.com/sdk/docs#linux/>`_
+
+Zadania do realizacji podczas zajęć
+---------------------------------------
+
+.. note::
+
+    Celem zadańz tej listy będzie wdrożenie aplikacji wykonanej w ramach zajęć **od Spring I do Spring Security** na środowisku Google Cloud (chmura obliczeniowa) w różnych wariantach.
+
+
+Zadanie 1. Wdrożenie aplikacji Spring Boot + H2 na Google App Engine (wersja podstawowa na ocenę 3.0)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Konfiguracja środowiska**
+
+Na wstępie proszę skonfigurować aplikację, tak aby korzystała z wbudowanej bazy danych H2 i upewnić się, że taka konfiguracja działa prawidłowo lokalnie.
+
+1. W kolejnym kroku proszę stworzyć projekt “io-labs” na Google Cloud z pomocą narzędzia gcloud i cmd:
+
+.. code-block:: bash
+
+    gcloud projects create io-labs --set-as-default
+
+2. oraz upewnić się, że operacja przebiegła pomyślnie
+
+.. code-block:: bash
+
+    gcloud projects describe io-labs
+
+3. Następnie zainicjalizować serwis AppEngine:
+
+.. code-block:: bash
+
+    gcloud app create --project= io-labs
+
+4. Proszę jeszcze zainstalować narzędzia do  wdrażania aplikacji opartych o Maven’a
+
+.. code-block:: bash
+
+    gcloud components install app-engine-java
+
+
+Mając przygotowane całe środowisku proszę dodać plugin (zależność) do sekcji plugins w pliku pom.xml sowjego projektu:
+
+.. code-block:: xml
+
+    <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>appengine-maven-plugin</artifactId>
+        <version>2.2.0</version>
+    </plugin>
+
+W tym momencie warto jeszcze raz przetestować działanie aplikacji lokalnie:
+
+.. code-block:: bash
+
+    mvn spring-boot:run
+
+
+**Zadanie właściwe - wdrożenie aplikacji na AppEngine**
+
+Jeśli konfiguracja środowiska przebiegła pomyślnie czas na wdrożenie aplikacji na środowisko AppEngine:
+
+.. code-block:: bash
+
+    mvn package appengine:deploy -Dapp.deploy.projectId=io-labs
+
+Po wdrożenie aplikacji proszę przetestować czy wszystkie zdefiniowane “REST endpoints”   działają poprawnie.
+Adres wdrożonej aplikacji powinien pojawić się w konsoli z której nastąpiło wdrożenie.
+Innym sposobem uzyskania adresu jest przejście do interfejsu webowego Cloud Google:
+https://console.cloud.google.com/appengine?project=io-labs Tam w zakładce “Services” powinien być adres URL do naszej aplikacji.
+
+Pełna instrukcja wdrożenia aplikacji na AppEngine Standard Enviroment znajduje się pod adresem: https://cloud.google.com/appengine/docs/standard/java11/quickstart
+
+
+Zadanie 2. Wdrożenie aplikacji Spring Boot + baza danych Postgres/Mysql na Google App Engine (na ocenę 4.0)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Konfiguracja środowiska**
+
+Te same wymagania co w zadaniu nr 1 a do tego proszę stworzyć środowisko bazodanowe np.  za pomocą konsoli webowej.
+W sekcji https://console.cloud.google.com/sql/choose-instance-engine?project=io-labs proszę wybrać typ: Postgres (ewentualnie MySql),
+w konfiguracji można zostawić domyślę wartości poza sekcją “Machine type and storage” gdzie proszę wybrać parametry bazy:
+1 shared vCPU i 0.6 GB
+
+Następnie należy stworzyć bazę danych o nazwie io-labs (domyślnie tworzona jest tylko i wyłącznie baza o nazwie postgres).
+Po wykonaniu tych kroków proszę spróbować podłączyć się do bazy danych.
+Można to zrobić za pomocą wbudowanego Cloud Shell Terminalw przeglądarkę (gcloud sql connect io-labs --user=postgres --quiet).
+Żeby połączyć się ze swojego lokalnego komputera należy dodać swój adres IP  z którego będziemy się łączyć do Firewall’a.
+Żeby to zrobić w konfiguracji bazy danych trzeba wybrać Configuration options/Connectivity/Authorised networks i dodać swój lokalny IP.
+
+Tą samą operację można przeprowadzić z konsoli:
+
+.. code-block:: bash
+
+    gcloud sql instances create biomed --tier=db-f1-micro  --region=europe-west3  --database-version=POSTGRES_11
+    gcloud sql databases create biomed --instance=biomed
+
+**Zadanie właściwe - wdrożenie aplikacji na AppEngine**
+
+Mając skonfigurowaną bazę danych należy odpowiednio przygotować aplikację do wdrożenia na AppEngine:
+
+Dodać dane połączenia do bazy danych do pliku application.properties.:
+
+.. code-block:: java
+
+    spring.cloud.gcp.sql.instance-connection-name=???? ←- proszę podać connection name do bazy danych wg. Wzoru <projectId:zone:database-server> (można podejrzeć w konsoli webowej
+    spring.cloud.gcp.sql.database-name=biomed  ← nazwa bazy danych np biomedspring.cloud.gcp.sql.userName=postgres #może być postgres dla testów
+    spring.cloud.gcp.sql.password=<password> dla używkonika postgres
+
+Oraz w pliku spring-cloud-bootstrap.properties:
+
+.. code-block:: java
+
+    spring.cloud.appId=biomed
+
+Dodatkowo w ramach pom.xml należy dodać zależności do Spring Cloud GPC i Postgresql:
+
+.. code-block:: xml
+
+    <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-gcp-starter</artifactId>
+       <version>1.0.0.RELEASE</version>
+    </dependency>
+    <dependency>
+       <groupId>org.springframework.cloud</groupId
+       <artifactId>spring-cloud-gcp-starter-sql-postgresql</artifactId
+       <version>1.2.2.RELEASE</version>
+    </dependency>
+
+Następnie wdrażamy aplikacje tak jak w Zadaniu 1.
+
+
+Zadanie 3. Wdrożenie aplikacji Spring Boot + baza danych Postgres/Mysql na Google App Engine Flexible Enviroment (na ocenę 5.0)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cel jest dokładnie taki sam jak w zadaniu nr 2. Tylko w tym przypadku aplikacja powinna być wdrożona w postaci kontenera Docker.
+https://cloud.google.com/appengine/docs/flexible/custom-runtimes/quickstart
+
+Sprawozdanie
+-----------------
+
+Link do repozytorium (po wcześniejszym nadaniu uprawnień dostępu prowadzącemu)
+
+Zadanie 1 .
+
+    1. Link do repozytorium wraz z informacją o branchu ze stanem wdrożonej aplikacji
+    2. Screenshot z konsoli po wdrożeniu
+    3. Screenshot z logów aplikacji
+    4. Przykładowy HTTP Request i Response z wdrożonej aplikacji
+
+Zadanie 2.
+
+    | 1-4. Jak w zadaniu 1.
+    | 5. Screenshot z bazy danych Cloud SQL z rekordem dodanym za pomocą HTTP Rest API
+
+Zadanie 3.
+
+    1-5. Jak w zadaniu 2
+

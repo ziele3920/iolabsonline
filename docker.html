@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kontenery Docker &mdash; Inżynieria oprogramowania laboratorium 0.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dokumentacja" href="dokumentacja.html" />
+    <link rel="prev" title="Spring Security na ocenę max 5.0" href="security2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Inżynieria oprogramowania laboratorium
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Zawartość</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="zaliczenie.html">Zasady zaliczenia laboratoriów</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git - podstawowe narzędzie programisty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restapi.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring1.html">Spring I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Spring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvc.html">Spring MVC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Spring Security na ocenę max 4.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security2.html">Spring Security na ocenę max 5.0</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kontenery Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-realizaji-przed-zajeciami">Zadania do realizaji przed zajęciami</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#praca-z-kontenerami-docker">Praca z kontenerami Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wygenerowanie-projektu-do-testow">Wygenerowanie projektu do testów</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spakowanie-aplikacji-do-kontenera-docker">Spakowanie aplikacji do kontenera Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#budowanie-aplikacji-w-kontenerze-docker">Budowanie aplikacji w kontenerze Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#praca-z-wieloma-kontenerami-jednoczesnie">Praca z wieloma kontenerami jednocześnie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uruchomienie-bazy-danych-postgresql-w-kontenerze">Uruchomienie bazy danych postgresql w kontenerze</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uruchomienie-skryptow-inicjalizujacych-baze-danych">Uruchomienie skryptów inicjalizujących bazę danych</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uruchomienie-lokalnej-aplikacji-z-polaczeniem-do-bazy-danych-dzialajacej-w-kontenerze">Uruchomienie lokalnej aplikacji z połączeniem do bazy danych działającej w kontenerze</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uruchomienie-kilku-kontenerow-za-pomoca-docker-compose">Uruchomienie kilku kontenerów za pomocą <em>docker-compose</em>:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uruchomianie-bazy-danych-za-pomoca-docker-compose">Uruchomianie bazy danych za pomocą docker-compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dodanie-kontenera-aplikacji-do-pliku-docker-compose">Dodanie kontenera aplikacji do pliku docker-compose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dokumentacja.html">Dokumentacja</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">Wdrożenie aplikacji na CLOUD</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Inżynieria oprogramowania laboratorium</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Kontenery Docker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/docker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kontenery-docker">
+<h1>Kontenery Docker<a class="headerlink" href="#kontenery-docker" title="Permalink to this headline">¶</a></h1>
+<p>Te zadania są wykonywane na nowym projekcie. Służą Zapoznaniu się z praktycznym wykorzystaniem kontenerów.
+Zadania te nie są na ocenę, jednak ich wykonanie umożliwi zrealizowanie zadań podczas kolejnych zajęć.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Proszę zwrócić uwagę, że tym razem bawimy się Gradlem.</p>
+</div>
+<div class="section" id="zadania-do-realizaji-przed-zajeciami">
+<h2>Zadania do realizaji przed zajęciami<a class="headerlink" href="#zadania-do-realizaji-przed-zajeciami" title="Permalink to this headline">¶</a></h2>
+<p>Należy zainstalować Docker oraz Docker compose</p>
+</div>
+<div class="section" id="praca-z-kontenerami-docker">
+<h2>Praca z kontenerami Docker<a class="headerlink" href="#praca-z-kontenerami-docker" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="wygenerowanie-projektu-do-testow">
+<span id="seed-project"></span><h3>Wygenerowanie projektu do testów<a class="headerlink" href="#wygenerowanie-projektu-do-testow" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Uzywając strony: <a class="reference external" href="https://start.spring.io/">https://start.spring.io/</a> wygeneruj projekt:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Project</span><span class="p">:</span> <span class="n">Gradle</span>
+<span class="n">Language</span><span class="p">:</span> <span class="n">Java</span>
+<span class="n">Version</span> <span class="o">-</span> <span class="nb">any</span> <span class="n">stable</span>
+<span class="n">Group</span><span class="p">:</span> <span class="n">im</span><span class="o">.</span><span class="n">pwr</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">pl</span>
+<span class="n">Artifact</span><span class="p">:</span> <span class="n">lab3</span>
+<span class="n">Packaging</span><span class="p">:</span> <span class="n">Jar</span>
+<span class="n">Java</span><span class="p">:</span> <span class="nb">any</span> <span class="p">(</span><span class="n">preffered</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">Dependencies</span><span class="p">:</span> <span class="n">Spring</span> <span class="n">Web</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Pobierz projekt na dysk</p></li>
+<li><p>Zaimportuj do swojego IDE (np. IntelliJ lub VS Code)</p></li>
+<li><p>Uruchom projekt bezpośrednio za pomocą IDE lub z wiersza poleceń.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gradle bootRun
+<span class="c1"># lub</span>
+./gradlew build <span class="o">&amp;&amp;</span> java -jar build/libs/lab3-0.0.1-SNAPSHOT.jar
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Dodaj testowy “REST endpoint”</p></li>
+</ul>
+<p>Do głównej klasy proszę dodać adnotację &#64;RestController
+oraz należy dodać metodę która będzie obsługiwała przykładowy endpoint</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="n">public</span> <span class="n">String</span> <span class="n">home</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s2">&quot;Hello Docker World&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Po wpisaniu w przeglądarce <em>localhost:8080</em> powinniśmy
+dostać w odpowiedzi wiadomość “Hello Docker World”</p>
+</div>
+<div class="section" id="spakowanie-aplikacji-do-kontenera-docker">
+<span id="pack-to-docker"></span><h3>Spakowanie aplikacji do kontenera Docker<a class="headerlink" href="#spakowanie-aplikacji-do-kontenera-docker" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Pliki <em>Dockerfile</em> są to pliki tekstowe. Poniżej przykładowa struktura:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM &lt;image&gt;:&lt;tag&gt; <span class="c1"># obraz bazowy na bazie którego będziemy budować. Powinien zawierać przynajmniej JRE</span>
+ARG  &lt;arg&gt;<span class="o">=</span>&lt;domyśla-wartość&gt; <span class="c1"># zmienna, którą możemy nadpisać podczas uruchamiania obrazu</span>
+COPY &lt;from&gt; &lt;to&gt; <span class="c1"># kopiujemy dane z katalogu bieżącego do obrazu</span>
+ENTRYPOINT <span class="o">[</span><span class="s2">&quot;cmd&quot;</span>,...<span class="o">]</span> <span class="c1"># komenda wywoływana podczas uruchamiania kontenera</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Konfigurowanie obrazu bazowego dla testowej aplikacji w pliku <em>Dockerfile</em>:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM openjdk:8-jdk-alpine
+ARG <span class="nv">JAR_FILE</span><span class="o">=</span>build/libs/*.jar
+COPY <span class="si">${</span><span class="nv">JAR_FILE</span><span class="si">}</span> app.jar
+ENTRYPOINT <span class="o">[</span><span class="s2">&quot;java&quot;</span>,<span class="s2">&quot;-jar&quot;</span>,<span class="s2">&quot;/app.jar&quot;</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Budowanie obrazu</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker build -t simple-spring-boot .
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Uruchomienie kontenera</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -p &lt;docker_port&gt;:&lt;host_port&gt; simple-spring-boot
+</pre></div>
+</div>
+<p>Efekt powinien być identyczny do uruchomienia aplikacji
+bezpośrednio <a class="reference internal" href="#seed-project"><span class="std std-ref">z lini komend</span></a></p>
+</div>
+<div class="section" id="budowanie-aplikacji-w-kontenerze-docker">
+<h3>Budowanie aplikacji w kontenerze Docker<a class="headerlink" href="#budowanie-aplikacji-w-kontenerze-docker" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Definicja pliku Docker</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM gradle:6.0.1-jdk8 AS build
+USER root
+RUN mkdir app
+COPY src/ /app/src/
+COPY build.gradle /app/
+COPY settings.gradle /app/
+WORKDIR /app
+RUN gradle bootJar
+
+FROM openjdk:8-jdk-alpine
+COPY --from<span class="o">=</span>build /app/build/libs/app.jar app.jar
+ENTRYPOINT <span class="o">[</span><span class="s2">&quot;java&quot;</span>,<span class="s2">&quot;-jar&quot;</span>,<span class="s2">&quot;/app.jar&quot;</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Budowanie obrazu:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker build -t full-spring-boot .
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Uruchomianie obrazu</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -p &lt;docker_port&gt;:&lt;host_port&gt; full-spring-boot
+</pre></div>
+</div>
+<p>Efekt końcowy jest taki sam jak w <span class="xref std std-ref">przypadku spakowania zbudowanej aplikacji</span>
+z tą różnicą, że również cały proces budowania odbył się w ramach kontenera.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Takie podejście pomaga w zachowaniu transparentności budowania aplikacji
+- eliminujemy zależności od lokalnego systemu operacyjnego. Ułatwia
+również budowanie aplikacji w środowisku CI/CD</p>
+</div>
+</div>
+</div>
+<div class="section" id="praca-z-wieloma-kontenerami-jednoczesnie">
+<h2>Praca z wieloma kontenerami jednocześnie<a class="headerlink" href="#praca-z-wieloma-kontenerami-jednoczesnie" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uruchomienie-bazy-danych-postgresql-w-kontenerze">
+<h3>Uruchomienie bazy danych postgresql w kontenerze<a class="headerlink" href="#uruchomienie-bazy-danych-postgresql-w-kontenerze" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --name test-db -p <span class="m">5433</span>:5432 -e <span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>mysecretpassword -d postgres
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Sprawdzenie, czy baza danych działa poprawnie</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker ps
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Podłączenie się do bazy danych za pomocą klienta (np. pgAdmin)</p></li>
+</ul>
+<p>lub z konsoli:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>psql -h localhost -p <span class="m">5433</span> -U postgres
+</pre></div>
+</div>
+</div>
+<div class="section" id="uruchomienie-skryptow-inicjalizujacych-baze-danych">
+<h3>Uruchomienie skryptów inicjalizujących bazę danych<a class="headerlink" href="#uruchomienie-skryptow-inicjalizujacych-baze-danych" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Przygotuj skrpt inicjalizujący:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">e</span>
+
+<span class="n">psql</span> <span class="o">-</span><span class="n">v</span> <span class="n">ON_ERROR_STOP</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">username</span> <span class="s2">&quot;$POSTGRES_USER&quot;</span> <span class="o">--</span><span class="n">dbname</span> <span class="s2">&quot;$POSTGRES_DB&quot;</span> <span class="o">&lt;&lt;-</span><span class="n">EOSQL</span>
+    <span class="n">CREATE</span> <span class="n">USER</span> <span class="n">docker</span><span class="p">;</span>
+    <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">docker</span><span class="p">;</span>
+    <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">PRIVILEGES</span> <span class="n">ON</span> <span class="n">DATABASE</span> <span class="n">docker</span> <span class="n">TO</span> <span class="n">docker</span><span class="p">;</span>
+<span class="n">EOSQL</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Nazwij plik <em>create-databases.sh</em> i umieść go w katalogu docker-entrypoint-initdb.d</p></li>
+<li><p>Natępnie uruchom kontener</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">name</span> <span class="n">test</span><span class="o">-</span><span class="n">db</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5433</span><span class="p">:</span><span class="mi">5432</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">mateusz</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">play</span><span class="o">/</span><span class="n">notes</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">pwr</span><span class="o">/</span><span class="mi">03</span><span class="n">_Cwiczenia</span>\ <span class="o">/</span><span class="n">lab3</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">-</span><span class="n">initdb</span><span class="o">.</span><span class="n">d</span><span class="p">:</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">-</span><span class="n">initdb</span><span class="o">.</span><span class="n">d</span> <span class="o">-</span><span class="n">e</span> <span class="n">POSTGRES_PASSWORD</span><span class="o">=</span><span class="n">mypass</span> <span class="o">-</span><span class="n">d</span> <span class="n">postgres</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>i sprawdź czy się utworzyła baza danych o nazwie <em>docker</em></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="uruchomienie-lokalnej-aplikacji-z-polaczeniem-do-bazy-danych-dzialajacej-w-kontenerze">
+<h2>Uruchomienie lokalnej aplikacji z połączeniem do bazy danych działającej w kontenerze<a class="headerlink" href="#uruchomienie-lokalnej-aplikacji-z-polaczeniem-do-bazy-danych-dzialajacej-w-kontenerze" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>W pliku build.gradle dodajemy nowe zależności:</p></li>
+</ul>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-web&#39;</span>
+    <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-data-jpa&#39;</span>
+        <span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;org.postgresql&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;postgresql&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;42.2.9&#39;</span>
+        <span class="n">testImplementation</span><span class="o">(</span><span class="s1">&#39;org.springframework.boot:spring-boot-starter-test&#39;</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">exclude</span> <span class="nl">group:</span> <span class="s1">&#39;org.junit.vintage&#39;</span><span class="o">,</span> <span class="nl">module:</span> <span class="s1">&#39;junit-vintage-engine&#39;</span>
+    <span class="o">}</span>
+</pre></div>
+</div>
+<div class="section" id="uruchomienie-kilku-kontenerow-za-pomoca-docker-compose">
+<h3>Uruchomienie kilku kontenerów za pomocą <em>docker-compose</em>:<a class="headerlink" href="#uruchomienie-kilku-kontenerow-za-pomoca-docker-compose" title="Permalink to this headline">¶</a></h3>
+<p>Celem ćwiczenia jest dodanie do aplikacji obsługi bazy danych.
+Baza danych będzie uruchamiona w osobnym kontenerze.</p>
+<ul class="simple">
+<li><p>Dodanie prostej encji do aplikacji:</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>package &lt;odpowiedni pakier&gt;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+
+@Entity
+public class Customer {
+
+@Id
+@GeneratedValue(strategy=GenerationType.AUTO)
+private Long id;
+private String firstName;
+private String lastName;
+
+protected Customer() {}
+
+public Customer(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+@Override
+public String toString() {
+    return String.format(
+        &quot;Customer[id=%d, firstName=&#39;%s&#39;, lastName=&#39;%s&#39;]&quot;,
+        id, firstName, lastName);
+}
+
+public Long getId() {
+    return id;
+}
+
+public String getFirstName() {
+    return firstName;
+}
+
+public String getLastName() {
+    return lastName;
+}
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Dodanie repozytorium</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>package &lt;twoj pakiet&gt;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface CustomerRepository extends CrudRepository&lt;Customer, Long&gt; {
+
+    List&lt;Customer&gt; findByLastName(String lastName);
+
+    Customer findById(long id);
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Dodanie kontrolera</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">twoj</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.http.HttpStatus</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PathVariable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.server.ResponseStatusException</span><span class="p">;</span>
+
+<span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomerController</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">CustomerRepository</span> <span class="n">customerRepository</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">CustomerController</span><span class="p">(</span><span class="n">CustomerRepository</span> <span class="n">customerRepository</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">customerRepository</span> <span class="o">=</span> <span class="n">customerRepository</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/customers&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span> <span class="nf">getCustomers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">customerRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/customers/{customerId}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Customer</span> <span class="nf">getUserById</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">customerId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">customerRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">customerId</span><span class="p">).</span><span class="na">orElseThrow</span><span class="p">(</span>
+                <span class="p">()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="n">ResponseStatusException</span><span class="p">(</span>
+                        <span class="n">HttpStatus</span><span class="p">.</span><span class="na">NOT_FOUND</span><span class="p">,</span> <span class="s">&quot;entity not found&quot;</span>
+                <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>“Bootstrap” danych przy starcie.</p></li>
+</ul>
+<p>Do głównej klasy aplikacji (klasa adnotowana przez &#64;SpringBootApplication)
+proszę dodać metodę:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">CommandLineRunner</span> <span class="nf">dataBootsrap</span><span class="p">(</span><span class="n">CustomerRepository</span> <span class="n">repository</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+                    <span class="c1">// save a few customers</span>
+                    <span class="n">repository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Jack&quot;</span><span class="p">,</span> <span class="s">&quot;Bauer&quot;</span><span class="p">));</span>
+                    <span class="n">repository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Chloe&quot;</span><span class="p">,</span> <span class="s">&quot;O&#39;Brian&quot;</span><span class="p">));</span>
+                    <span class="n">repository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Kim&quot;</span><span class="p">,</span> <span class="s">&quot;Bauer&quot;</span><span class="p">));</span>
+                    <span class="n">repository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&quot;David&quot;</span><span class="p">,</span> <span class="s">&quot;Palmer&quot;</span><span class="p">));</span>
+                    <span class="n">repository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Michelle&quot;</span><span class="p">,</span> <span class="s">&quot;Dessler&quot;</span><span class="p">));</span>
+
+                    <span class="c1">// fetch all customers</span>
+                    <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Customers found with findAll():&quot;</span><span class="p">);</span>
+                    <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;-------------------------------&quot;</span><span class="p">);</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="n">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">repository</span><span class="p">.</span><span class="na">findAll</span><span class="p">())</span> <span class="p">{</span>
+                            <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+                    <span class="p">}</span>
+                    <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+            <span class="p">};</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Upewniając się, że baza danych jest uruchomiona proszę uruchomić aplikację za pomocą IDE lub z lini komend</p></li>
+</ul>
+<p>(tak jak w punkcie <a class="reference internal" href="#seed-project"><span class="std std-ref">z lini komend</span></a>)</p>
+<ul class="simple">
+<li><p>Następnie proszę sprawdzić czy aplikacja działa prawidłowo wywołując następujące “endpointy”:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">### get individual customer</span>
+<span class="n">GET</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">customers</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span> <span class="c1"># id można odczytać z tabeli customer</span>
+
+<span class="c1">### get all customers</span>
+<span class="n">GET</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">customers</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="uruchomianie-bazy-danych-za-pomoca-docker-compose">
+<h3>Uruchomianie bazy danych za pomocą docker-compose<a class="headerlink" href="#uruchomianie-bazy-danych-za-pomoca-docker-compose" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Dodaj plik docker-compose.yaml (dla niektórych wersji może dockera może to być plik o rozszerzeniu .yml”):</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+    <span class="nt">db</span><span class="p">:</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres:latest</span>
+        <span class="nt">volumes</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&quot;./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&quot;</span>
+        <span class="nt">environment</span><span class="p">:</span>
+            <span class="nt">POSTGRES_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRES_USER}</span>
+            <span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRES_PASSWORD}</span>
+        <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${DB_PORT}:5432</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Proszę zwrócić uwagę na białe znaki (wcięcia) w pliku .yaml/.yml</p>
+</div>
+<ul class="simple">
+<li><p>i plik .env</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">POSTGRES_USER</span><span class="o">=</span>postgres
+<span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>mysecretpass
+<span class="nv">DB_PORT</span><span class="o">=</span><span class="m">5433</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Uruchomienie bazy danych</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose up db
+</pre></div>
+</div>
+<p>Proszę przetestować czy baza działa - połączyć się za pomocą pgAdmin lub psql</p>
+</div>
+<div class="section" id="dodanie-kontenera-aplikacji-do-pliku-docker-compose">
+<h3>Dodanie kontenera aplikacji do pliku docker-compose<a class="headerlink" href="#dodanie-kontenera-aplikacji-do-pliku-docker-compose" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>zawartość pliku docker-compose.yaml (dla niektórych wersji może dockera może to być plik o rozszerzeniu .yml”):</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;app/customer&quot;</span>
+        <span class="nt">build</span><span class="p">:</span>
+            <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+            <span class="nt">dockerfile</span><span class="p">:</span> <span class="s">&quot;Dockerfile&quot;</span>
+        <span class="nt">environment</span><span class="p">:</span>
+            <span class="nt">POSTGRES_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRES_USER}</span>
+            <span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRES_PASSWORD}</span>
+        <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8080:8080</span>
+    <span class="nt">db</span><span class="p">:</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres:latest</span>
+        <span class="nt">volumes</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&quot;./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&quot;</span>
+        <span class="nt">environment</span><span class="p">:</span>
+            <span class="nt">POSTGRES_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRES_USER}</span>
+            <span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRES_PASSWORD}</span>
+        <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${DB_PORT}:5432</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>konfiguracja dostępu do bazy w application.properties</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>server.port<span class="o">=</span><span class="m">8080</span>
+
+<span class="c1">## Spring DATASOURCE (DataSourceAutoConfiguration &amp; DataSourceProperties)</span>
+spring.datasource.url<span class="o">=</span>jdbc:postgresql://db:5432/docker
+spring.datasource.username<span class="o">=</span><span class="si">${</span><span class="nv">POSTGRES_USER</span><span class="si">}</span>
+spring.datasource.password<span class="o">=</span><span class="si">${</span><span class="nv">POSTGRES_PASSWORD</span><span class="si">}</span>
+
+<span class="c1"># The SQL dialect makes Hibernate generate better SQL for the chosen database</span>
+spring.jpa.properties.hibernate.dialect <span class="o">=</span> org.hibernate.dialect.PostgreSQLDialect
+
+<span class="c1"># Hibernate ddl auto (create, create-drop, validate, update)</span>
+spring.jpa.hibernate.ddl-auto <span class="o">=</span> update
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>budowanie obrazów</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose build
+</pre></div>
+</div>
+<p>-uruchomienie kontenerów bazy danych i aplikacji</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose up
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dokumentacja.html" class="btn btn-neutral float-right" title="Dokumentacja" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="security2.html" class="btn btn-neutral float-left" title="Spring Security na ocenę max 5.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Arkadiusz Ziółkowski, Mateusz Milian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spring Security na ocenę max 5.0 &mdash; Inżynieria oprogramowania laboratorium 0.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Kontenery Docker" href="docker.html" />
+    <link rel="prev" title="Spring Security na ocenę max 4.0" href="security.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Inżynieria oprogramowania laboratorium
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Zawartość</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="zaliczenie.html">Zasady zaliczenia laboratoriów</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git - podstawowe narzędzie programisty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restapi.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring1.html">Spring I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Spring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvc.html">Spring MVC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Spring Security na ocenę max 4.0</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Spring Security na ocenę max 5.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-wykonania-przed-zajeciami">Zadania do wykonania przed zajęciami</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-realizacji-podczas-zajec">Zadania do realizacji podczas zajęć</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-i-baza-danych-i-dto">Ćwiczenie I - Baza danych i DTO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-ii-generowanie-tokenu">Ćwiczenie II - Generowanie tokenu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-ii-walidacja-tokenu">Ćwiczenie II - Walidacja tokenu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sprawozdanie">Sprawozdanie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Kontenery Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dokumentacja.html">Dokumentacja</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">Wdrożenie aplikacji na CLOUD</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Inżynieria oprogramowania laboratorium</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Spring Security na ocenę max 5.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/security2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spring-security-na-ocene-max-5-0">
+<h1>Spring Security na ocenę max 5.0<a class="headerlink" href="#spring-security-na-ocene-max-5-0" title="Permalink to this headline">¶</a></h1>
+<p>Zestaw zadań ze Sepring Security na ocenę max 5.0.</p>
+<div class="section" id="zadania-do-wykonania-przed-zajeciami">
+<h2>Zadania do wykonania przed zajęciami<a class="headerlink" href="#zadania-do-wykonania-przed-zajeciami" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Obejrzyj/wykonaj tutorial:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=cTR6qmp9w50">https://www.youtube.com/watch?v=cTR6qmp9w50</a>
+,skup się głównie na tym jak wygenerować token.</p>
+</li>
+<li><p>Obejrzyj/wykonaj drugi tutorial:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.youtube.com/watch?v=w09bG48UJU0">https://www.youtube.com/watch?v=w09bG48UJU0</a>
+,zwróć uwagę na walidację tokenu i filtrowanie zapytań.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="zadania-do-realizacji-podczas-zajec">
+<h2>Zadania do realizacji podczas zajęć<a class="headerlink" href="#zadania-do-realizacji-podczas-zajec" title="Permalink to this headline">¶</a></h2>
+<p>Celem tego zadania jest dodanie uwierzyelniania użytkownika do wcześniej uwtorzenej aplikacji. W tym ćwiczniu wykorzystamy JWT.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rozwój aplikacji będzie kontynuwany w ramach następnych laboratoriów. Rozwijając projekt proszę <strong>stosować zasady git flow</strong>,
+które będą podlegać ocenie. Na masterze powinny się znaleźć tylko i wyłącznie wersje otagowane, gotowe do oceny.</p>
+</div>
+<p>Schemat tagowania:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">nr</span> <span class="n">laboratoriów</span><span class="p">]</span><span class="o">.</span><span class="p">[</span><span class="n">nr</span> <span class="n">ćwiczenia</span><span class="p">]</span><span class="o">.</span><span class="p">[</span><span class="n">nr</span> <span class="n">poprawki</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><em>nr laboratoriów</em> - numerujemy kolejno, zatem teraz <strong>3</strong></div>
+<div class="line"><em>nr ćwiczenia</em> - proszę podać liczbą arabską</div>
+<div class="line"><em>nr poprawki</em> - większe od zera w przypadku naniesienia poprawek do ćwiczenia po wcześniejszym otagowaniu jako gotowe do oceny (hotfix)</div>
+</div>
+<div class="section" id="cwiczenie-i-baza-danych-i-dto">
+<h3>Ćwiczenie I - Baza danych i DTO<a class="headerlink" href="#cwiczenie-i-baza-danych-i-dto" title="Permalink to this headline">¶</a></h3>
+<p id="db-dto">Chcemy aby dane użytkowników (którzy będą mogli uzyskać token) były przechowywane w bazie danych. Aby zamodelować użytkownika dodaj klasę:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">role</span><span class="p">;</span>
+
+    <span class="p">.</span>
+    <span class="p">.</span>
+    <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Gdzie … to gettery, setery i konstruktory.</p>
+<p>Dodaj również repozytorium i serwis. Serwis musi posiadać metody pobierania użytkownika po <em>name</em>, oraz metodę dodającą nowego użytkownika. Pamiętaj,
+że hasło w bazie danych musi być przechowywane w sposób zaszyfrowany. W tym celu skorzystamy ze wzorca projektowego DTO. Uwtórz klasę <em>UserDto</em>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDto</span> <span class="p">{</span>
+
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">AUTO</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">passwordHash</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">role</span><span class="p">;</span>
+    <span class="p">.</span>
+    <span class="p">.</span>
+    <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Gdzie … to gettery, setery i konstruktory.</p>
+<p>Obiekt UserDto przechowuje zaszyfrowane hasło użytkownika. Aby umożliwić szyfrowanie i porównaywanie hasła utwórz klasę, która będzie dostarczać <em>PasswordEncoder</em>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PasswordEncoderConfig</span> <span class="p">{</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">PasswordEncoder</span> <span class="nf">passwordEncoder</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">BCryptPasswordEncoder</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Teraz możesz utworzyć klasę <em>UserDtoBuilder</em>, która będzie posiadać metody do tworzenia obiektów klasy <em>UserDto</em> na podsatwie obiektów klasy <em>User</em>.</p>
+<p>W aplikacji wyróżnimy dwie role użytkowników <em>ROLE_CUSTOMER</em> oraz <em>ROLE_ADMIN</em>. Dodaj teraz do bazy danych
+dwóch przykładowych użytkoników, po jednym z każdej roli. Zapewnij aby przy uruchamianiu aplikacji
+wszytskie tabele w bazie danych zostały wypełnione przykładowymi danymi. Jeżeli tabele są wypełnione zapewnij aby skrypt je uzupełniający
+się nie wykonał. Ustaw domyślną konfigurację bazy danych na bazę H2.</p>
+</div>
+<div class="section" id="cwiczenie-ii-generowanie-tokenu">
+<h3>Ćwiczenie II - Generowanie tokenu<a class="headerlink" href="#cwiczenie-ii-generowanie-tokenu" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Analogicznie do pierwszego tutorialu dopisz endpoint:</div>
+<div class="line">POST <em>../api/getToken</em>,</div>
+<div class="line">który zwróci wygenerowany token w postaci Stringa.</div>
+</div>
+<p>Tylko użytkownicy, którzy są “zarejestrowani”, czyli znajdują się w baze danych mogą uzyskać token. W związku z tym w ciele zapytania konieczne
+jest przesłanie <em>name</em> oraz <em>password</em> użytkownika w formacjie JSON. Pamiętaj o zwalidowaniu danych uwierzytelniających z danymi z bazy danych.
+Jeżeli wystąpi niepowodzenie uwierzytelniania zwróć odpowiedni kod odpowiedzi. Zapewnij nadanie odpowiednich uprawnień (ROLE) w tokenie.</p>
+</div>
+<div class="section" id="cwiczenie-ii-walidacja-tokenu">
+<h3>Ćwiczenie II - Walidacja tokenu<a class="headerlink" href="#cwiczenie-ii-walidacja-tokenu" title="Permalink to this headline">¶</a></h3>
+<p>W dalszej części ćwiczenia ogranicz dostęp do wybranych endpointów różnym użytkownikom.
+Zapytania:</p>
+<div class="line-block">
+<div class="line">GET <em>…/api/product</em> - zwraca produkt o odpowiednim id,</div>
+<div class="line">GET <em>…/api/product/all</em> - zwraca listę wszystkich produktów,</div>
+</div>
+<div class="line-block">
+<div class="line">GET <em>…/api/order</em> - zwraca zamówienie o podanym id,</div>
+<div class="line">GET <em>../api/order/all</em> - zwraza listę wszystkich zamówień,</div>
+<div class="line">POST <em>…/api/order</em> - umieszcza nowe zamówienie w bazie,</div>
+</div>
+<p><strong>powinny być dostępne dla każdego</strong>, zapytania:</p>
+<div class="line-block">
+<div class="line">GET <em>…/api/customer</em> - zwraca klienta o podanym id,</div>
+<div class="line">GET <em>…/api/customer/all</em> - zwraza listę wszystkich klientów,</div>
+</div>
+<p><strong>dla zalogowanych użytkowników posiadających uprawnienia klienta</strong> (ROLE_CUSTOMER), zapytania:</p>
+<div class="line-block">
+<div class="line">POST <em>…/api/admin/product</em> - umieszcza nowy produkt w bazie,</div>
+<div class="line">PUT <em>…/api/admin/product</em> - modufikuje istniejący produkt o zadanym id,</div>
+<div class="line">PATCH <em>…/api/admin/product</em> - częściowo modyfikuje istniejący produkt o zadanym id,</div>
+</div>
+<div class="line-block">
+<div class="line">POST <em>…/api/admin/customer</em> - umieszcza nowego klienta w bazie,</div>
+<div class="line">PUT <em>…/api/admin/customer</em> - modufikuje istniejącego klienta o zadanym id,</div>
+<div class="line">PATCH <em>…/api/admin/customer</em> - częściowo modyfikuje istniejącego klienta o podanym id,</div>
+</div>
+<div class="line-block">
+<div class="line">PUT <em>…/api/admin/order</em> - modufikuje istniejące zamówienie o zadanym id,</div>
+<div class="line">PATCH <em>…/api/admin/order</em> - częściowo modyfikuje istniejące zamówienie o podanym id.</div>
+</div>
+<p><strong>dla zalogowanych użytkowników posiadających uprawnienia administratora</strong> (ROLE_ADMIN).</p>
+<p>W celu realizacji tych ograniczeń postępuj analogicznie do schematu przedstawionego w tutorialu drugim.
+Głównymi różnicami względem tutorialu jest to, że dane naszych użytkowników przechowujemy w bazie danych oraz token generujemy w naszej aplikacji.</p>
+<p>W związku z tym, jeżli linijki:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Jws</span><span class="o">&lt;</span><span class="n">Claims</span><span class="o">&gt;</span> <span class="n">claimsJws</span> <span class="o">=</span> <span class="n">Jwts</span><span class="o">.</span><span class="n">parser</span><span class="p">()</span><span class="o">.</span><span class="n">setSigningKey</span><span class="p">(</span><span class="s2">&quot;pass&quot;</span><span class="o">.</span><span class="n">getBytes</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">parseClaimsJws</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Bearer &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>będą generowały “dziwne” błędy, zamień je na:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Jws</span><span class="o">&lt;</span><span class="n">Claims</span><span class="o">&gt;</span> <span class="n">claimsJws</span> <span class="o">=</span> <span class="n">Jwts</span><span class="o">.</span><span class="n">parser</span><span class="p">()</span><span class="o">.</span><span class="n">setSigningKey</span><span class="p">(</span><span class="s2">&quot;pass&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">parseClaimsJws</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Bearer &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Pamiętaj o odpowiedniej konfiguracji <em>HttpSecurity</em> oraz <em>WebSecurity</em>. W <em>WebSecurity</em> możesz w prosty sposób udostępnić część endpointów niezalogowanym użytkownikom.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Proszę pamiętać o przetestowaniu w postmanie czy wszystkie endpointy posiadają odpowiedni dostęp i działają w oczekiwany sposób.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sprawozdanie">
+<h2>Sprawozdanie<a class="headerlink" href="#sprawozdanie" title="Permalink to this headline">¶</a></h2>
+<p>Po realizacji ćwiczenia proszę o przesłanie linka do repozytorium, oraz loginu i hasła dla klienta i admina w wiadomości prywatnej do prowadzącego na slacku.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Proszę pamiętać o nadaniu prowadzącemu odpowiednich praw dostępu do repozytorium!</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docker.html" class="btn btn-neutral float-right" title="Kontenery Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="security.html" class="btn btn-neutral float-left" title="Spring Security na ocenę max 4.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Arkadiusz Ziółkowski, Mateusz Milian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

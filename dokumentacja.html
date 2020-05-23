@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dokumentacja &mdash; Inżynieria oprogramowania laboratorium 0.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Wdrożenie aplikacji na CLOUD" href="cloud.html" />
+    <link rel="prev" title="Kontenery Docker" href="docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Inżynieria oprogramowania laboratorium
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Zawartość</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="zaliczenie.html">Zasady zaliczenia laboratoriów</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git - podstawowe narzędzie programisty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restapi.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring1.html">Spring I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Spring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvc.html">Spring MVC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Spring Security na ocenę max 4.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security2.html">Spring Security na ocenę max 5.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Kontenery Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dokumentacja</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wymagania-wstepne">Wymagania wstępne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalacja-pakietu-sphinx-oraz-szablonu-read-the-docs">Instalacja pakietu Sphinx oraz szablonu “Read The Docs”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tworzenie-zalazka-dokumentacji">Tworzenie zalążka dokumentacji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#budowanie-dokumentacji">Budowanie dokumentacji:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generowanie-spisu-tresci">Generowanie spisu treści</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dodawanie-kolejnych-stron">Dodawanie kolejnych stron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dodawanie-mozliwosci-generowania-diagramow-bezposrednio-z-poziomu-plikow-rst-i-narzedzia-plantuml">Dodawanie możliwości generowania diagramów bezpośrednio z poziomu plików <em>rst</em> i narzędzia Plantuml.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sprawozdanie">Sprawozdanie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">Wdrożenie aplikacji na CLOUD</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Inżynieria oprogramowania laboratorium</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Dokumentacja</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/dokumentacja.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dokumentacja">
+<h1>Dokumentacja<a class="headerlink" href="#dokumentacja" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wymagania-wstepne">
+<h2>Wymagania wstępne<a class="headerlink" href="#wymagania-wstepne" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Python &gt;=3.7</p></li>
+<li><p><a class="reference external" href="https://www.graphviz.org/download/">graphviz</a></p></li>
+<li><p><a class="reference external" href="https://plantuml.com/">Plantuml.jar</a> dodany do zmiennej środowiskowej PATH lub dodany do projektu</p></li>
+<li><p>Proszę przygotować projekt, ze skonfigurowanym docker-compose (zadanie z poprzednich laboratoriów), <strong>wszytskie pliki i katalogi tworzymy w folderze *docs*, znajdującym się bezpośrednio
+w folderze nadrzędnym projektu</strong>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>W systemie Windows 10 zalecana jest instalacja Python z Windows Store.
+W systemach Mac/Linux za pomocą odpowiednich menadżerów pakietów (jak brew czy apt).</p>
+</div>
+<ul class="simple">
+<li><p>Menadżer pakietów <strong>pip</strong></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>W większości przypadków będzie on zainstalowany podczas instalacji Python.</p>
+</div>
+</div>
+<div class="section" id="instalacja-pakietu-sphinx-oraz-szablonu-read-the-docs">
+<h2>Instalacja pakietu Sphinx oraz szablonu “Read The Docs”<a class="headerlink" href="#instalacja-pakietu-sphinx-oraz-szablonu-read-the-docs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Tworzymy podkatalog <strong>docs</strong> w katalogu projektu</p></li>
+<li><p>Tworzymy tzn. wirtualne środowisko Python <em>virtualenv</em></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.7 -m pip install virtualenv
+python3.7 -m virtualenv venv
+</pre></div>
+</div>
+<p>i uruchamiamy <em>venv</em> komendą:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> venv/bin/activate
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Tworzenie pliku <strong>requirements.txt</strong></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Plik requirements.txt jest zwykłym plikiem tekstowym w którym bardzo często zapisujemy zależności
+projektów tworzonych w Python. Każda linia w pliku odpowiada jednej zależności.
+Nazwa pliku w praktyce nie ma znaczenia, ale przyjęło się używać właśnie requirements.txt.
+Dzięki temu nowi programiści w projekcie od razu są w stanie zorientować się od czego powinni zacząć.</p>
+</div>
+<ul class="simple">
+<li><p>Dodanie zależności do requirements.txt</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># zawartość requirements.txt</span>
+sphinx <span class="c1"># podstawowy pakiet do budowania dokumentacji</span>
+sphinx_rtd_theme <span class="c1"># szablon html</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Instalacja pakietów</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="tworzenie-zalazka-dokumentacji">
+<h2>Tworzenie zalążka dokumentacji<a class="headerlink" href="#tworzenie-zalazka-dokumentacji" title="Permalink to this headline">¶</a></h2>
+<p>Najlepiej użyć do tego mechanizmu sphinx-quickstart</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart
+</pre></div>
+</div>
+<img alt="_images/create_project_structure.gif" src="_images/create_project_structure.gif" />
+<p>Następnie w pliku <em>source/conf.py</em> ustawiamy <em>Read the Docs</em> jako szablon HTML:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- Options for HTML output -------------------------------------------------</span>
+
+<span class="c1"># The theme to use for HTML and HTML Help pages.  See the documentation for</span>
+<span class="c1"># a list of builtin themes.</span>
+<span class="c1">#</span>
+<span class="nv">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="budowanie-dokumentacji">
+<h2>Budowanie dokumentacji:<a class="headerlink" href="#budowanie-dokumentacji" title="Permalink to this headline">¶</a></h2>
+<p>sphinx-quickstart wygenerował pliki systemu MAKE, które ułatwiają przebudowywanie dokumentacji</p>
+<ul class="simple">
+<li><p>dla systemu Windows będzie to plik <em>make.bat</em></p></li>
+<li><p>dla Mac/Linux będzie polecenie <em>make</em> powinno być już dostępne</p></li>
+</ul>
+<p>Standardowo przebudowanie dokumentacji wykonujemy poleceniem:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make html
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>W katalogu build/html/ zostanie wygenerowana dokumentacja w formacie HTML</p></li>
+<li><p>Bardzo przydatnym jest też polecenie <em>make clean</em>, gdyż w przypadku generowanie diagramów albo innych dodatków nie będą one domyślnie ponownie generowane przy wywołaniu <em>make html</em>.</p></li>
+</ul>
+<p>Można je też połączyć w postaci:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean <span class="p">&amp;</span> make html
+</pre></div>
+</div>
+</div>
+<div class="section" id="generowanie-spisu-tresci">
+<h2>Generowanie spisu treści<a class="headerlink" href="#generowanie-spisu-tresci" title="Permalink to this headline">¶</a></h2>
+<p>Domyślnie generowanie spisu treści bazuje na pliku <em>source/index.rst</em> i specjalnej
+derektywie <em>.. toctree::</em>
+W praktyce możemy łączyć wiele derektyw <em>toctree</em>, co daje dużą elastyczność w sposobie
+nawigowania po wygenerowanej dokumentacji</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+    <span class="nc">:maxdepth:</span> 2  &quot;.. głębokość sekcji w generowanym spisie&quot;
+    <span class="nc">:caption:</span> Zawartość: &quot;.. użyty tytuł&quot;
+
+    getting_started
+
+
+<span class="gh">Indices and tables</span>
+<span class="gh">==================</span>
+
+<span class="m">*</span> <span class="na">:ref:</span><span class="nv">`genindex`</span>
+<span class="m">*</span> <span class="na">:ref:</span><span class="nv">`modindex`</span>
+<span class="m">*</span> <span class="na">:ref:</span><span class="nv">`search`</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dodawanie-kolejnych-stron">
+<h2>Dodawanie kolejnych stron<a class="headerlink" href="#dodawanie-kolejnych-stron" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Przed przejściem do kolejnych kroków proszę zapoznać się z dokumentacją formatu <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">reStructuredText (a.k.a. RST)</a>
+oraz <a class="reference external" href="https://www.sphinx-doc.org/en/1.5/tutorial.html">First Steps with Sphinx</a></p>
+</div>
+<p>W katalogu <em>source</em> proszę dodać następujące pliki:</p>
+<ol class="arabic simple">
+<li><p>wprowadzenie.rst</p></li>
+<li><p>instalacja.rst</p></li>
+<li><p>architektura.rst</p></li>
+<li><p>api.rst</p></li>
+</ol>
+<ul class="simple">
+<li><p>ad.1) W pliku <em>wprowadzenie.rst</em> proszę opisać swoimi słowami czym jest docker oraz docker-compose.</p></li>
+<li><p>ad.2) W pliku <em>instalacja.rst</em> proszę podać instrukcję uruchamiania aplikacji za pomocą docker-compose. Wraz z wymaganiami, co trzeba mieć zainstalowane. Uwaga, poprawność konfiguracji docker-compose podlega ocenie.</p></li>
+<li><p>ad.3) W pliku proszę narysować w postaci diagramu klas i przypadków użycia architekturę projektu. Diagramy powinny być generowane bezpośrednio z plików rst, z wykorzystaniem Plnatuml (instrukcja poniżej). W przypadku skorzystania z innych rozwiązań ocena zostanie obiżona o 0.5.</p></li>
+<li><p>ad.4) Proszę opisać REST api (endpointy).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Proszę pamiętać o dodawaniu odpowiednich sekcji:</p>
+</div>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Sekcja pierwszego poziomu</span>
+<span class="gh">===========================</span>
+<span class="gh">Sekcja drugiego poziomu</span>
+<span class="gh">-------------------------</span>
+<span class="gh">Kolejne poziomy</span>
+<span class="gh">^^^^^^^^^^^^^^^^^</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Gotową dokumetację (wygenrowane pliki html oraz pliki źródłowe), wraz z projektem, który ona opisuje należy umieścić na repozytorium. Dokumentacja powinna zostać umieszczona w folderze <em>docs</em>.</p>
+</div>
+</div>
+<div class="section" id="dodawanie-mozliwosci-generowania-diagramow-bezposrednio-z-poziomu-plikow-rst-i-narzedzia-plantuml">
+<h2>Dodawanie możliwości generowania diagramów bezpośrednio z poziomu plików <em>rst</em> i narzędzia Plantuml.<a class="headerlink" href="#dodawanie-mozliwosci-generowania-diagramow-bezposrednio-z-poziomu-plikow-rst-i-narzedzia-plantuml" title="Permalink to this headline">¶</a></h2>
+<p>Do pliku requirements.txt dodajemy kolejną zależność: <em>sphinxcontrib-plantuml</em> i ponownie wykonujemy polecenie:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>następnie w pliku <strong>source/conf.py</strong> należy dodać odpowiedni wpis:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinxcontrib.plantuml&#39;</span><span class="p">]</span>
+<span class="n">plantuml</span> <span class="o">=</span> <span class="s2">&quot;java -jar /opt/plantuml.jar&quot;</span>  <span class="c1">#jeśli jest dodane do PATH nie potrzeba podawać ścieżki bezwględnej do plantuml.jar</span>
+</pre></div>
+</div>
+<p>wówczas po dodaniu dyrektywy z definicją diagramu</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">uml</span><span class="p">::</span>
+
+    Alice -&gt; Bob: Authentication Request
+    Bob --&gt; Alice: Authentication Response
+
+    Alice -&gt; Bob: Another authentication Request
+    Alice &lt;-- Bob: Another authentication Response
+</pre></div>
+</div>
+<p>i wywołaniu polecenia:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span> <span class="o">&amp;</span> <span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>generator stworzy:</p>
+<p class="plantuml">
+<img src="_images/plantuml-9df866c41fea5c95379a51cc3045870c22654786.png" alt="Alice -&gt; Bob: Authentication Request
+Bob --&gt; Alice: Authentication Response
+
+Alice -&gt; Bob: Another authentication Request
+Alice &lt;-- Bob: Another authentication Response"/>
+</p>
+</div>
+<div class="section" id="sprawozdanie">
+<h2>Sprawozdanie<a class="headerlink" href="#sprawozdanie" title="Permalink to this headline">¶</a></h2>
+<p>Po zakończeniu ćwiczenia proszę wysłać prowadzącemu, na slacku link do repozytorium. Proszę pamiętać o nadaniu odpowiednich uprawnień dostępu lub o upublicznienie repozytorium.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloud.html" class="btn btn-neutral float-right" title="Wdrożenie aplikacji na CLOUD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="docker.html" class="btn btn-neutral float-left" title="Kontenery Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Arkadiusz Ziółkowski, Mateusz Milian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

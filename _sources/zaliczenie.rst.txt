@@ -1,0 +1,51 @@
+Zasady zaliczenia laboratoriów
+===================================================
+
+Ocena końcowa
+--------------
+
+Na ocenę końcową składają się:
+
+1. Średnia ocen z realizacji zadań (waga: 0.7).
+
+2. Średnia ocen z zapowiedzianych wejściówek (1 - 5 wejściówek, waga: 0.3).
+
+Realizacja zadań będzie oceniana na zajęciach. Prowadzący będzie prosił o prezentację wykonanych ćwiczeń w kluczowych punktach (zaznaczonych w instrukcjach),
+oraz po zrealizowaniu każdego bloku tematycznego. Ponadto podczas rozmowy prowadzący może zadać pytania teoretyczne, związane z zakresem prezentowanych zadań.
+Odpowiedzi na te pytania będą składową oceny z realizacji zadań.
+
+Zamiast prezentacji wykonanych zadań podczas laboratoriów można przygotować pisemne sprawozdanie. Przed jego przygotowaniem należy jednak zapytać prowadzącego
+co musi znaleźć się w takim sprawozdaniu. Prowadzący może poprosić o rozwinięcie wybranych zagadnień teoretycznych w sprawozdaniu. Sprawozdania składane
+w LaTeXie będą oceniane pół oceny wyżej.
+Sprawozdania należy wysłać w formacie .pdf na maila: arkadiusz.ziolkowski@pwr.edu.pl lub na slacku w wiadomości prywatnej.
+
+.. note::
+
+    Z każdego zadania należy się rozliczyć maksymalnie tydzień po zakończeniu zajęć, na których zadania były planowo realizowane. W przypadku braku zgłoszenia
+    chęci zaprezentowania zrealizowanych zadań lub niedostarczeniu sprawozdania zostanie wystawiona ocena niedostateczna. 
+	Oddanie zadania po terminie skutkuje obniżeniem oceny z zadania o 0.5 za każdy tydzień opóźnienia.
+
+Poprawki
+----------
+
+Każdą ocenę można poprawić po wyrażeniu zgody przez prowadzącego, w formie uzgodnionej z prowadzącym.
+
+.. note::
+
+    Ocena z poprawki zastępuje ocenę pierwotną. Nawet jeżli jest gorsza.
+
+Nieobecności
+--------------
+
+Maksymalna ilość nieobecności nieusprawiedliwionych: 2 (słownie: dwie).
+Każda dodatkowa nieobecność musi zostać usprawiedliwiona. W przeciwnym wypadku wystawiona zostanie ocena niedotateczna z kursu.
+Zadania z laboratoriów, w których nie brało się udziału należy wykonać oraz rozliczyć się z nich w ciągu tygodnia od momentu wystąpienia nieobecności.
+
+Praca zdalna
+--------------
+
+	* W związku z wprowadzeniem pracy zdalnej głównym kanałem komunikacji jest slack. W przypadku chęci odbycia z prowadzącym rozmowy głosowej / wideorozmowy w ramach konsultacji należy się na taką rozmowę umówić z prowadzącym - na slacku poprzez wiadomość prywatną.
+	* Materiał z przedmiotu jest realizowany w sposób ciągły. Na każdy kolejny tydzień prowadzący informuje na slacku (na kanale laboratorium) o nowych zadaniach do wykonania. Termin wykonania zadań to minimum tydzień od momentu zlecenia ich wykonania przez prowadzącego. Prowadzący w momencie zlecania wykonania zadań doprecyzowuje termin wykonania zadania. Oddanie zadania po terminie skutkuje obniżeniem oceny z zadania o 0.5 za każde 72 godziny spóźnienia. Z każdego zadania prowadzący określa formę rozliczenia się.
+	* Kartkówki będą przeprowadzane w godzinach planowych zajęć na e-portalu. Będą one zapowiedziane na minium 3 dni wcześniej. Brak podejścia do kartkówki w wyznaczonym terminie skutkuje oceną niedostateczną z kartkówki. Ilość możliwych podejść do każdej kartkówki to jedno. Student może poprawić jedną, wybraną kartkówkę w terminie i formie ustalonymi z prowadzącym
+	* Prowadzący ma prawo umówić się ze studntem na rozmowę głosową / wideorozmowę w godzinach planowych zajęć w celu omówienia zadań. 
+

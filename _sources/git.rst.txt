@@ -1,0 +1,54 @@
+Git - podstawowe narzędzie programisty
+===================================================
+
+Zadania do wykonania przed zajęciami
+---------------------------------------
+
+* Zapoznaj się z Git Flow: https://codecouple.pl/2016/02/11/gitflow-workflow-model-pracy-z-gitem/
+* Jeżeli czujesz braki z gita to przeczytaj trzy pierwsze rozdziały: https://git-scm.com/book/pl/v2/
+* Na zajęcia zabierz ze sobą kartkę papieru i długopis.
+
+
+Zadania do realizacji podczas zajęć
+-------------------------------------
+
+.. note::
+
+    Wszytskie polecenia gita realizujemy za pomocą konsoli.
+
+1. Utwórz nowe, puste repozytorium na https://gitlab.com/.
+2. Utwórz w Intelij nowy, mavenowy projekt - **Calculator**. Podczas tworzenia projektu wybierz minimalnie **javę 8** jako **Project SDK**.
+3. Zainicjalizuj lokalne repozytorium w katalogu z projektem - **$ git init**.
+4. Dodaj plik **.gitignore**. Wyłącz ze śledzenia folder **target** oraz **.idea**.
+5. Utwórz klasę **CalculatorLauncher** i utwórz w niej metodę **main**. W metodzie main wypisz do konsoli napis **Coming soon**.
+6. Przypisz lokalnemu repozytorium adres zdalnego repozytorium nadając mu alias **origin**.
+7. Zatwierdź zmiany podając komentarz: **Initial commit**.
+8. Wrzuć zmiany na **zdalną** gałąź **master**.
+9. Otaguj ostatni commit jako pierwsze “oficjalne” wydanie **v0.0.1**
+10. Wrzuć tag na repozytorium zdalne.
+11. Zachowując zasady Git Flow zaimplementuj 4 funkcjonalności (przed implementacją patrz uwagi poniżej):
+
+    * dodawanie,
+    * odejmowanie,
+    * mnożenie,
+    * dzielenie.
+
+.. note::
+
+    Wszystkie powyższe metody powinny zostać napisane w klasie **Calculator**, każda z nich powinna przyjmować **dwie liczby całkowite**. Zastanów się nad typami jakie metody powinny zwracać.
+
+.. note::
+
+    Pamiętaj, że przed wrzuceniem nowej funkcjonalności na gałąź master, stabilność i poprawność działania aplikacji powinna być wcześniej przetestowana na gałęzi dev/release.
+
+.. note::
+
+    * Drugie “oficjalne” wydanie aplikacji **v0.1.0** powinno zawierać metody: dodawanie i odejmowanie.
+    * Trzecie “oficjalne” wydanie aplikacji **v0.2.0** powinno zawierać dodatkowo metody: mnożenie i dzielenie. W tej wersji nie pisz obsługi dzielenia przez zero (niech leci wyjątek i kończy aplikację).
+    * Zrób szybką poprawkę, w której obsłużysz przypadek dzielenia przez zero i oznacz nowe wydanie jako **v0.2.1**.
+
+12. Narysuj na kartce schematycznie historię swojego repozytorium i zaprezentuj prowadzącemu zajęcia. Przed wykonaniem dalszej części poczekaj na akceptację przez prowadzącego.
+13. Pozostając na gałęzi **master** zaimplementuj w klasie **Calculator** metodę potęgowania. Skorzystaj z istniejących metod w pakiecie matematycznym. Nie zatwierdzaj (nie commituj) zmian na masterze. Nowe funkcjonalności nie mogą być bezpośrednio dodawane na gałęzi master.
+14. Wykorzystując polecenie **stash** zaktualizuj gałąź **dev** do aktualnej wersji **mastera** wraz z wprowadzoną implementacją potęgowania. Na gałęzi **dev** zatwierdź implementację potęgowania i wrzuć na **mastera** wersję **v0.3.0** zawierającą potęgowanie.
+
+

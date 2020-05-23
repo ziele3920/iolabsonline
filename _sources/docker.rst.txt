@@ -1,0 +1,459 @@
+Kontenery Docker
+=====================
+Te zadania są wykonywane na nowym projekcie. Służą Zapoznaniu się z praktycznym wykorzystaniem kontenerów.
+Zadania te nie są na ocenę, jednak ich wykonanie umożliwi zrealizowanie zadań podczas kolejnych zajęć.
+
+.. note::
+
+    Proszę zwrócić uwagę, że tym razem bawimy się Gradlem.
+
+
+Zadania do realizaji przed zajęciami
+----------------------------------------
+
+Należy zainstalować Docker oraz Docker compose
+
+Praca z kontenerami Docker
+-----------------------------------
+.. _seed_project:
+
+Wygenerowanie projektu do testów
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Uzywając strony: https://start.spring.io/ wygeneruj projekt:
+
+::
+
+    Project: Gradle
+    Language: Java
+    Version - any stable
+    Group: im.pwr.edu.pl
+    Artifact: lab3
+    Packaging: Jar
+    Java: any (preffered 8)
+    Dependencies: Spring Web
+
+
+- Pobierz projekt na dysk
+
+- Zaimportuj do swojego IDE (np. IntelliJ lub VS Code)
+
+- Uruchom projekt bezpośrednio za pomocą IDE lub z wiersza poleceń.
+
+.. code-block:: bash
+
+    gradle bootRun
+    # lub
+    ./gradlew build && java -jar build/libs/lab3-0.0.1-SNAPSHOT.jar
+
+- Dodaj testowy "REST endpoint"
+
+Do głównej klasy proszę dodać adnotację @RestController
+oraz należy dodać metodę która będzie obsługiwała przykładowy endpoint
+
+.. code-block::
+
+    @RequestMapping("/")
+	public String home() {
+		return "Hello Docker World";
+	}
+
+Po wpisaniu w przeglądarce *localhost:8080* powinniśmy 
+dostać w odpowiedzi wiadomość "Hello Docker World"
+
+
+.. _pack_to_docker:
+
+Spakowanie aplikacji do kontenera Docker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Pliki *Dockerfile* są to pliki tekstowe. Poniżej przykładowa struktura:
+
+
+.. code-block:: bash
+
+    FROM <image>:<tag> # obraz bazowy na bazie którego będziemy budować. Powinien zawierać przynajmniej JRE
+    ARG  <arg>=<domyśla-wartość> # zmienna, którą możemy nadpisać podczas uruchamiania obrazu
+    COPY <from> <to> # kopiujemy dane z katalogu bieżącego do obrazu
+    ENTRYPOINT ["cmd",...] # komenda wywoływana podczas uruchamiania kontenera
+
+- Konfigurowanie obrazu bazowego dla testowej aplikacji w pliku *Dockerfile*:
+
+.. code-block:: bash
+
+    FROM openjdk:8-jdk-alpine
+    ARG JAR_FILE=build/libs/*.jar
+    COPY ${JAR_FILE} app.jar
+    ENTRYPOINT ["java","-jar","/app.jar"]
+
+- Budowanie obrazu
+    
+.. code-block:: bash
+    
+    docker build -t simple-spring-boot .
+
+- Uruchomienie kontenera
+
+.. code-block:: bash
+
+    docker run -p <docker_port>:<host_port> simple-spring-boot
+
+Efekt powinien być identyczny do uruchomienia aplikacji 
+bezpośrednio :ref:`z lini komend <seed_project>`
+
+Budowanie aplikacji w kontenerze Docker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Definicja pliku Docker 
+
+.. code-block:: bash
+
+    FROM gradle:6.0.1-jdk8 AS build
+    USER root
+    RUN mkdir app
+    COPY src/ /app/src/
+    COPY build.gradle /app/
+    COPY settings.gradle /app/
+    WORKDIR /app
+    RUN gradle bootJar
+
+    FROM openjdk:8-jdk-alpine
+    COPY --from=build /app/build/libs/app.jar app.jar
+    ENTRYPOINT ["java","-jar","/app.jar"]
+
+- Budowanie obrazu:
+
+.. code-block:: bash
+.. code-block:: bash
+
+    docker build -t full-spring-boot . 
+
+- Uruchomianie obrazu
+
+.. code-block:: bash
+    
+    docker run -p <docker_port>:<host_port> full-spring-boot
+
+Efekt końcowy jest taki sam jak w :ref:`przypadku spakowania zbudowanej aplikacji <_pack_to_docker>`
+z tą różnicą, że również cały proces budowania odbył się w ramach kontenera. 
+
+.. note::
+
+    Takie podejście pomaga w zachowaniu transparentności budowania aplikacji
+    - eliminujemy zależności od lokalnego systemu operacyjnego. Ułatwia 
+    również budowanie aplikacji w środowisku CI/CD
+
+Praca z wieloma kontenerami jednocześnie
+------------------------------------------
+
+
+Uruchomienie bazy danych postgresql w kontenerze
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    docker run --name test-db -p 5433:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+- Sprawdzenie, czy baza danych działa poprawnie 
+
+.. code-block:: bash
+
+    docker ps
+
+- Podłączenie się do bazy danych za pomocą klienta (np. pgAdmin) 
+
+lub z konsoli:
+
+.. code-block:: bash
+
+    psql -h localhost -p 5433 -U postgres
+
+Uruchomienie skryptów inicjalizujących bazę danych
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Przygotuj skrpt inicjalizujący:
+
+.. code-block::
+
+    #!/bin/bash
+    set -e
+
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+        CREATE USER docker;
+        CREATE DATABASE docker;
+        GRANT ALL PRIVILEGES ON DATABASE docker TO docker;
+    EOSQL
+
+- Nazwij plik *create-databases.sh* i umieść go w katalogu docker-entrypoint-initdb.d
+
+- Natępnie uruchom kontener
+
+.. code-block::
+
+    docker run --name test-db -p 5433:5432 -v /home/mateusz/dev/repo/play/notes/source/pwr/03_Cwiczenia\ /lab3/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d -e POSTGRES_PASSWORD=mypass -d postgres
+
+- i sprawdź czy się utworzyła baza danych o nazwie *docker*
+
+
+Uruchomienie lokalnej aplikacji z połączeniem do bazy danych działającej w kontenerze
+-----------------------------------------------------------------------------------------
+
+- W pliku build.gradle dodajemy nowe zależności:
+
+.. code-block:: groovy
+
+    dependencies {
+	    implementation 'org.springframework.boot:spring-boot-starter-web'
+    	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.9'
+	    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		    exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+
+Uruchomienie kilku kontenerów za pomocą *docker-compose*:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Celem ćwiczenia jest dodanie do aplikacji obsługi bazy danych.
+Baza danych będzie uruchamiona w osobnym kontenerze.
+
+- Dodanie prostej encji do aplikacji:
+
+
+.. code-block:: java
+
+    package <odpowiedni pakier>
+
+    import javax.persistence.GeneratedValue;
+    import javax.persistence.GenerationType;
+    import javax.persistence.Id;
+    import javax.persistence.Entity;
+
+    @Entity
+    public class Customer {
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
+    private String firstName;
+    private String lastName;
+
+    protected Customer() {}
+
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "Customer[id=%d, firstName='%s', lastName='%s']",
+            id, firstName, lastName);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+    }
+
+- Dodanie repozytorium
+
+.. code-block:: java
+
+    package <twoj pakiet> 
+
+    import java.util.List;
+
+    import org.springframework.data.repository.CrudRepository;
+
+    public interface CustomerRepository extends CrudRepository<Customer, Long> {
+
+        List<Customer> findByLastName(String lastName);
+
+        Customer findById(long id);
+    }
+
+- Dodanie kontrolera
+
+
+.. code-block:: java
+
+    package twoj;
+
+    import org.springframework.http.HttpStatus;
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.PathVariable;
+    import org.springframework.web.bind.annotation.RestController;
+    import org.springframework.web.server.ResponseStatusException;
+
+    @RestController
+    public class CustomerController {
+
+        private final CustomerRepository customerRepository;
+
+        public CustomerController(CustomerRepository customerRepository) {
+            this.customerRepository = customerRepository;
+        }
+
+        @GetMapping("/customers")
+        public Iterable<Customer> getCustomers() {
+            return customerRepository.findAll();
+        }
+    
+        @GetMapping("/customers/{customerId}")
+        public Customer getUserById(@PathVariable Long customerId) {
+            return customerRepository.findById(customerId).orElseThrow(
+                    () -> new ResponseStatusException(
+                            HttpStatus.NOT_FOUND, "entity not found"
+                    ));
+        }
+    }
+
+
+- "Bootstrap" danych przy starcie.
+
+Do głównej klasy aplikacji (klasa adnotowana przez @SpringBootApplication) 
+proszę dodać metodę:
+
+.. code-block:: java
+
+    @Bean
+	public CommandLineRunner dataBootsrap(CustomerRepository repository) {
+		return (args) -> {
+			// save a few customers
+			repository.save(new Customer("Jack", "Bauer"));
+			repository.save(new Customer("Chloe", "O'Brian"));
+			repository.save(new Customer("Kim", "Bauer"));
+			repository.save(new Customer("David", "Palmer"));
+			repository.save(new Customer("Michelle", "Dessler"));
+
+			// fetch all customers
+			log.info("Customers found with findAll():");
+			log.info("-------------------------------");
+			for (Customer customer : repository.findAll()) {
+				log.info(customer.toString());
+			}
+			log.info("");
+		};
+	}
+
+
+- Upewniając się, że baza danych jest uruchomiona proszę uruchomić aplikację za pomocą IDE lub z lini komend 
+(tak jak w punkcie :ref:`z lini komend <seed_project>`)
+
+- Następnie proszę sprawdzić czy aplikacja działa prawidłowo wywołując następujące "endpointy":
+
+
+.. code-block::
+
+    ### get individual customer
+    GET http://localhost:8080/customers/{id} # id można odczytać z tabeli customer
+    
+    ### get all customers
+    GET http://localhost:8080/customers
+
+Uruchomianie bazy danych za pomocą docker-compose
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Dodaj plik docker-compose.yaml (dla niektórych wersji może dockera może to być plik o rozszerzeniu .yml"):
+
+.. code-block:: yaml
+
+    version: "3"
+    services:
+        db:
+            image: postgres:latest
+            volumes:
+                - "./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
+            environment:
+                POSTGRES_USER: ${POSTGRES_USER}
+                POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            ports:
+                - ${DB_PORT}:5432
+
+.. note::
+
+    Proszę zwrócić uwagę na białe znaki (wcięcia) w pliku .yaml/.yml
+
+- i plik .env
+
+.. code-block:: bash
+
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=mysecretpass
+    DB_PORT=5433
+
+- Uruchomienie bazy danych
+
+.. code-block:: bash
+
+    docker-compose up db
+
+Proszę przetestować czy baza działa - połączyć się za pomocą pgAdmin lub psql
+
+Dodanie kontenera aplikacji do pliku docker-compose
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- zawartość pliku docker-compose.yaml (dla niektórych wersji może dockera może to być plik o rozszerzeniu .yml"):
+
+.. code-block:: yaml 
+
+    version: "3"
+    services:
+        app:
+            image: "app/customer"
+            build:
+                context: .
+                dockerfile: "Dockerfile"
+            environment:
+                POSTGRES_USER: ${POSTGRES_USER}
+                POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            ports:
+                - 8080:8080
+        db:
+            image: postgres:latest
+            volumes:
+                - "./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
+            environment:
+                POSTGRES_USER: ${POSTGRES_USER}
+                POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            ports:
+                - ${DB_PORT}:5432
+
+- konfiguracja dostępu do bazy w application.properties
+
+.. code-block:: bash
+
+    server.port=8080
+
+    ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+    spring.datasource.url=jdbc:postgresql://db:5432/docker
+    spring.datasource.username=${POSTGRES_USER}
+    spring.datasource.password=${POSTGRES_PASSWORD}
+    
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+    
+    # Hibernate ddl auto (create, create-drop, validate, update)
+    spring.jpa.hibernate.ddl-auto = update
+
+- budowanie obrazów
+
+.. code-block:: bash
+
+    docker-compose build
+
+-uruchomienie kontenerów bazy danych i aplikacji
+
+.. code-block:: bash
+
+    docker-compose up

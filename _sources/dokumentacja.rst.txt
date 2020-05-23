@@ -1,0 +1,224 @@
+Dokumentacja
+======================
+
+Wymagania wstępne
+--------------------
+
+* Python >=3.7
+* `graphviz <https://www.graphviz.org/download/>`_
+* `Plantuml.jar <https://plantuml.com/>`_ dodany do zmiennej środowiskowej PATH lub dodany do projektu
+* Proszę przygotować projekt, ze skonfigurowanym docker-compose (zadanie z poprzednich laboratoriów), **wszytskie pliki i katalogi tworzymy w folderze *docs*, znajdującym się bezpośrednio
+  w folderze nadrzędnym projektu**.
+
+.. note::
+
+    W systemie Windows 10 zalecana jest instalacja Python z Windows Store.
+    W systemach Mac/Linux za pomocą odpowiednich menadżerów pakietów (jak brew czy apt).
+
+* Menadżer pakietów **pip**
+
+.. note::
+
+    W większości przypadków będzie on zainstalowany podczas instalacji Python.
+
+
+
+Instalacja pakietu Sphinx oraz szablonu "Read The Docs"
+--------------------------------------------------------
+
+* Tworzymy podkatalog **docs** w katalogu projektu
+* Tworzymy tzn. wirtualne środowisko Python *virtualenv*
+
+.. code-block:: bash
+
+    python3.7 -m pip install virtualenv
+    python3.7 -m virtualenv venv
+
+i uruchamiamy *venv* komendą:
+
+.. code-block:: bash
+
+    source venv/bin/activate
+
+* Tworzenie pliku **requirements.txt**
+
+.. note::
+
+    Plik requirements.txt jest zwykłym plikiem tekstowym w którym bardzo często zapisujemy zależności
+    projektów tworzonych w Python. Każda linia w pliku odpowiada jednej zależności.
+    Nazwa pliku w praktyce nie ma znaczenia, ale przyjęło się używać właśnie requirements.txt.
+    Dzięki temu nowi programiści w projekcie od razu są w stanie zorientować się od czego powinni zacząć.
+
+* Dodanie zależności do requirements.txt
+
+.. code-block:: bash
+
+    # zawartość requirements.txt
+    sphinx # podstawowy pakiet do budowania dokumentacji
+    sphinx_rtd_theme # szablon html
+
+* Instalacja pakietów
+
+.. code-block:: bash
+
+    python -m pip install -r requirements.txt
+
+Tworzenie zalążka dokumentacji
+---------------------------------
+
+Najlepiej użyć do tego mechanizmu sphinx-quickstart
+
+.. code-block:: bash
+
+    sphinx-quickstart
+
+.. image:: img/create_project_structure.gif
+
+Następnie w pliku *source/conf.py* ustawiamy *Read the Docs* jako szablon HTML:
+
+.. code-block:: bash
+
+    # -- Options for HTML output -------------------------------------------------
+
+    # The theme to use for HTML and HTML Help pages.  See the documentation for
+    # a list of builtin themes.
+    #
+    html_theme = 'sphinx_rtd_theme'
+
+Budowanie dokumentacji:
+---------------------------
+
+sphinx-quickstart wygenerował pliki systemu MAKE, które ułatwiają przebudowywanie dokumentacji
+
+
+* dla systemu Windows będzie to plik *make.bat*
+* dla Mac/Linux będzie polecenie *make* powinno być już dostępne
+
+Standardowo przebudowanie dokumentacji wykonujemy poleceniem:
+
+.. code-block:: bash
+
+    make html
+
+* W katalogu build/html/ zostanie wygenerowana dokumentacja w formacie HTML
+
+* Bardzo przydatnym jest też polecenie *make clean*, gdyż w przypadku generowanie diagramów albo innych dodatków nie będą one domyślnie ponownie generowane przy wywołaniu *make html*. 
+
+Można je też połączyć w postaci:
+
+.. code-block:: bash
+
+    make clean & make html
+
+Generowanie spisu treści
+-------------------------
+
+Domyślnie generowanie spisu treści bazuje na pliku *source/index.rst* i specjalnej
+derektywie *.. toctree::*
+W praktyce możemy łączyć wiele derektyw *toctree*, co daje dużą elastyczność w sposobie
+nawigowania po wygenerowanej dokumentacji
+
+.. code-block:: rst
+
+    .. toctree::
+        :maxdepth: 2  ".. głębokość sekcji w generowanym spisie"
+        :caption: Zawartość: ".. użyty tytuł"
+
+        getting_started
+
+
+    Indices and tables
+    ==================
+
+    * :ref:`genindex`
+    * :ref:`modindex`
+    * :ref:`search`
+
+Dodawanie kolejnych stron
+-------------------------------
+
+.. note::
+
+    Przed przejściem do kolejnych kroków proszę zapoznać się z dokumentacją formatu `reStructuredText (a.k.a. RST) <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`_
+    oraz `First Steps with Sphinx <https://www.sphinx-doc.org/en/1.5/tutorial.html>`_
+
+W katalogu *source* proszę dodać następujące pliki:
+
+1. wprowadzenie.rst
+2. instalacja.rst
+3. architektura.rst
+4. api.rst
+
+- ad.1) W pliku *wprowadzenie.rst* proszę opisać swoimi słowami czym jest docker oraz docker-compose.
+- ad.2) W pliku *instalacja.rst* proszę podać instrukcję uruchamiania aplikacji za pomocą docker-compose. Wraz z wymaganiami, co trzeba mieć zainstalowane. Uwaga, poprawność konfiguracji docker-compose podlega ocenie.
+- ad.3) W pliku proszę narysować w postaci diagramu klas i przypadków użycia architekturę projektu. Diagramy powinny być generowane bezpośrednio z plików rst, z wykorzystaniem Plnatuml (instrukcja poniżej). W przypadku skorzystania z innych rozwiązań ocena zostanie obiżona o 0.5.
+- ad.4) Proszę opisać REST api (endpointy).
+
+.. note::
+
+    Proszę pamiętać o dodawaniu odpowiednich sekcji:
+
+.. code-block:: rst
+
+    Sekcja pierwszego poziomu
+    ===========================
+    Sekcja drugiego poziomu
+    -------------------------
+    Kolejne poziomy
+    ^^^^^^^^^^^^^^^^^
+
+.. note::
+
+    Gotową dokumetację (wygenrowane pliki html oraz pliki źródłowe), wraz z projektem, który ona opisuje należy umieścić na repozytorium. Dokumentacja powinna zostać umieszczona w folderze *docs*.
+
+
+Dodawanie możliwości generowania diagramów bezpośrednio z poziomu plików *rst* i narzędzia Plantuml.
+------------------------------------------------------------------------------------------------------
+
+
+Do pliku requirements.txt dodajemy kolejną zależność: *sphinxcontrib-plantuml* i ponownie wykonujemy polecenie:
+
+.. code-block::
+
+    python -m pip install -r requirements.txt
+
+* następnie w pliku **source/conf.py** należy dodać odpowiedni wpis:
+
+.. code-block::
+
+    extensions = ['sphinxcontrib.plantuml']
+    plantuml = "java -jar /opt/plantuml.jar"  #jeśli jest dodane do PATH nie potrzeba podawać ścieżki bezwględnej do plantuml.jar
+
+wówczas po dodaniu dyrektywy z definicją diagramu
+
+.. code-block:: rst
+
+    .. uml::
+        
+        Alice -> Bob: Authentication Request
+        Bob --> Alice: Authentication Response
+
+        Alice -> Bob: Another authentication Request
+        Alice <-- Bob: Another authentication Response
+
+i wywołaniu polecenia:
+
+.. code-block::
+
+    make clean & make html
+
+generator stworzy:
+
+.. uml::
+        
+    Alice -> Bob: Authentication Request
+    Bob --> Alice: Authentication Response
+
+    Alice -> Bob: Another authentication Request
+    Alice <-- Bob: Another authentication Response
+
+
+Sprawozdanie
+--------------------------
+
+Po zakończeniu ćwiczenia proszę wysłać prowadzącemu, na slacku link do repozytorium. Proszę pamiętać o nadaniu odpowiednich uprawnień dostępu lub o upublicznienie repozytorium.

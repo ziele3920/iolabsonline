@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>REST API &mdash; Inżynieria oprogramowania laboratorium 0.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spring I" href="spring1.html" />
+    <link rel="prev" title="Git - podstawowe narzędzie programisty" href="git.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Inżynieria oprogramowania laboratorium
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Zawartość</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="zaliczenie.html">Zasady zaliczenia laboratoriów</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git - podstawowe narzędzie programisty</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">REST API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-wykonania-przed-zajeciami">Zadania do wykonania przed zajęciami</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-realizacji-podczas-zajec">Zadania do realizacji podczas zajęć</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wprowadzenie">Wprowadzenie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-i">Ćwiczenie I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-ii">Ćwiczenie II</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sprawozdanie">Sprawozdanie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring1.html">Spring I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Spring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvc.html">Spring MVC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Spring Security na ocenę max 4.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security2.html">Spring Security na ocenę max 5.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Kontenery Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dokumentacja.html">Dokumentacja</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">Wdrożenie aplikacji na CLOUD</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Inżynieria oprogramowania laboratorium</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>REST API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/restapi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rest-api">
+<h1>REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="zadania-do-wykonania-przed-zajeciami">
+<h2>Zadania do wykonania przed zajęciami<a class="headerlink" href="#zadania-do-wykonania-przed-zajeciami" title="Permalink to this headline">¶</a></h2>
+<p>Zapoznanie się z zagadnieniem REST Api:
+<a class="reference external" href="https://www.youtube.com/watch?v=P9b8-BrWdYs&amp;vl=pl">https://www.youtube.com/watch?v=P9b8-BrWdYs&amp;vl=pl</a>
+<a class="reference external" href="https://devszczepaniak.pl/wstep-do-rest-api/">https://devszczepaniak.pl/wstep-do-rest-api/</a></p>
+<p>Zapoznanie się z obsługą postmana:
+<a class="reference external" href="https://fsgeek.pl/post/badz-produktywny-podstawy-postmana/">https://fsgeek.pl/post/badz-produktywny-podstawy-postmana/</a></p>
+<p>Przejrzenie podstawowych kodów odpowiedzi:
+<a class="reference external" href="https://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP">https://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP</a></p>
+</div>
+<div class="section" id="zadania-do-realizacji-podczas-zajec">
+<h2>Zadania do realizacji podczas zajęć<a class="headerlink" href="#zadania-do-realizacji-podczas-zajec" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="wprowadzenie">
+<h3>Wprowadzenie<a class="headerlink" href="#wprowadzenie" title="Permalink to this headline">¶</a></h3>
+<p>Proszę wykonać kilka wybranych zapytań GET, POST, PUT, DELETE korzystając z opisu w dokumentacji:
+<a class="reference external" href="https://docs.api.getpostman.com/?version=latest">https://docs.api.getpostman.com/?version=latest</a>
+Proszę nie uwzglęcniać tego w sprawozdaniu.</p>
+</div>
+<div class="section" id="cwiczenie-i">
+<h3>Ćwiczenie I<a class="headerlink" href="#cwiczenie-i" title="Permalink to this headline">¶</a></h3>
+<p>Wykonaj korzystając z dokumentacji: <a class="reference external" href="http://dummy.restapiexample.com/">http://dummy.restapiexample.com/</a>
+Jest to przykładowe REST API, które reprezentuje bazę pracowników. API pozwala na
+pobieranie informacji dotyczących pracowników, tworzenie nowych pracowników,
+modyfikowanie danych istniejących pracowników oraz usuwanie pracowników.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Każde zapytanie wykonaj w oddzielnej karcie. Na koniec zaprezentuj wykonane
+zapytania prowadzącemu.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Pobierz dane wszystkich pracowników.</p></li>
+<li><p>Spośród uzyskanych wyników wybierz jednego pracownika i pobierz tylko jego dane w nowym zapytaniu.</p></li>
+<li><p>Utwórz nowego pracownika.</p></li>
+<li><p>Zmodyfikuj dane nowo utworzonego pracownika zwiększając mu pensję.</p></li>
+<li><p>Pobierz dane dotyczące utworzonego pracownika.</p></li>
+<li><p>Usuń utworzonego pracownika.</p></li>
+</ol>
+<p>Dodatkowo zobacz jakie kody odpowiedzi zwrócą następujące zapytania:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Pobranie danych nieistniejącego pracownika.</p></li>
+<li><p>Wykonanie zapytania do nieistniejącego zasobu (endpointa) np. poprzez literówkę w adresie URL zapytania.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="cwiczenie-ii">
+<h3>Ćwiczenie II<a class="headerlink" href="#cwiczenie-ii" title="Permalink to this headline">¶</a></h3>
+<p>Ćwiczenie mające na celu wykorzyatnie mechanizmu prostego uwierzytalniania użytkownika. Do tego celu posłuży api yelp.com, które jest wyszukiwarką firm, wydarzeń i innych:
+<a class="reference external" href="https://www.yelp.com/developers/documentation/v3">https://www.yelp.com/developers/documentation/v3</a></p>
+<ol class="arabic simple">
+<li><p>Przejdź do zakładki Yelp Fusion -&gt; Introduction i wykonaj “authentication guide”.</p></li>
+<li><p>Wyszukaj fast foody typu McDonalds w Poznaniu.</p></li>
+<li><p>Wyszukaj restauracje we Wrocławiu posortowaneje według ocen.</p></li>
+<li><p>Znajdź informacje szczegółowe dotyczące restauracji wybranej spośród znalezionych w zadaniu 2.</p></li>
+<li><p>Znajdź opinie dotyczące wybranej restauracji.</p></li>
+<li><p>Wyszukaj firmę do której należy numer telefonu: +14157492060.</p></li>
+<li><p>Wyszukaj wydarzenia rozpoczynjące się po 07.14.2019 13:00 (UTC).</p></li>
+</ol>
+<p>Do podpuntu 7. może okazać się pomocne: <a class="reference external" href="https://www.unixtimestamp.com/index.php">https://www.unixtimestamp.com/index.php</a></p>
+</div>
+</div>
+<div class="section" id="sprawozdanie">
+<h2>Sprawozdanie<a class="headerlink" href="#sprawozdanie" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>W sprawozdaniu proszę zawrzeć zapytania wykonane oraz otrzymane odpowiedzi z ćwiczeń I oraz II. Jeżeli odpowiedź jest dłuższa niż 10 linijek proszę zawrzeć tylko fragment odpowiedzi.</p></li>
+<li><p>Proszę opisać trzy wybrane sposoby autoryzacji użytkownika. Krótko - co należy dosatrczyć aby uzyskać autoryzację oraz wady i zalety, maks 8 zdań na jeden sposób.</p></li>
+<li><p>Proszę opisać swoimi słowami do czego służy postman. Maks 3 zdania.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="spring1.html" class="btn btn-neutral float-right" title="Spring I" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="git.html" class="btn btn-neutral float-left" title="Git - podstawowe narzędzie programisty" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Arkadiusz Ziółkowski, Mateusz Milian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

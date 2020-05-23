@@ -1,0 +1,160 @@
+Spring Security na ocenę max 4.0
+========================================
+.. _min_project:
+
+Zestaw zadań ze Sepring Security na ocenę max 4.0.
+
+Zadania do wykonania przed zajęciami
+---------------------------------------
+
+Obejrzyj/wykonaj tutorial, na podstawie którego wykonasz większość ćwiczenia:
+
+https://www.youtube.com/watch?v=1S1XydtDgo8
+
+skup się głównie na konfiguracji dostępu do REST Api.
+
+Zadania do realizacji podczas zajęć
+-------------------------------------
+
+Celem tego zadania jest dodanie uwierzyelniania użytkownika do wcześniej uwtorzenej aplikacji. W tym ćwiczniu wykorzystamy Basic Auth.
+
+.. note::
+
+    Rozwój aplikacji będzie kontynuwany w ramach następnych laboratoriów. Rozwijając projekt proszę **stosować zasady git flow**,
+    które będą podlegać ocenie. Na masterze powinny się znaleźć tylko i wyłącznie wersje otagowane, gotowe do oceny.
+
+Schemat tagowania:
+
+.. code-block::
+
+    [nr laboratoriów].[nr ćwiczenia].[nr poprawki]
+
+| *nr laboratoriów* - numerujemy kolejno, zatem teraz **3**
+| *nr ćwiczenia* - proszę podać liczbą arabską
+| *nr poprawki* - większe od zera w przypadku naniesienia poprawek do ćwiczenia po wcześniejszym otagowaniu jako gotowe do oceny (hotfix)
+
+Ćwiczenie I - Baza danych i DTO
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _db_dto:
+
+Chcemy aby dane użytkowników były przechowywane w bazie danych. Aby zamodelować użytkownika dodaj klasę:
+
+.. code-block:: java
+
+    public class User {
+
+        private String name;
+        private String password;
+        private String role;
+
+        .
+        .
+        .
+    }
+
+Gdzie ... to gettery, setery i konstruktory.
+
+Dodaj również repozytorium i serwis. Serwis musi posiadać metody pobierania użytkownika po *name*, oraz metodę dodającą nowego użytkownika. Pamiętaj,
+że hasło w bazie danych musi być przechowywane w sposób zaszyfrowany. W tym celu skorzystamy ze wzorca projektowego DTO. Uwtórz klasę *UserDto*:
+
+.. code-block:: java
+
+    @Entity
+    public class UserDto {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private Long id;
+
+        private String name;
+        private String passwordHash;
+        private String role;
+        .
+        .
+        .
+    }
+
+Gdzie ... to gettery, setery i konstruktory.
+
+Obiekt UserDto przechowuje zaszyfrowane hasło użytkownika. Aby umożliwić szyfrowanie i porównaywanie hasła utwórz klasę, która będzie dostarczać *PasswordEncoder*:
+
+.. code-block:: java
+
+    @Configuration
+    public class PasswordEncoderConfig {
+
+        @Bean
+        public PasswordEncoder passwordEncoder () {
+            return new BCryptPasswordEncoder();
+        }
+    }
+
+Teraz możesz utworzyć klasę *UserDtoBuilder*, która będzie posiadać metody do tworzenia obiektów klasy *UserDto* na podsatwie obiektów klasy *User*.
+
+W aplikacji wyróżnimy dwie role użytkowników *ROLE_CUSTOMER* oraz *ROLE_ADMIN*. Dodaj teraz do bazy danych
+dwóch przykładowych użytkoników, po jednym z każdej roli. Zapewnij aby przy uruchamianiu aplikacji
+wszytskie tabele w bazie danych zostały wypełnione przykładowymi danymi. Jeżeli tabele są wypełnione zapewnij aby skrypt je uzupełniający
+się nie wykonał. Ustaw domyślną konfigurację bazy danych na bazę H2.
+
+Ćwiczenie II - Basic Auth
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+W dalszej części ćwiczenia ogranicz dostęp do wybranych endpointów różnym użytkownikom.
+Zapytania:
+
+| GET *.../api/product* - zwraca produkt o odpowiednim id,
+| GET *.../api/product/all* - zwraca listę wszystkich produktów,
+
+| GET *.../api/order* - zwraca zamówienie o podanym id,
+| GET *../api/order/all* - zwraza listę wszystkich zamówień,
+| POST *.../api/order* - umieszcza nowe zamówienie w bazie,
+
+**powinny być dostępne dla każdego**, zapytania:
+
+| GET *.../api/customer* - zwraca klienta o podanym id,
+| GET *.../api/customer/all* - zwraza listę wszystkich klientów,
+
+**dla zalogowanych użytkowników posiadających uprawnienia klienta** (ROLE_CUSTOMER), zapytania:
+
+| POST *.../api/admin/product* - umieszcza nowy produkt w bazie,
+| PUT *.../api/admin/product* - modufikuje istniejący produkt o zadanym id,
+| PATCH *.../api/admin/product* - częściowo modyfikuje istniejący produkt o zadanym id,
+
+| POST *.../api/admin/customer* - umieszcza nowego klienta w bazie,
+| PUT *.../api/admin/customer* - modufikuje istniejącego klienta o zadanym id,
+| PATCH *.../api/admin/customer* - częściowo modyfikuje istniejącego klienta o podanym id,
+
+| PUT *.../api/admin/order* - modufikuje istniejące zamówienie o zadanym id,
+| PATCH *.../api/admin/order* - częściowo modyfikuje istniejące zamówienie o podanym id.
+
+**dla zalogowanych użytkowników posiadających uprawnienia administratora** (ROLE_ADMIN).
+
+W celu realizacji tych ograniczeń postępuj analogicznie do schematu przedstawionego w tutorialu.
+Główną różnicą względem tutorialu jest to, że dane naszych użytkowników przechowujemy w bazie danych. W związku z tym zamiast tworzyć bean *UserDetailService*
+przechowujący dane użytkowników "in memory" nadpisz konfigurację uwierzytelniania użytkownika:
+
+.. code-block::
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+                .usersByUsernameQuery("SELECT u.name, u.password_hash, 1 FROM user u WHERE u.name=?")
+                .authoritiesByUsernameQuery("SELECT u.name, u.role, 1 FROM user u WHERE u.name=?")
+                .dataSource(dataSource)
+                .passwordEncoder(passwordEncoder);
+    }
+
+Pamiętaj o odpowiedniej konfiguracji *HttpSecurity*.
+
+.. note::
+
+    Proszę pamiętać o przetestowaniu w postmanie czy wszystkie endpointy posiadają odpowiedni dostęp i działają w oczekiwany sposób.
+
+Sprawozdanie
+----------------------
+
+Po realizacji ćwiczenia proszę o przesłanie linka do repozytorium, oraz loginu i hasła dla klienta i admina w wiadomości prywatnej do prowadzącego na slacku.
+
+.. note::
+
+    Proszę pamiętać o nadaniu prowadzącemu odpowiednich praw dostępu do repozytorium!

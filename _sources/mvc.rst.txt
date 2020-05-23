@@ -1,0 +1,155 @@
+Spring MVC
+======================
+
+Zadania do wykonania przed zajęciami
+---------------------------------------
+
+MVC, architektura warstwowa aplikacji
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Przypomnij sobie jak wygląda wzorzec MVC: https://dev-wannabe.pl/wzorzec-model-view-controller/
+2. Zerknij jak to działa we wnętrzu Spring Boota: https://dev-wannabe.pl/spring-mvc/ , https://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm
+3. Poczytaj czym jest architektura warstwowa: https://nullpointerexception.pl/architektura-warstwowa-sposob-na-organizacje-kodu/
+
+   Zwróć uwagę na:
+
+    a. kierunkowość zależności pomiędzy warstwami,
+    b. odpowiedzialności każdej warstwy,
+    c. standardowy sposób reprezentacji warstw w Springu (kontrolery, serwisy i repozytoria),
+    d. które warstwy przynależą do *M* (model) we wzorcu MVC,
+    e. która warstwa przynależy do *C* (controller) we wzorcu MVC.
+
+    Ponadto zachęcam do zajrzenia do fajnego podsumowania w jęzku angielskim: https://anchormen.nl/blog/big-data-services/spring-boot-tutorial/ (do akapitu Implementation włącznie).
+
+4. Przypomnij sobie oznaczenia stosowane w diagramach UML, konkretnie przy diagramach klas: http://zasoby.open.agh.edu.pl/~09sbfraczek/diagram-klas%2C1%2C11.html
+
+Zadania do realizacji podczas zajęć
+-------------------------------------
+
+.. note::
+
+    Rozwój aplikacji będzie kontynuwany w ramach następnych laboratoriów. Rozwijając projekt proszę **stosować zasady git flow**,
+    które będą podlegać ocenie. Na masterze powinny się znaleźć tylko i wyłącznie wersje otagowane, gotowe do oceny.
+
+Schemat tagowania:
+
+.. code-block::
+
+    [nr laboratoriów].[nr ćwiczenia].[nr poprawki]
+
+| *nr laboratoriów* - numerujemy kolejno, zatem teraz **2**
+| *nr ćwiczenia* - proszę podać liczbą arabską
+| *nr poprawki* - większe od zera w przypadku naniesienia poprawek do ćwiczenia po wcześniejszym otagowaniu jako gotowe do oceny (hotfix)
+
+Ćwiczenie I - projekt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Narysuj diagram klas aplikacji na podstawie wymagań przedstawionych poniżej.
+Aplikacja musi zostać zaprojektowana zgodnie ze **wzorcem MVC** oraz poznaną **archtekturą warstwową**.
+Podwaliną aplikacji jest projekt utworzony na poprzednich laboratoriach zawierający już wartwę dostępu do bazy danych (trwałości danych ang. persistance layer).
+Projekt ma być **kontynuwany w sposób ciągły** - z zachowaniem historii repozytorium z poprzednich zajęć.
+
+Na dysku z materiałami do laboratoriów, pod adresem: https://drive.google.com/open?id=1_WIBdYZ-aAvrLt3qqHpaaQGyPiFfYXHD znajduje się diagram opisujący projekt z poprzednich laboratoriów
+narysowany za pomocą systemu draw.io. Można go edytować za pomocą aplikacji w przeglądarce: https://app.diagrams.net/ lub instalując wersję desktopową.
+Oczywiście diagram można narysować w dowolnym programie do rysowania diagramów. Musi zostać przygotowany **w formie elektronicznej**.
+
+Oznacz na diagramie warstwy:
+
+    * presentation layer
+    * business layer
+    * persistance layer
+
+Umieść diagram klas pod ścieżką *doc/class_diagram.pdf* w repozytorium.
+
+**Wymagania**
+
+Aplikacja ma być prostym REST API posiadającym następujące endpointy:
+
+| GET *.../api/product* - zwraca produkt o odpowiednim id,
+| GET *.../api/product/all* - zwraca listę wszystkich produktów,
+| POST *.../api/admin/product* - umieszcza nowy produkt w bazie,
+| PUT *.../api/admin/product* - modufikuje istniejący produkt o zadanym id,
+| PATCH *.../api/admin/product* - częściowo modyfikuje istniejący produkt o zadanym id,
+
+| GET *.../api/customer* - zwraca klienta o podanym id,
+| GET *.../api/customer/all* - zwraza listę wszystkich klientów,
+| POST *.../api/admin/customer* - umieszcza nowego klienta w bazie,
+| PUT *.../api/admin/customer* - modufikuje istniejącego klienta o zadanym id,
+| PATCH *.../api/admin/customer* - częściowo modyfikuje istniejącego klienta o podanym id,
+
+| GET *.../api/order* - zwraca zamówienie o podanym id,
+| GET *../api/order/all* - zwraza listę wszystkich zamówień,
+| POST *.../api/order* - umieszcza nowe zamówienie w bazie,
+| PUT *.../api/admin/order* - modufikuje istniejące zamówienie o zadanym id,
+| PATCH *.../api/admin/order* - częściowo modyfikuje istniejące zamówienie o podanym id.
+
+.. note::
+
+    Wszędzie gdzie jest mowa o zadanym/podanym id to należy je przekazać jako parametr żądania.
+    Dla przykładu w przypadku pobierania produktu o id równym 4 zapytanie będzie wyglądało następująco:
+
+    .. code-block::
+
+        GET .../api/product?id=4
+
+.. note::
+
+    Wszystkie ciała zapytań jak i odpowiedzi powinny być w formacje *JSON*
+
+
+Ćwiczenie II - implementacja
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Na podstawie projektu z ćwiczenia I, oraz w ramach rozwoju aplikacji z poprzednich zajęć zaimplementuj aplikację.
+
+W pliku *doc/exaples/requests.txt (w repozytorium) umieść po jedym przykładowym poprawnym zapytaniu do każdego z endpointów.
+
+Struktuta pliku powinna wyglądać następująco:
+
+    .. code-block::
+
+            [rodzaj_zapytania] [endpoint][parametry]
+            [ciało_zapytania]
+
+            [rodzaj_zapytania] [endpoint][parametry]
+            [ciało_zapytania]
+
+            .
+            .
+            .
+
+Dla przykładu:
+
+    .. code-block::
+
+        POST http://localhost:8080/api/admin/product
+        {
+            "name": "Kuuura",
+            "price": 2.55,
+            "avilable": true
+        }
+
+.. note::
+
+    Proszę zdefiniować domyślne ustawienia aplikacji tak, aby uruchamiała bazę danych H2 oraz wypełniała ją przykładowymi danymi (jeżeli jest pusta).
+    Oraz aby umieszczone tam dane pozwalały na otrzymanie poprawnych odpowiedzi na zapytania z pliku requests.txt
+
+.. note::
+
+    Pamiętaj o stosowaniu zasad git flow
+
+
+Ćwiczenie III - git flow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| Narysuj diagram pracy z gitem podczas realizacji projektu z naniesionymi komentarzami do commitów.
+| Umieść go na repozytorium pod ścieżką *doc/git_workflow.pdf*.
+
+Sprawozdanie
+----------------------
+
+Po realizacji ćwiczeń proszę o przesłanie linka do repozytorium w wiadomości prywatnej do prowadzącego na slacku.
+
+.. note::
+
+    Proszę pamiętać o nadaniu prowadzącemu odpowiednich praw dostępu do repozytorium!

@@ -1,0 +1,264 @@
+Spring I
+==========
+
+Zadania do wykonania przed zajęciami
+---------------------------------------
+
+Upewnij się, że masz poprawnie zainstalowaną javę za pomocą polecenia:
+
+.. code-block:: bash
+
+    $ java --version
+    openjdk 11.0.4 2019-07-16
+    OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.4+11)
+    OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.4+11, mixed mode)
+
+Jeżeli nie pojawiła się wersja to zainstaluj javę: https://www.oracle.com/java/technologies/javase-downloads.html .
+Sugerowana wersja: 11.
+
+Upewnij się, że zmienna środowiskowa *JAVA_HOME* jest poprawnie dodana do zmiennych środowiskowych:
+
+.. code-block:: bash
+
+    $ echo %JAVA_HOME%
+    C:\Program Files\Java\jdk1.7.0_51
+
+Jeżeli nie wyświetliła się ścieżka do jdk to postępuj zgodnie z instukcją: https://mkyong.com/java/how-to-set-java_home-on-windows-10/
+
+Sprawdź czy masz dodanego mavena do zmiennych środowiskowych za pomocą polecania:
+
+.. code-block:: bash
+
+    $ mvn --version
+
+Jeżeli nie pojawiła się zainstalowana wersja mavena, jedynie informacją, że nie rozpoznano
+polecania "mvn" to zainstaluj mavena zgodnie z instuckją: https://maven.apache.org/install.html
+
+
+Zadania do realizacji podczas zajęć
+-------------------------------------
+
+Ćwiczenie I ma na celu zaprezentować mechanizm tworzenia projektu
+
+Ćwiczenie I - utworzenie projektu z konsoli
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Utwórz katalog projektu *$ mkdir [nazwa_katalogu]*
+2. Przejdź do utworzonego katalogu *$ cd nazwa_katalogu*
+3. Utwórz plik *pom.xml* i umieść w nim następującą zawartość:
+
+.. code-block:: xml
+
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>[group_id]</groupId>
+        <artifactId>[artifact_id]</artifactId>
+        <version>1.0.0</version>
+        <name>[name]</name>
+        <description>[description]description>
+
+        <parent>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>2.2.5.RELEASE</version>
+        </parent>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+            </dependency>
+        </dependencies>
+
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </build>
+    </project>
+
+
+Pamiętaj aby uzupełnić treści oznaczone [...].
+
+Zależności dodane w pliku *pom.xml* definiują wersję springa, który zostanie wykorzystany w projekcie. Plugin *spring-boot-maven-plugin* umożliwia m.in.
+automatyczne wykrycie metody startowej programu na etapie budowania aplikacji.
+
+4. Utwórz katalogi na kod źródłowy aplikacji zgodnie ze standardowym układem katalogów: https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html
+
+.. code-block:: bash
+
+    np. src/main/edu/pwr/artifact_id
+
+5. W katalogu artifact_id utwórz plik *Application.java* i wypełnij go następującą treścią:
+
+.. code-block:: java
+
+    package group_id.artifact_id;
+
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+    @SpringBootApplication
+    public class Application {
+
+        public static void main(String[] args) throws Exception {
+            SpringApplication.run(Application.class, args);
+            System.out.println("Hello World!");
+        }
+    }
+
+6. Przejdź w konsoli do folderu nadrzędnego projektu i zbuduj aplikację poleceniem *$ mvn package*
+
+.. note::
+
+    W przypadku ponownego budowania aplikacji warto skorzystać wcześniej z polecenia *$ mvn clean*, które usunie wszytskie pliki ostatniego builda aplikacji.
+
+7. Jeżeli proces budowania aplikacji przebiegł pomyślnie powinien się automatycznie utworzyć folder *target*, w którym jest plik *artifact_id-1.0.0.jar*. Uruchom aplikację poleceniem: *$ java -jar target/artifact_id-1.0.0.jar*. W konsoli powinno wypisać się standardowe okno startowe springa oraz lista informacji inicjalizacyjnych. W ostatniej linijce powinien ukazać się napis "Hello World!".
+
+Ćwiczenie II - Spring Initializer i InteliJ
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+W tym ćwiczeniu zostanie utworzony taka sama aplikacja jak w ćwiczeniu pierwszym, ale z wykorzystaniem Spring Initializera.
+
+1. Skonfiguruj projekt analogicznie do ćwiczenia poprzedniego wykorzystując initializer: https://start.spring.io/
+
+.. note::
+
+    W tym wypadku nie ma potrzeby wybierania dodatkowych zależności
+
+2. Zaimportuj projekt do InteliJ
+3. W mainie dodaj na końcu linijkę:
+
+.. code-block:: java
+
+    System.out.println("Hello World!");
+
+4. Uruchom aplikację.
+
+Ćwiczenie III - Spring Web
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+W tym ćwiczeniu wybrany projekt z ćwiczenia II zostanie przerobiony na aplikację webową i zostanie dodany plik konfiguracyjny.
+
+1. Zainicjalizuj repozytorium lokalne w folderze z projektem i umieść projekt na gitlabie
+2. Otaguj aktualną wersję projektu jako *1.0.0*
+3. Kolejne kroki wykonuj zgodnie z zasadami git flow
+4. W *pom.xml* podmień fragment:
+
+.. code-block:: java
+
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+            </dependency>
+        </dependencies>
+
+na:
+
+.. code-block:: java
+
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+            </dependency>
+        </dependencies>
+
+5. Uwtówrz klasę *HelloController*, która będzie odpowiadać na zapytanie *GET* w endpoincie */hello*:
+
+.. code-block:: java
+
+    package group_id.artifact_id;
+
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RestController;
+
+    @RestController
+    public class HelloController {
+
+        @GetMapping("/hello")
+        public String hello() {
+            return "Hello World!";
+        }
+    }
+
+6. Uruchom aplikację
+7. Za pomocą przeglądarki oraz Postmana przetestuj poprawność działania wysyłając zapytanie *GET* na adres *localhost:8080/hello*.
+
+.. note::
+
+    Domyślnym zapytaniem wykonywanym przez przeglądarkę po wpisaniu URL w pasku adresu jest GET. Dlatego w tym wypadku możmy wykorzytsać przeglądarkę do testowania.
+
+
+Ćwiczenie IV - plik konfiguracyjny
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+W tym ćwiczeniu kontynuujemy rozwój projektu z ćwiczenia III.
+
+1. W katalogu *main/resources/* znajduje się plik *application.properties*
+2. Dla przykładu zmień port (z domyślnego: 8080) na 8008 umieszczając w *application.properties* linijkę:
+
+.. code-block::
+
+    serwer.port = 8008
+
+3. Uruchom aplikację
+4. Sprawdź za pomocą postmana lub przeglądarki odpowiedź na zapytanie GET skierowane do *localhost:8080/hello* oraz *localhost:8008/hello*
+5. W folderze *main/resources* utwórz drugi plik konfiguracyjny o nazwie *application-debug.properties*
+6. W tym pliku ustaw przykładowo port 8090
+7. Analogicznie do ćwiczenia I zbuduj aplikację z konsoli (można użyć terminala w InteliJ) i uruchom za pomocą polecenia:
+
+.. code-block:: bash
+
+    java -jar  target/[nazwa_builda].jar --spring.profiles.active=debug
+
+8. Sprawdź pod jakim portem nasłuchuje aplikacja
+
+    a. na podstawie logów w konsoli podczas uruchamiania
+    b. na podstawie zapytania get w przeglądarce lub postmanie
+
+9. Aby zakończyć aplikację uruchomioną w konsoli naciśnij kombinację kalwiszy *ctrl + c*
+10. Uruchom aplikację pomojając opcję *--spring.profiles.active=debug*
+11. Sprawdź pod jakim portem nasłuchuje aplikacja (analogicznie jak punkcie 8)
+12. Zakończ aplikację
+13. Checemy aby uruchamiając aplikację w InteliJ była ona startowana z profilem *debug*. W tym celu skonfiguruj InteliJ zgodnie z wyróżnioną odpowiedzią: https://stackoverflow.com/questions/39738901/how-do-i-activate-a-spring-boot-profile-when-running-from-intellij
+14. Uruchom aplikację z poziomu InteliJ i sprawdź na jakim porcie (z jakim profilem) się uruchomiła
+
+
+Sprawozdanie
+---------------------
+
+Proszę pamiętać, że za sprawozdanie przygotowane w LaTeX jest pół oceny wyżej.
+
+
+Ćwiczenie I - plik konfiguracyjny
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Podaj ścieżkę począwszy od katalogu nadrzędnego projektu, w której został umieszczony plik *Application.java*
+2. Zrzut z konsoli - komenda uruchomienia aplikacji + to co wypisało się do konsoli po wpisaniu komendy uruchomieniowej
+
+
+Ćwiczenie II - Spring Initializer i InteliJ
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Zrzut z konsoli po uruchomieniu aplikacji
+
+
+Ćwiczenie III - Spring Web
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Link do repozytorium (publicznego, lub po nadaniu praw dostępu prowadzącemu)
+2. Zrzut ekranu z wykonanego zapytania
+
+
+Ćwiczenie IV - plik konfiguracyjny
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Zrzut ekranu z informacjami z podpunktu 8. oraz 11.
+2. Zrzut ekranu po uruchomieniu aplikacji w IntreliJ (z widocznym oknem *Run* i wypisanymi tam logami)
+

@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spring MVC &mdash; Inżynieria oprogramowania laboratorium 0.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spring Security na ocenę max 4.0" href="security.html" />
+    <link rel="prev" title="Spring Data" href="db.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Inżynieria oprogramowania laboratorium
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Zawartość</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="zaliczenie.html">Zasady zaliczenia laboratoriów</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git - podstawowe narzędzie programisty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restapi.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring1.html">Spring I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Spring Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-wykonania-przed-zajeciami">Zadania do wykonania przed zajęciami</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mvc-architektura-warstwowa-aplikacji">MVC, architektura warstwowa aplikacji</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#zadania-do-realizacji-podczas-zajec">Zadania do realizacji podczas zajęć</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-i-projekt">Ćwiczenie I - projekt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-ii-implementacja">Ćwiczenie II - implementacja</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwiczenie-iii-git-flow">Ćwiczenie III - git flow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sprawozdanie">Sprawozdanie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Spring Security na ocenę max 4.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security2.html">Spring Security na ocenę max 5.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Kontenery Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dokumentacja.html">Dokumentacja</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">Wdrożenie aplikacji na CLOUD</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Inżynieria oprogramowania laboratorium</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Spring MVC</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/mvc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spring-mvc">
+<h1>Spring MVC<a class="headerlink" href="#spring-mvc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="zadania-do-wykonania-przed-zajeciami">
+<h2>Zadania do wykonania przed zajęciami<a class="headerlink" href="#zadania-do-wykonania-przed-zajeciami" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mvc-architektura-warstwowa-aplikacji">
+<h3>MVC, architektura warstwowa aplikacji<a class="headerlink" href="#mvc-architektura-warstwowa-aplikacji" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Przypomnij sobie jak wygląda wzorzec MVC: <a class="reference external" href="https://dev-wannabe.pl/wzorzec-model-view-controller/">https://dev-wannabe.pl/wzorzec-model-view-controller/</a></p></li>
+<li><p>Zerknij jak to działa we wnętrzu Spring Boota: <a class="reference external" href="https://dev-wannabe.pl/spring-mvc/">https://dev-wannabe.pl/spring-mvc/</a> , <a class="reference external" href="https://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm">https://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm</a></p></li>
+<li><p>Poczytaj czym jest architektura warstwowa: <a class="reference external" href="https://nullpointerexception.pl/architektura-warstwowa-sposob-na-organizacje-kodu/">https://nullpointerexception.pl/architektura-warstwowa-sposob-na-organizacje-kodu/</a></p>
+<p>Zwróć uwagę na:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>kierunkowość zależności pomiędzy warstwami,</p></li>
+<li><p>odpowiedzialności każdej warstwy,</p></li>
+<li><p>standardowy sposób reprezentacji warstw w Springu (kontrolery, serwisy i repozytoria),</p></li>
+<li><p>które warstwy przynależą do <em>M</em> (model) we wzorcu MVC,</p></li>
+<li><p>która warstwa przynależy do <em>C</em> (controller) we wzorcu MVC.</p></li>
+</ol>
+<p>Ponadto zachęcam do zajrzenia do fajnego podsumowania w jęzku angielskim: <a class="reference external" href="https://anchormen.nl/blog/big-data-services/spring-boot-tutorial/">https://anchormen.nl/blog/big-data-services/spring-boot-tutorial/</a> (do akapitu Implementation włącznie).</p>
+</div></blockquote>
+</li>
+<li><p>Przypomnij sobie oznaczenia stosowane w diagramach UML, konkretnie przy diagramach klas: <a class="reference external" href="http://zasoby.open.agh.edu.pl/~09sbfraczek/diagram-klas%2C1%2C11.html">http://zasoby.open.agh.edu.pl/~09sbfraczek/diagram-klas%2C1%2C11.html</a></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="zadania-do-realizacji-podczas-zajec">
+<h2>Zadania do realizacji podczas zajęć<a class="headerlink" href="#zadania-do-realizacji-podczas-zajec" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rozwój aplikacji będzie kontynuwany w ramach następnych laboratoriów. Rozwijając projekt proszę <strong>stosować zasady git flow</strong>,
+które będą podlegać ocenie. Na masterze powinny się znaleźć tylko i wyłącznie wersje otagowane, gotowe do oceny.</p>
+</div>
+<p>Schemat tagowania:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">nr</span> <span class="n">laboratoriów</span><span class="p">]</span><span class="o">.</span><span class="p">[</span><span class="n">nr</span> <span class="n">ćwiczenia</span><span class="p">]</span><span class="o">.</span><span class="p">[</span><span class="n">nr</span> <span class="n">poprawki</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><em>nr laboratoriów</em> - numerujemy kolejno, zatem teraz <strong>2</strong></div>
+<div class="line"><em>nr ćwiczenia</em> - proszę podać liczbą arabską</div>
+<div class="line"><em>nr poprawki</em> - większe od zera w przypadku naniesienia poprawek do ćwiczenia po wcześniejszym otagowaniu jako gotowe do oceny (hotfix)</div>
+</div>
+<div class="section" id="cwiczenie-i-projekt">
+<h3>Ćwiczenie I - projekt<a class="headerlink" href="#cwiczenie-i-projekt" title="Permalink to this headline">¶</a></h3>
+<p>Narysuj diagram klas aplikacji na podstawie wymagań przedstawionych poniżej.
+Aplikacja musi zostać zaprojektowana zgodnie ze <strong>wzorcem MVC</strong> oraz poznaną <strong>archtekturą warstwową</strong>.
+Podwaliną aplikacji jest projekt utworzony na poprzednich laboratoriach zawierający już wartwę dostępu do bazy danych (trwałości danych ang. persistance layer).
+Projekt ma być <strong>kontynuwany w sposób ciągły</strong> - z zachowaniem historii repozytorium z poprzednich zajęć.</p>
+<p>Na dysku z materiałami do laboratoriów, pod adresem: <a class="reference external" href="https://drive.google.com/open?id=1_WIBdYZ-aAvrLt3qqHpaaQGyPiFfYXHD">https://drive.google.com/open?id=1_WIBdYZ-aAvrLt3qqHpaaQGyPiFfYXHD</a> znajduje się diagram opisujący projekt z poprzednich laboratoriów
+narysowany za pomocą systemu draw.io. Można go edytować za pomocą aplikacji w przeglądarce: <a class="reference external" href="https://app.diagrams.net/">https://app.diagrams.net/</a> lub instalując wersję desktopową.
+Oczywiście diagram można narysować w dowolnym programie do rysowania diagramów. Musi zostać przygotowany <strong>w formie elektronicznej</strong>.</p>
+<p>Oznacz na diagramie warstwy:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>presentation layer</p></li>
+<li><p>business layer</p></li>
+<li><p>persistance layer</p></li>
+</ul>
+</div></blockquote>
+<p>Umieść diagram klas pod ścieżką <em>doc/class_diagram.pdf</em> w repozytorium.</p>
+<p><strong>Wymagania</strong></p>
+<p>Aplikacja ma być prostym REST API posiadającym następujące endpointy:</p>
+<div class="line-block">
+<div class="line">GET <em>…/api/product</em> - zwraca produkt o odpowiednim id,</div>
+<div class="line">GET <em>…/api/product/all</em> - zwraca listę wszystkich produktów,</div>
+<div class="line">POST <em>…/api/admin/product</em> - umieszcza nowy produkt w bazie,</div>
+<div class="line">PUT <em>…/api/admin/product</em> - modufikuje istniejący produkt o zadanym id,</div>
+<div class="line">PATCH <em>…/api/admin/product</em> - częściowo modyfikuje istniejący produkt o zadanym id,</div>
+</div>
+<div class="line-block">
+<div class="line">GET <em>…/api/customer</em> - zwraca klienta o podanym id,</div>
+<div class="line">GET <em>…/api/customer/all</em> - zwraza listę wszystkich klientów,</div>
+<div class="line">POST <em>…/api/admin/customer</em> - umieszcza nowego klienta w bazie,</div>
+<div class="line">PUT <em>…/api/admin/customer</em> - modufikuje istniejącego klienta o zadanym id,</div>
+<div class="line">PATCH <em>…/api/admin/customer</em> - częściowo modyfikuje istniejącego klienta o podanym id,</div>
+</div>
+<div class="line-block">
+<div class="line">GET <em>…/api/order</em> - zwraca zamówienie o podanym id,</div>
+<div class="line">GET <em>../api/order/all</em> - zwraza listę wszystkich zamówień,</div>
+<div class="line">POST <em>…/api/order</em> - umieszcza nowe zamówienie w bazie,</div>
+<div class="line">PUT <em>…/api/admin/order</em> - modufikuje istniejące zamówienie o zadanym id,</div>
+<div class="line">PATCH <em>…/api/admin/order</em> - częściowo modyfikuje istniejące zamówienie o podanym id.</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wszędzie gdzie jest mowa o zadanym/podanym id to należy je przekazać jako parametr żądania.
+Dla przykładu w przypadku pobierania produktu o id równym 4 zapytanie będzie wyglądało następująco:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET .../api/product?id=4
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wszystkie ciała zapytań jak i odpowiedzi powinny być w formacje <em>JSON</em></p>
+</div>
+</div>
+<div class="section" id="cwiczenie-ii-implementacja">
+<h3>Ćwiczenie II - implementacja<a class="headerlink" href="#cwiczenie-ii-implementacja" title="Permalink to this headline">¶</a></h3>
+<p>Na podstawie projektu z ćwiczenia I, oraz w ramach rozwoju aplikacji z poprzednich zajęć zaimplementuj aplikację.</p>
+<p>W pliku <a href="#id1"><span class="problematic" id="id2">*</span></a>doc/exaples/requests.txt (w repozytorium) umieść po jedym przykładowym poprawnym zapytaniu do każdego z endpointów.</p>
+<p>Struktuta pliku powinna wyglądać następująco:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">rodzaj_zapytania</span><span class="p">]</span> <span class="p">[</span><span class="n">endpoint</span><span class="p">][</span><span class="n">parametry</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ciało_zapytania</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">rodzaj_zapytania</span><span class="p">]</span> <span class="p">[</span><span class="n">endpoint</span><span class="p">][</span><span class="n">parametry</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ciało_zapytania</span><span class="p">]</span>
+
+<span class="o">.</span>
+<span class="o">.</span>
+<span class="o">.</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Dla przykładu:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">product</span>
+<span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kuuura&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">2.55</span><span class="p">,</span>
+    <span class="s2">&quot;avilable&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Proszę zdefiniować domyślne ustawienia aplikacji tak, aby uruchamiała bazę danych H2 oraz wypełniała ją przykładowymi danymi (jeżeli jest pusta).
+Oraz aby umieszczone tam dane pozwalały na otrzymanie poprawnych odpowiedzi na zapytania z pliku requests.txt</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pamiętaj o stosowaniu zasad git flow</p>
+</div>
+</div>
+<div class="section" id="cwiczenie-iii-git-flow">
+<h3>Ćwiczenie III - git flow<a class="headerlink" href="#cwiczenie-iii-git-flow" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Narysuj diagram pracy z gitem podczas realizacji projektu z naniesionymi komentarzami do commitów.</div>
+<div class="line">Umieść go na repozytorium pod ścieżką <em>doc/git_workflow.pdf</em>.</div>
+</div>
+</div>
+</div>
+<div class="section" id="sprawozdanie">
+<h2>Sprawozdanie<a class="headerlink" href="#sprawozdanie" title="Permalink to this headline">¶</a></h2>
+<p>Po realizacji ćwiczeń proszę o przesłanie linka do repozytorium w wiadomości prywatnej do prowadzącego na slacku.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Proszę pamiętać o nadaniu prowadzącemu odpowiednich praw dostępu do repozytorium!</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="security.html" class="btn btn-neutral float-right" title="Spring Security na ocenę max 4.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="db.html" class="btn btn-neutral float-left" title="Spring Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Arkadiusz Ziółkowski, Mateusz Milian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

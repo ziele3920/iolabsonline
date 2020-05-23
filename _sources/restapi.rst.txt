@@ -1,0 +1,78 @@
+REST API
+=========
+
+Zadania do wykonania przed zajęciami
+---------------------------------------
+
+Zapoznanie się z zagadnieniem REST Api:
+https://www.youtube.com/watch?v=P9b8-BrWdYs&vl=pl
+https://devszczepaniak.pl/wstep-do-rest-api/
+
+Zapoznanie się z obsługą postmana:
+https://fsgeek.pl/post/badz-produktywny-podstawy-postmana/
+
+Przejrzenie podstawowych kodów odpowiedzi:
+https://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP
+
+Zadania do realizacji podczas zajęć
+-------------------------------------
+
+Wprowadzenie
+^^^^^^^^^^^^^
+
+Proszę wykonać kilka wybranych zapytań GET, POST, PUT, DELETE korzystając z opisu w dokumentacji:
+https://docs.api.getpostman.com/?version=latest
+Proszę nie uwzglęcniać tego w sprawozdaniu.
+
+Ćwiczenie I
+^^^^^^^^^^^^^
+
+Wykonaj korzystając z dokumentacji: http://dummy.restapiexample.com/
+Jest to przykładowe REST API, które reprezentuje bazę pracowników. API pozwala na
+pobieranie informacji dotyczących pracowników, tworzenie nowych pracowników,
+modyfikowanie danych istniejących pracowników oraz usuwanie pracowników.
+
+.. note::
+
+    Każde zapytanie wykonaj w oddzielnej karcie. Na koniec zaprezentuj wykonane
+    zapytania prowadzącemu.
+
+1. Pobierz dane wszystkich pracowników.
+2. Spośród uzyskanych wyników wybierz jednego pracownika i pobierz tylko jego dane w nowym zapytaniu.
+3. Utwórz nowego pracownika.
+4. Zmodyfikuj dane nowo utworzonego pracownika zwiększając mu pensję.
+5. Pobierz dane dotyczące utworzonego pracownika.
+6. Usuń utworzonego pracownika.
+
+Dodatkowo zobacz jakie kody odpowiedzi zwrócą następujące zapytania:
+
+    a) Pobranie danych nieistniejącego pracownika.
+    b) Wykonanie zapytania do nieistniejącego zasobu (endpointa) np. poprzez literówkę w adresie URL zapytania.
+
+	
+Ćwiczenie II
+^^^^^^^^^^^^^
+Ćwiczenie mające na celu wykorzyatnie mechanizmu prostego uwierzytalniania użytkownika. Do tego celu posłuży api yelp.com, które jest wyszukiwarką firm, wydarzeń i innych:
+https://www.yelp.com/developers/documentation/v3
+
+1. Przejdź do zakładki Yelp Fusion -> Introduction i wykonaj "authentication guide".
+2. Wyszukaj fast foody typu McDonalds w Poznaniu.
+3. Wyszukaj restauracje we Wrocławiu posortowaneje według ocen.
+4. Znajdź informacje szczegółowe dotyczące restauracji wybranej spośród znalezionych w zadaniu 2.
+5. Znajdź opinie dotyczące wybranej restauracji.
+6. Wyszukaj firmę do której należy numer telefonu: +14157492060.
+7. Wyszukaj wydarzenia rozpoczynjące się po 07.14.2019 13:00 (UTC).
+
+Do podpuntu 7. może okazać się pomocne: https://www.unixtimestamp.com/index.php
+
+Sprawozdanie
+---------------------
+
+1. W sprawozdaniu proszę zawrzeć zapytania wykonane oraz otrzymane odpowiedzi z ćwiczeń I oraz II. Jeżeli odpowiedź jest dłuższa niż 10 linijek proszę zawrzeć tylko fragment odpowiedzi.
+2. Proszę opisać trzy wybrane sposoby autoryzacji użytkownika. Krótko - co należy dosatrczyć aby uzyskać autoryzację oraz wady i zalety, maks 8 zdań na jeden sposób.
+3. Proszę opisać swoimi słowami do czego służy postman. Maks 3 zdania.
+
+
+
+
+
