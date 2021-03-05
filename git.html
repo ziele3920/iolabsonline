@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="REST API" href="restapi.html" />
-    <link rel="prev" title="Zasady zaliczenia laboratoriów" href="zaliczenie.html" /> 
+    <link rel="prev" title="Przygotowanie do zajęć" href="przygotowanie.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,9 +87,11 @@
               <p class="caption"><span class="caption-text">Zawartość</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="zaliczenie.html">Zasady zaliczenia laboratoriów</a></li>
+<li class="toctree-l1"><a class="reference internal" href="przygotowanie.html">Przygotowanie do zajęć</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Git - podstawowe narzędzie programisty</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#zadania-do-wykonania-przed-zajeciami">Zadania do wykonania przed zajęciami</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#zadania-do-realizacji-podczas-zajec">Zadania do realizacji podczas zajęć</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sprawozdanie">Sprawozdanie</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="restapi.html">REST API</a></li>
@@ -172,10 +174,19 @@
 <h1>Git - podstawowe narzędzie programisty<a class="headerlink" href="#git-podstawowe-narzedzie-programisty" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="zadania-do-wykonania-przed-zajeciami">
 <h2>Zadania do wykonania przed zajęciami<a class="headerlink" href="#zadania-do-wykonania-przed-zajeciami" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Zapoznaj się z Git Flow: <a class="reference external" href="https://codecouple.pl/2016/02/11/gitflow-workflow-model-pracy-z-gitem/">https://codecouple.pl/2016/02/11/gitflow-workflow-model-pracy-z-gitem/</a></p></li>
+<ul>
 <li><p>Jeżeli czujesz braki z gita to przeczytaj trzy pierwsze rozdziały: <a class="reference external" href="https://git-scm.com/book/pl/v2/">https://git-scm.com/book/pl/v2/</a></p></li>
-<li><p>Na zajęcia zabierz ze sobą kartkę papieru i długopis.</p></li>
+<li><p>Zapoznaj się z Git Flow: <a class="reference external" href="https://codecouple.pl/2016/02/11/gitflow-workflow-model-pracy-z-gitem/">https://codecouple.pl/2016/02/11/gitflow-workflow-model-pracy-z-gitem/</a></p></li>
+<li><p>Zainstaluj gita: <a class="reference external" href="https://git-scm.com/book/pl/v2/Pierwsze-kroki-Instalacja-Git">https://git-scm.com/book/pl/v2/Pierwsze-kroki-Instalacja-Git</a></p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Podczas zajęć korzystamy z poleceń tekstowych gita wpisywanych do konsoli. Można wprowadzać je z poziomu terminala w InteliJ,
+terminala linuxowego, wiersza poleceń lub terminala <em>Git Bash</em> instalowanego razem z gitem na Windowsie. Aby uruchomić <em>Git Bash</em>
+należy kliknąć prawym przyciskiem myszy w lokalizacji, w której ma się uruchomić i wybrać <em>Git Bash Here</em>.</p>
+</div>
+</div></blockquote>
+</li>
 </ul>
 </div>
 <div class="section" id="zadania-do-realizacji-podczas-zajec">
@@ -185,16 +196,20 @@
 <p>Wszytskie polecenia gita realizujemy za pomocą konsoli.</p>
 </div>
 <ol class="arabic simple">
-<li><p>Utwórz nowe, puste repozytorium na <a class="reference external" href="https://gitlab.com/">https://gitlab.com/</a>.</p></li>
+<li><p>Utwórz nowe, puste repozytorium na <a class="reference external" href="https://gitlab.com/">https://gitlab.com/</a> . Będąc na stronie głównej jako zalogowany użytkownik należy klinąć kolejno:
+<strong>New project</strong> -&gt; <strong>Create blank project</strong>. W polu “Project slug” wpisz <strong>calculator</strong>.
+Repozytorium, wedle uznania może być prywatne lub publiczne. Po kliknięciu przycisku <em>Create project</em>  repozytorium zostanie
+utworzone i wyświetlą się dane, wśród których znajdziemy URL utworzonego repozytorium.</p></li>
 <li><p>Utwórz w Intelij nowy, mavenowy projekt - <strong>Calculator</strong>. Podczas tworzenia projektu wybierz minimalnie <strong>javę 8</strong> jako <strong>Project SDK</strong>.</p></li>
 <li><p>Zainicjalizuj lokalne repozytorium w katalogu z projektem - <strong>$ git init</strong>.</p></li>
 <li><p>Dodaj plik <strong>.gitignore</strong>. Wyłącz ze śledzenia folder <strong>target</strong> oraz <strong>.idea</strong>.</p></li>
 <li><p>Utwórz klasę <strong>CalculatorLauncher</strong> i utwórz w niej metodę <strong>main</strong>. W metodzie main wypisz do konsoli napis <strong>Coming soon</strong>.</p></li>
-<li><p>Przypisz lokalnemu repozytorium adres zdalnego repozytorium nadając mu alias <strong>origin</strong>.</p></li>
-<li><p>Zatwierdź zmiany podając komentarz: <strong>Initial commit</strong>.</p></li>
-<li><p>Wrzuć zmiany na <strong>zdalną</strong> gałąź <strong>master</strong>.</p></li>
-<li><p>Otaguj ostatni commit jako pierwsze “oficjalne” wydanie <strong>v0.0.1</strong></p></li>
-<li><p>Wrzuć tag na repozytorium zdalne.</p></li>
+<li><p>Przypisz lokalnemu repozytorium adres zdalnego repozytorium nadając mu alias <strong>origin</strong>: <strong>$ git remote add origin https…</strong>.</p></li>
+<li><p>Dodaj wszytskie pliki do śledzenia <strong>$ git add -A</strong>.</p></li>
+<li><p>Zatwierdź zmiany podając komentarz: <strong>Initial commit</strong>. Pamiętaj, że do każdego “commita” należy dodać komentarz, czyli użyć flagi <strong>-m</strong>: <strong>$ git commit -m “komenatrz”</strong>.</p></li>
+<li><p>Wrzuć zmiany na <strong>zdalną</strong> gałąź <strong>master</strong>: <strong>$ git push origin master</strong>.</p></li>
+<li><p>Otaguj ostatni commit jako pierwsze “oficjalne” wydanie <strong>v0.0.1</strong>, patrz: <a class="reference external" href="https://git-scm.com/book/pl/v2/Podstawy-Gita-Tagowanie">https://git-scm.com/book/pl/v2/Podstawy-Gita-Tagowanie</a></p></li>
+<li><p>Wrzuć tag na repozytorium zdalne, patrz link w punkcie wyżej, sekcja <em>Wspłódzielenie etykiet</em>.</p></li>
 <li><p>Zachowując zasady Git Flow zaimplementuj 4 funkcjonalności (przed implementacją patrz uwagi poniżej):</p>
 <ul class="simple">
 <li><p>dodawanie,</p></li>
@@ -220,11 +235,31 @@
 <li><p>Zrób szybką poprawkę, w której obsłużysz przypadek dzielenia przez zero i oznacz nowe wydanie jako <strong>v0.2.1</strong>.</p></li>
 </ul>
 </div>
-<ol class="arabic simple" start="12">
-<li><p>Narysuj na kartce schematycznie historię swojego repozytorium i zaprezentuj prowadzącemu zajęcia. Przed wykonaniem dalszej części poczekaj na akceptację przez prowadzącego.</p></li>
+<ol class="arabic" start="13">
 <li><p>Pozostając na gałęzi <strong>master</strong> zaimplementuj w klasie <strong>Calculator</strong> metodę potęgowania. Skorzystaj z istniejących metod w pakiecie matematycznym. Nie zatwierdzaj (nie commituj) zmian na masterze. Nowe funkcjonalności nie mogą być bezpośrednio dodawane na gałęzi master.</p></li>
 <li><p>Wykorzystując polecenie <strong>stash</strong> zaktualizuj gałąź <strong>dev</strong> do aktualnej wersji <strong>mastera</strong> wraz z wprowadzoną implementacją potęgowania. Na gałęzi <strong>dev</strong> zatwierdź implementację potęgowania i wrzuć na <strong>mastera</strong> wersję <strong>v0.3.0</strong> zawierającą potęgowanie.</p></li>
+<li><p>Narysuj na kartce/w dowolnym programie (np. <a class="reference external" href="https://app.diagrams.net/">https://app.diagrams.net/</a>) schematycznie historię swojego repozytorium.</p></li>
+<li><p>Dodaj prowadzącego jako członka repozytorium. W tym celu na stronie <a class="reference external" href="https://gitlab.com/">https://gitlab.com/</a> przejdź do swojego projektu i z listy po lewej stronie ekranu wybierz <strong>Members</strong>:</p>
+<a class="reference internal image-reference" href="_images/member.png"><img alt="_images/member.png" class="align-center" src="_images/member.png" style="width: 650px;" /></a>
+<p>W polu <em>GitLab member or Email address</em> wpisz adres email lub nick prowadzącego laboratorium, który znajdziesz na tablicy kursu na eportalu.
+Wśród opcji <em>Choose a role permission</em> należy wybrać <strong>Developer</strong> (aby zapewnić wgląd prowadzącemu do kodu) i kliknąć <strong>Invite</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sprawozdanie należy wysłać dopiero po nadaniu uprawnień do repozytrium prowadzącemu laboratoria. W przypadku braku dostępu do repozytorium zadanie traktuje się jako niewykonane.</p>
+</div>
+</li>
 </ol>
+</div>
+<div class="section" id="sprawozdanie">
+<h2>Sprawozdanie<a class="headerlink" href="#sprawozdanie" title="Permalink to this headline">¶</a></h2>
+<p>Plik przedstawiający schemat z punktu 14.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Zadanie z gita musi zostać wykonane prawidłowo. Należy zwrócić uwagę na poprawność wykonania wszytskich podpunktów oraz czy schemat odzwierciedla stan repozytorium.
+Mnogość podejść do ćwiczenia skutkuje niższą oceną za jego realizację.</p>
+</div>
+</div></blockquote>
 </div>
 </div>
 
@@ -235,7 +270,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="restapi.html" class="btn btn-neutral float-right" title="REST API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="zaliczenie.html" class="btn btn-neutral float-left" title="Zasady zaliczenia laboratoriów" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="przygotowanie.html" class="btn btn-neutral float-left" title="Przygotowanie do zajęć" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
