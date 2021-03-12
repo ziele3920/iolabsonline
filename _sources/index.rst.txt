@@ -11,6 +11,8 @@ Inżynieria oprogramowania - laboratorium
     :caption: Zawartość
 
     zaliczenie
+    przygotowanie
+    harmonogram
     git
     restapi
     spring1

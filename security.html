@@ -88,6 +88,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="zaliczenie.html">Zasady zaliczenia laboratoriów</a></li>
 <li class="toctree-l1"><a class="reference internal" href="przygotowanie.html">Przygotowanie do zajęć</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harmonogram.html">Harmonogram nadsyłania sprawozdań</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git - podstawowe narzędzie programisty</a></li>
 <li class="toctree-l1"><a class="reference internal" href="restapi.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spring1.html">Spring I</a></li>
@@ -265,7 +266,7 @@ Zapytania:</p>
 <div class="line">GET <em>../api/order/all</em> - zwraza listę wszystkich zamówień,</div>
 <div class="line">POST <em>…/api/order</em> - umieszcza nowe zamówienie w bazie,</div>
 </div>
-<p><strong>powinny być dostępne dla każdego</strong>, zapytania:</p>
+<p><strong>dla zalogowanych użytkowników posiadających uprawnienia klienta</strong> (ROLE_CUSTOMER) <strong>oraz administoratora</strong> (ROLE_ADMIN), zapytania:</p>
 <div class="line-block">
 <div class="line">GET <em>…/api/customer</em> - zwraca klienta o podanym id,</div>
 <div class="line">GET <em>…/api/customer/all</em> - zwraza listę wszystkich klientów,</div>

@@ -109,7 +109,7 @@ Zapytania:
 | GET *../api/order/all* - zwraza listę wszystkich zamówień,
 | POST *.../api/order* - umieszcza nowe zamówienie w bazie,
 
-**powinny być dostępne dla każdego**, zapytania:
+**dla zalogowanych użytkowników posiadających uprawnienia klienta** (ROLE_CUSTOMER) **oraz administoratora** (ROLE_ADMIN), zapytania:
 
 | GET *.../api/customer* - zwraca klienta o podanym id,
 | GET *.../api/customer/all* - zwraza listę wszystkich klientów,

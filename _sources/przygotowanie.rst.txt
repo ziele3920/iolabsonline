@@ -1,0 +1,56 @@
+Przygotowanie do zajęć
+===================================================
+
+Dołączenie do Slacka
+-------------------------------------
+
+1. Aby dołączyć do slacka skorzstaj z linku:  https://join.slack.com/t/io20202021/shared_invite/zt-mvmw3rqd-~yXbnGlTvV0tos1YAhuNEQ
+2. Zarejestruj się używając maila studenckiego
+3. Podczas dołączania jako "Full name" wpisz swoje imię i nazwisko
+4. Nie wszystkie kanały są domyślnie subskrybowane. Na obzaku poniżej kanał "laboratorium" jest wyszarzony. Oznacza to,
+   że powiadomienia o wiadomościach z tego kanału nie będą przesyłane.
+
+    .. image:: img/ns_channel.png
+        :width: 250
+        :align: center
+
+5. Aby subskrybować kanał należy na niego kliknąć a następnie nacisnąć chyba zielony przycisk "Join channel" (obrazek poniżej).
+
+    .. image:: img/join_channel.png
+        :width: 650
+        :align: center
+
+6. Gdy chcesz kogoś wspomnieć użyj znaku "@" i wybierz osobę/kanał.
+7. Zawsze gdy chcesz wkleić fragment kodu na slacka użyj opcji "Create a text snippet". Znajdziesz ją klikając skróty (symbol pioruna) w oknie tworzenia wiadomości:
+
+    .. image:: img/code_snip.png
+        :width: 250
+        :align: center
+
+W okno "Content" wklej fragment kodu. Możesz nadać nazwę pliku w polu "Title".
+
+    .. image:: img/code_snip_2.png
+        :width: 400
+        :align: center
+
+Poniżej przedstawiono jak wygląda prawidłowo wklejony kod. Jeżeli kod nie został pokolorowany powtórz powyższe czynności z wyszukaniem wprowadzanego języka programownia w polu "Type".
+
+    .. image:: img/code_snip_res.png
+        :width: 550
+        :align: center
+
+    .. note::
+        Slack w godzinach nocnych proponuje żeby nie wysyłać powiadomieć do innych użytkowników. Zawsze gdy taka propozycja się pojawi względem prowadzącego to kliknij
+        żeby mimo wszystko powiadomienie zostało wysłane. Zmniejszy to prawdopodobieńśtwo przeoczenia wiadomości przez prowadzącego.
+
+
+InteliJ
+-------------------------------------
+
+Należy zgłosić się po licencję dla InteliJ Ultimate https://www.jetbrains.com/community/education/#students (rekomendowane) lub zainstalować wersję Community.
+Instalatory są dostępne pod adresem: https://www.jetbrains.com/idea/download/#section=windows
+
+Linux - dla chętnych
+-------------------------------------
+
+Pełna instrukcja przygotowania maszyny wirtualnej z linuxem znajduje się pod adresem:  https://drive.google.com/file/d/1Q8_Pot5Fba1uyfZpH0y0ui0wsvbfiWGo/view?usp=sharing

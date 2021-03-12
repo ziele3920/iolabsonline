@@ -22,6 +22,7 @@ MVC, architektura warstwowa aplikacji
     Ponadto zachęcam do zajrzenia do fajnego podsumowania w jęzku angielskim: https://anchormen.nl/blog/big-data-services/spring-boot-tutorial/ (do akapitu Implementation włącznie).
 
 4. Przypomnij sobie oznaczenia stosowane w diagramach UML, konkretnie przy diagramach klas: http://zasoby.open.agh.edu.pl/~09sbfraczek/diagram-klas%2C1%2C11.html
+5. Zobacz tutorial, zwrócić uwagę na to w jaki sposób są tworzone obiekty na podstawie przesłanych ciał zapytań i jakie jest nazewnictwo kontrolerów, serwisów i repozytoriów: https://www.youtube.com/watch?v=XdtbRkN97go&feature=emb_err_watch_on_yt
 
 Zadania do realizacji podczas zajęć
 -------------------------------------

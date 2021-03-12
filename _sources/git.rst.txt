@@ -4,9 +4,15 @@ Git - podstawowe narzędzie programisty
 Zadania do wykonania przed zajęciami
 ---------------------------------------
 
-* Zapoznaj się z Git Flow: https://codecouple.pl/2016/02/11/gitflow-workflow-model-pracy-z-gitem/
 * Jeżeli czujesz braki z gita to przeczytaj trzy pierwsze rozdziały: https://git-scm.com/book/pl/v2/
-* Na zajęcia zabierz ze sobą kartkę papieru i długopis.
+* Zapoznaj się z Git Flow: https://codecouple.pl/2016/02/11/gitflow-workflow-model-pracy-z-gitem/
+* Zainstaluj gita: https://git-scm.com/book/pl/v2/Pierwsze-kroki-Instalacja-Git
+
+    .. note::
+
+        Podczas zajęć korzystamy z poleceń tekstowych gita wpisywanych do konsoli. Można wprowadzać je z poziomu terminala w InteliJ,
+        terminala linuxowego, wiersza poleceń lub terminala *Git Bash* instalowanego razem z gitem na Windowsie. Aby uruchomić *Git Bash*
+        należy kliknąć prawym przyciskiem myszy w lokalizacji, w której ma się uruchomić i wybrać *Git Bash Here*.
 
 
 Zadania do realizacji podczas zajęć
@@ -16,17 +22,21 @@ Zadania do realizacji podczas zajęć
 
     Wszytskie polecenia gita realizujemy za pomocą konsoli.
 
-1. Utwórz nowe, puste repozytorium na https://gitlab.com/.
+1. Utwórz nowe, puste repozytorium na https://gitlab.com/ . Będąc na stronie głównej jako zalogowany użytkownik należy klinąć kolejno:
+   **New project** -> **Create blank project**. W polu "Project slug" wpisz **calculator**.
+   Repozytorium, wedle uznania może być prywatne lub publiczne. Po kliknięciu przycisku *Create project*  repozytorium zostanie
+   utworzone i wyświetlą się dane, wśród których znajdziemy URL utworzonego repozytorium.
 2. Utwórz w Intelij nowy, mavenowy projekt - **Calculator**. Podczas tworzenia projektu wybierz minimalnie **javę 8** jako **Project SDK**.
 3. Zainicjalizuj lokalne repozytorium w katalogu z projektem - **$ git init**.
 4. Dodaj plik **.gitignore**. Wyłącz ze śledzenia folder **target** oraz **.idea**.
 5. Utwórz klasę **CalculatorLauncher** i utwórz w niej metodę **main**. W metodzie main wypisz do konsoli napis **Coming soon**.
-6. Przypisz lokalnemu repozytorium adres zdalnego repozytorium nadając mu alias **origin**.
-7. Zatwierdź zmiany podając komentarz: **Initial commit**.
-8. Wrzuć zmiany na **zdalną** gałąź **master**.
-9. Otaguj ostatni commit jako pierwsze “oficjalne” wydanie **v0.0.1**
-10. Wrzuć tag na repozytorium zdalne.
-11. Zachowując zasady Git Flow zaimplementuj 4 funkcjonalności (przed implementacją patrz uwagi poniżej):
+6. Przypisz lokalnemu repozytorium adres zdalnego repozytorium nadając mu alias **origin**: **$ git remote add origin https...**.
+7. Dodaj wszytskie pliki do śledzenia **$ git add -A**.
+8. Zatwierdź zmiany podając komentarz: **Initial commit**. Pamiętaj, że do każdego "commita" należy dodać komentarz, czyli użyć flagi **-m**: **$ git commit -m "komenatrz"**.
+9. Wrzuć zmiany na **zdalną** gałąź **master**: **$ git push origin master**.
+10. Otaguj ostatni commit jako pierwsze “oficjalne” wydanie **v0.0.1**, patrz: https://git-scm.com/book/pl/v2/Podstawy-Gita-Tagowanie
+11. Wrzuć tag na repozytorium zdalne, patrz link w punkcie wyżej, sekcja *Wspłódzielenie etykiet*.
+12. Zachowując zasady Git Flow zaimplementuj 4 funkcjonalności (przed implementacją patrz uwagi poniżej):
 
     * dodawanie,
     * odejmowanie,
@@ -47,8 +57,27 @@ Zadania do realizacji podczas zajęć
     * Trzecie “oficjalne” wydanie aplikacji **v0.2.0** powinno zawierać dodatkowo metody: mnożenie i dzielenie. W tej wersji nie pisz obsługi dzielenia przez zero (niech leci wyjątek i kończy aplikację).
     * Zrób szybką poprawkę, w której obsłużysz przypadek dzielenia przez zero i oznacz nowe wydanie jako **v0.2.1**.
 
-12. Narysuj na kartce schematycznie historię swojego repozytorium i zaprezentuj prowadzącemu zajęcia. Przed wykonaniem dalszej części poczekaj na akceptację przez prowadzącego.
 13. Pozostając na gałęzi **master** zaimplementuj w klasie **Calculator** metodę potęgowania. Skorzystaj z istniejących metod w pakiecie matematycznym. Nie zatwierdzaj (nie commituj) zmian na masterze. Nowe funkcjonalności nie mogą być bezpośrednio dodawane na gałęzi master.
 14. Wykorzystując polecenie **stash** zaktualizuj gałąź **dev** do aktualnej wersji **mastera** wraz z wprowadzoną implementacją potęgowania. Na gałęzi **dev** zatwierdź implementację potęgowania i wrzuć na **mastera** wersję **v0.3.0** zawierającą potęgowanie.
+15. Narysuj na kartce/w dowolnym programie (np. https://app.diagrams.net/) schematycznie historię swojego repozytorium.
+16. Dodaj prowadzącego jako członka repozytorium. W tym celu na stronie https://gitlab.com/ przejdź do swojego projektu i z listy po lewej stronie ekranu wybierz **Members**:
 
+    .. image:: img/member.png
+        :width: 650
+        :align: center
 
+    W polu *GitLab member or Email address* wpisz adres email lub nick prowadzącego laboratorium, który znajdziesz na tablicy kursu na eportalu.
+    Wśród opcji *Choose a role permission* należy wybrać **Developer** (aby zapewnić wgląd prowadzącemu do kodu) i kliknąć **Invite**.
+
+    .. note::
+
+        Sprawozdanie należy wysłać dopiero po nadaniu uprawnień do repozytrium prowadzącemu laboratoria. W przypadku braku dostępu do repozytorium zadanie traktuje się jako niewykonane.
+
+Sprawozdanie
+--------------------------
+
+Plik przedstawiający schemat z punktu 14.
+
+    .. note::
+        Zadanie z gita musi zostać wykonane prawidłowo. Należy zwrócić uwagę na poprawność wykonania wszytskich podpunktów oraz czy schemat odzwierciedla stan repozytorium.
+        Mnogość podejść do ćwiczenia skutkuje niższą oceną za jego realizację.

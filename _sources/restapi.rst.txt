@@ -69,7 +69,7 @@ Sprawozdanie
 ---------------------
 
 1. W sprawozdaniu proszę zawrzeć zapytania wykonane oraz otrzymane odpowiedzi z ćwiczeń I oraz II. Jeżeli odpowiedź jest dłuższa niż 10 linijek proszę zawrzeć tylko fragment odpowiedzi.
-2. Proszę opisać trzy wybrane sposoby autoryzacji użytkownika. Krótko - co należy dosatrczyć aby uzyskać autoryzację oraz wady i zalety, maks 8 zdań na jeden sposób.
+2. Proszę opisać trzy wybrane sposoby autoryzacji użytkownika podczas dostępu do API. Krótko - co należy dosatrczyć aby uzyskać autoryzację oraz wady i zalety, maks 8 zdań na jeden sposób.
 3. Proszę opisać swoimi słowami do czego służy postman. Maks 3 zdania.
 
 

@@ -55,7 +55,7 @@ Zadania do realizacji podczas zajęć
         <artifactId>[artifact_id]</artifactId>
         <version>1.0.0</version>
         <name>[name]</name>
-        <description>[description]description>
+        <description>[description]</description>
 
         <parent>
             <groupId>org.springframework.boot</groupId>
@@ -205,7 +205,7 @@ W tym ćwiczeniu kontynuujemy rozwój projektu z ćwiczenia III.
 
 .. code-block::
 
-    serwer.port = 8008
+    server.port = 8008
 
 3. Uruchom aplikację
 4. Sprawdź za pomocą postmana lub przeglądarki odpowiedź na zapytanie GET skierowane do *localhost:8080/hello* oraz *localhost:8008/hello*
