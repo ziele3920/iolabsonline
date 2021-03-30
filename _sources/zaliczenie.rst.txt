@@ -1,3 +1,11 @@
+.. |ss| raw:: html
+
+   <strike>
+
+.. |se| raw:: html
+
+   </strike>
+
 Zasady zaliczenia laboratoriów
 ===================================================
 
@@ -15,7 +23,17 @@ Na ocenę końcową składają się:
 Przebieg laboratoriów
 ------------------------
 
-Laboratoria prowadzone są zdalnie w sposób asynchroniczny. Oznacza to, że każdy student wykonuje ćwiczenia w swoim tempie, jednak nie wolniej niż w ustalonym harmonogramie. W pierwszym tygodniu semestru zostanie opublikowana intrukcja przygotowania się do zajęć (instalacja niezbędnego oprogramownia i dołączenie do grupy na slacku), którą należy zrealizować do końca pierwszego tygodnia semestru. Instrukcja zostanie udostępniona drogą mailową lub przez system Edukacja CL. W drugim tygodniu zajęć odbędzie się spotkanie online, podczas którego zostaną “donegocjowane” kwestie związane z przebiegiem laboratoriów i ich zaliczeniem oraz zostaną omówione wszelkie problemy z przygotwaniem się do zajęć. Jednocześnie będzie to ostatnie spotkanie, na którym obecność jest obowiązkowa. W trakcie pozostałych planowych zajęć prowadzący jest dostępny dla studentów na slacku.
+Laboratoria prowadzone są zdalnie w sposób synchroniczny symulujący warunki pracy programisty.
+Oznacza to, że każdy student wykonuje ćwiczenia w swoim tempie, jednak nie wolniej niż w ustalonym harmonogramie.
+W pierwszym tygodniu semestru zostanie opublikowana intrukcja przygotowania się do zajęć (instalacja niezbędnego
+oprogramownia i dołączenie do grupy na slacku), którą należy zrealizować do końca pierwszego tygodnia semestru.
+Instrukcja zostanie udostępniona drogą mailową lub przez system Edukacja CL.
+W drugim tygodniu zajęć odbędzie się spotkanie online na zoomie, podczas którego zostaną “donegocjowane” kwestie
+związane z przebiegiem laboratoriów i ich zaliczeniem oraz zostaną omówione wszelkie problemy z przygotwaniem się do zajęć.
+Jednocześnie będzie to ostatnie spotkanie spotkanie na zoomie, na którym obecność jest obowiązkowa.
+W trakcie pozostałych planowych zajęć każdy student ma obowiązek zalogować się na slacka i odpowiadać
+na przychodzące wiadomości od prowadzącego .Ponadto prowadzący jest dostępny dla studentów na slacku,
+gdzie odpowiada na proste pytania, a w przypadku bardziej złożynych pytań będzie ogranizowane spotkanie na zoomie.
 
 .. note::
 
@@ -29,7 +47,7 @@ W drugim tygodniu semestru rozpoczyna się część właściwa laboratorium pole
 
 3. Sprawozdanie - opis elementów, które mają się zawrzeć w sprawozdaniu.
 
-Sprawozdania przygotowane zgodnie z opisem do każdego ćwiczenia (czasem zrzut ekranu, czasem kilka stron pdf) muszą zostać przesłane prowadzącemu zajęcia w wiadomości prywatnej na slacku przed datami wskazanymi w harmonogramie. Opóźnienie w dostarczeniu sprawozdania o każde 72 godziny skutkuje obiżeniem oceny z ćwiczenia o 0,5. Czas realizacji ćwiczeń może zostać wydłużony przez prowadzącego poprzez wprowadzenie zmian do ogólnego harmonogramu. Sprawozdania będą oceniane maksymalnie w ciągu dwóch tygodni od momentu ich nadesłania (zwykle jest to kilka dni). W odpowiedzi na każde sprawozdanie zostanie przesłana ocena wraz z ewentualnymi komentarzami.
+Sprawozdania przygotowane zgodnie z opisem do każdego ćwiczenia (czasem zrzut ekranu, czasem kilka stron pdf) muszą zostać przesłane |ss| prowadzącemu zajęcia w wiadomości prywatnej na slacku |se| na eportalu jako plik/pliki do odpowiedniego zadania przed datami wskazanymi w harmonogramie. Opóźnienie w dostarczeniu sprawozdania o każde 72 godziny skutkuje obiżeniem oceny z ćwiczenia o 0,5. Czas realizacji ćwiczeń może zostać wydłużony przez prowadzącego poprzez wprowadzenie zmian do ogólnego harmonogramu. Sprawozdania będą oceniane maksymalnie w ciągu dwóch tygodni od momentu ich nadesłania (zwykle jest to kilka dni). W odpowiedzi na każde sprawozdanie zostanie przesłana ocena wraz z ewentualnymi komentarzami.
 
 .. note::
 

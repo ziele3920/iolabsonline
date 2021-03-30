@@ -14,6 +14,9 @@ Poniżej przedstawiono terminy nadsyłania sprawozdań z konkretnych ćwiczeń. 
 | **26.05.2021 r.** - Dokumentacja
 | **15.06.2021 r.** - CLOUD
 
+    .. note::
+
+        Sprawozdania muszą zostać umieszczone pod odpowiednimi zadaniami na eportalu.
 
 
 
