@@ -170,7 +170,7 @@ Pamiętaj o odpowiedniej konfiguracji *HttpSecurity* oraz *WebSecurity*. W *WebS
 Sprawozdanie
 ----------------------
 
-Po realizacji ćwiczenia proszę o przesłanie linka do repozytorium, oraz loginu i hasła dla klienta i admina w wiadomości prywatnej do prowadzącego na slacku.
+Po realizacji ćwiczenia proszę o przesłanie linka do repozytorium, oraz loginu i hasła dla klienta i admina jako rozwiązanie do opowiedniego zadania na ePortalu.
 
 .. note::
 

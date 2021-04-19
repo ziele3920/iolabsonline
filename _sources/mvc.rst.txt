@@ -149,7 +149,7 @@ Dla przykładu:
 Sprawozdanie
 ----------------------
 
-Po realizacji ćwiczeń proszę o przesłanie linka do repozytorium w wiadomości prywatnej do prowadzącego na slacku.
+Po zakończeniu ćwiczenia proszę przesłać link do repozytorium jako rozwiązanie do opowiedniego zadania na ePortalu.
 
 .. note::
 

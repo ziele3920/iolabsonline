@@ -221,4 +221,4 @@ generator stworzy:
 Sprawozdanie
 --------------------------
 
-Po zakończeniu ćwiczenia proszę wysłać prowadzącemu, na slacku link do repozytorium. Proszę pamiętać o nadaniu odpowiednich uprawnień dostępu lub o upublicznienie repozytorium.
+Po zakończeniu ćwiczenia proszę przesłać link do repozytorium jako rozwiązanie do opowiedniego zadania na ePortalu. Proszę pamiętać o nadaniu odpowiednich uprawnień dostępu lub o upublicznienie repozytorium.
