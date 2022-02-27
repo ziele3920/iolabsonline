@@ -6,8 +6,17 @@
 
    </strike>
 
-Zasady zaliczenia laboratoriów
+Zasady przebiegu i zaliczenia laboratoriów
 ===================================================
+
+Komunikacja
+---------------------------
+
+Domyślnym kanałem komunikacji z prowadzącym poza zajęciami jest Slack. Student ma obowiązek dołączyć do Slacka i
+zasubskrybować kanały przypisane do zajęć, w których student uczestniczy. Na tych kanałach będą umieszczane
+ogłoszenia dot. zajęć oraz prowadzone będą dyskusje na temat zadań. W przypadku indywidualnych pytań do
+prowadzącego (poza zajęciami) muszą one być kierowane w wiadomości prywatnej na slacku.
+
 
 Ocena końcowa
 --------------
@@ -23,29 +32,16 @@ Na ocenę końcową składają się:
 Przebieg laboratoriów
 ------------------------
 
-Laboratoria prowadzone są zdalnie w sposób synchroniczny symulujący warunki pracy programisty.
-Oznacza to, że każdy student wykonuje ćwiczenia w swoim tempie, jednak nie wolniej niż w ustalonym harmonogramie.
-W pierwszym tygodniu semestru zostanie opublikowana intrukcja przygotowania się do zajęć (instalacja niezbędnego
-oprogramownia i dołączenie do grupy na slacku), którą należy zrealizować do końca pierwszego tygodnia semestru.
-Instrukcja zostanie udostępniona drogą mailową lub przez system Edukacja CL.
-W drugim tygodniu zajęć odbędzie się spotkanie online na zoomie, podczas którego zostaną “donegocjowane” kwestie
-związane z przebiegiem laboratoriów i ich zaliczeniem oraz zostaną omówione wszelkie problemy z przygotwaniem się do zajęć.
-Jednocześnie będzie to ostatnie spotkanie spotkanie na zoomie, na którym obecność jest obowiązkowa.
-W trakcie pozostałych planowych zajęć każdy student ma obowiązek zalogować się na slacka i odpowiadać
-na przychodzące wiadomości od prowadzącego. Ponadto prowadzący jest dostępny dla studentów na slacku,
-gdzie odpowiada na proste pytania, a w przypadku bardziej złożynych pytań będą one omawiane na wcześniej zaplanowanym
-spotkaniu na zoomie. Jeżeli prowadzący uzna, że pytanie omawiane na zoomie jest godne uwagi to poprosi wszystkich
-studentów o połączenie się do spotkania na zoom na czas omawiania pytania.
-Brak odpowiedzi na pytania prowadzącego na slacku, lub nie dołączenie do spotkania na zoomie przez poproszonego o to
-studenta jest równoznaczne z jego nieobecnością na zajęciach. Student może taką nieobecność usprawiedliwić
-indywidualnie, w szczególności w przypadku problemów technicznych.
-Linki do spotkań na zoomie będą rozsyłane mailowo z systemu vc oraz umieszczane na eportalu.
+Zgodnie z zarządzeniem Rektora dwa pierwsze zajęcia odbywają się w sposób zdalny, synchroniczny z wykorzystaniem
+platformy Zoom. Linki do spotkania są wysyłane min. 3 dni przed rozpoczęciem zajęć drogą mailową. Linki do spotkań
+są również udostępniane na ePortalu. Poztsałe zajęcia, zgodnie z informacjami na dzień 27.02.2022 r. odbędą się
+stacjonarnie.
 
-.. note::
+Podczas pierwszych zajęć kwestie organizacyjne oraz zasady zaliczenia zostną szczegółowo omówione.
 
-    W przypadku chęci odbycia z prowadzącym rozmowy głosowej / wideorozmowy w ramach konsultacji należy się na taką rozmowę umówić z prowadzącym - na slacku poprzez wiadomość prywatną. Jednocześnie prowadzący ma prawo umówić się ze studntem na rozmowę głosową / wideorozmowę w godzinach planowych zajęć, lub innym zaproponowanym przez studenta w celu omówienia zadań.
+**Realizaja ćwiczeń**
 
-W drugim tygodniu semestru rozpoczyna się część właściwa laboratorium polegająca na realizaji ćwiczeń. Lista ćwiczeń wraz z harmonogramem pojawią się najpóźniej w drugiom tygodniu laboratorów. Każde ćwiczenie jest podzielone na trzy części:
+Lista ćwiczeń wraz z harmonogramem pojawią się najpóźniej w drugim tygodniu laboratorów. Każde ćwiczenie jest podzielone na trzy części:
 
 1. Zadania do wykonania przed zajęciami - wstęp teoretyczny, tutoriale, przykłady i odnośniki do niezbęnych narzędzi.
 
@@ -53,16 +49,37 @@ W drugim tygodniu semestru rozpoczyna się część właściwa laboratorium pole
 
 3. Sprawozdanie - opis elementów, które mają się zawrzeć w sprawozdaniu.
 
-Sprawozdania przygotowane zgodnie z opisem do każdego ćwiczenia (czasem zrzut ekranu, czasem kilka stron pdf) muszą zostać przesłane |ss| prowadzącemu zajęcia w wiadomości prywatnej na slacku |se| na eportalu jako plik/pliki do odpowiedniego zadania przed datami wskazanymi w harmonogramie. Opóźnienie w dostarczeniu sprawozdania o każde 72 godziny skutkuje obiżeniem oceny z ćwiczenia o 0,5. Czas realizacji ćwiczeń może zostać wydłużony przez prowadzącego poprzez wprowadzenie zmian do ogólnego harmonogramu. Sprawozdania będą oceniane maksymalnie w ciągu dwóch tygodni od momentu ich nadesłania (zwykle jest to kilka dni). W odpowiedzi na każde sprawozdanie zostanie przesłana ocena wraz z ewentualnymi komentarzami.
+**Sprawozdania** przygotowane zgodnie z opisem do każdego ćwiczenia (czasem zrzut ekranu, czasem kilka stron pdf)
+muszą zostać umieszczone na eportalu jako plik/pliki do odpowiedniego zadania przed datami wskazanymi w harmonogramie.
+Opóźnienie w dostarczeniu sprawozdania o każde 84 godziny skutkuje obiżeniem oceny z ćwiczenia o 0,5. Czas realizacji
+ćwiczeń może zostać wydłużony przez prowadzącego (z inicjatywy własnej lub na prośbę studentów) poprzez wprowadzenie
+zmian do ogólnego harmonogramu. Sprawozdania będą oceniane maksymalnie w ciągu dwóch tygodni od momentu ich nadesłania.
+Każde dwa drobne błędy lub jeden poważny błąd w zadaniu skutkują obniżeniem oceny z ćwiczenia o 0,5.
+W odpowiedzi na każde sprawozdanie zostanie przesłana ocena wraz z ewentualnymi komentarzami.
+Prowadzący ma prawo zadać studentowi dodatkowe pytania do zadania/sprawozdania, które mogą wpłynąć na podwyższenie
+lub obniżenie oceny za dane ćwiczenie.
 
 .. note::
 
     Sprawozdania składane w LaTeXie będą oceniane pół oceny wyżej.
 
+.. note::
+
+    Umieszczenie w sprawizdaniu dodatkowych treści, niewymienionych w opisie ćwiczenia (sekcja Sprawozdanie) może
+    skutkowć obniżeniem oceny z danego ćwiczenia.
+
+**Alternatywna forma oceny realizacji zadań.**
+Jeżeli student zrealizował ćwiczenie przed wyznaczonym terminem w harmonogramie, zamiast przygotowania sprawozdania
+może zaprezentować zadanie prowadzącemu podczas zajęć. Podczas prezentacji zadania student prezentuje swoją pracę w
+ramach luźnej rozmowy z prowadzącym. Prowadzący może ponadto zadawać pytania dotyczące zrealizowanego ćwiczenia.
+Każdorazową chęć takiej formy zaliczenia ćwiczenia student zgłasza prowadzącemu podczas zajęć. Jeżeli podczas zajęć
+nie ma wystarczjąco czasu to prowadzący może poprosić studenta o przygotowanie sprawozdania lub może umówić się
+ze studentem na prezentację zadania w ramach konsultacji.
+
 Poprawki
 --------------
 
-Każdą ocenę można poprawić po wyrażeniu zgody przez prowadzącego, w formie uzgodnionej z prowadzącym.
+Każdą ocenę z ćwiczenia można poprawić po wyrażeniu zgody przez prowadzącego, w formie uzgodnionej z prowadzącym.
 
 .. note::
 
@@ -71,9 +88,23 @@ Każdą ocenę można poprawić po wyrażeniu zgody przez prowadzącego, w formi
 Kartkówki
 --------------
 
-Kartkówki będą przeprowadzane na e-portalu. Będą one zapowiedziane na minium 3 dni wcześniej. Brak podejścia do kartkówki w wyznaczonym terminie skutkuje oceną niedostateczną z kartkówki. Ilość możliwych podejść do każdej kartkówki to jedno. Student może poprawić jedną, wybraną kartkówkę w terminie i formie ustalonymi z prowadzącym
+Kartkówki będą przeprowadzane na e-portalu. Będą one zapowiedziane na minium 3 dni wcześniej. Brak podejścia do kartkówki
+w wyznaczonym terminie skutkuje oceną niedostateczną z kartkówki. Ilość możliwych podejść do każdej kartkówki to jedno.
+Student może poprawić jedną, wybraną kartkówkę w terminie i formie ustalonymi z prowadzącym.
 
 Aktywność
 --------------
 
-W ramach umożliwienia zdobywania punktów za aktywność sugerowane jest zadawanie pytań/złgaszanie problemów związanyh z realizacją zadań na publicznych kanałach na slacku. Jeżeli inny student odpowie na zadane pytanie/problem może otrzymać punkty za aktywność. Aby punkty zostały przyznane pytanie musi być nieoczywiste. Oczywistość pytania ocenia prowadzący.
+W ramach umożliwienia zdobywania punktów za aktywność sugerowane jest zadawanie pytań/złgaszanie problemów
+związanyh z realizacją zadań na forum podczas zajęć lub na kanałach laboratoriów na slacku.
+Jeżeli inny student odpowie na zadane pytanie/problem może otrzymać punkty za aktywność.
+Aby punkty zostały przyznane pytanie musi być nieoczywiste.
+Oczywistość pytania ocenia prowadzący.
+Pięć lub więcej punktów za aktywność skutkuje podwyższeniem oceny końcowej o 0,5.
+
+.. note::
+
+    W przypadku chęci odbycia z prowadzącym rozmowy głosowej / wideorozmowy w ramach konsultacji
+    należy się na taką rozmowę umówić z prowadzącym - na slacku poprzez wiadomość prywatną.
+    Jednocześnie prowadzący ma prawo umówić się ze studntem na rozmowę głosową / wideorozmowę w celu omówienia zadań.
+

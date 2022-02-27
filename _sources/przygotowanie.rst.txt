@@ -1,10 +1,12 @@
+.. _przygotowanie:
+
 Przygotowanie do zajęć
 ===================================================
 
 Dołączenie do Slacka
 -------------------------------------
 
-1. Aby dołączyć do slacka skorzstaj z linku:  https://join.slack.com/t/io20202021/shared_invite/zt-mvmw3rqd-~yXbnGlTvV0tos1YAhuNEQ
+1. Aby dołączyć do slacka skorzstaj z linku:  https://join.slack.com/t/io20212022/shared_invite/zt-14cdlcxrp-TOEIeKB2lPEon9N9aPnWxg
 2. Zarejestruj się używając maila studenckiego
 3. Podczas dołączania jako "Full name" wpisz swoje imię i nazwisko
 4. Nie wszystkie kanały są domyślnie subskrybowane. Na obzaku poniżej kanał "laboratorium" jest wyszarzony. Oznacza to,
@@ -19,6 +21,10 @@ Dołączenie do Slacka
     .. image:: img/join_channel.png
         :width: 650
         :align: center
+
+.. note::
+
+    Każdy student powinien (w domyśle - musi) zasubskrybować kanały grup laboratoriów do których jest zapisany.
 
 6. Gdy chcesz kogoś wspomnieć użyj znaku "@" i wybierz osobę/kanał.
 7. Zawsze gdy chcesz wkleić fragment kodu na slacka użyj opcji "Create a text snippet". Znajdziesz ją klikając skróty (symbol pioruna) w oknie tworzenia wiadomości:
