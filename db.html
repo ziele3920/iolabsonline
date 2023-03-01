@@ -11,8 +11,8 @@
   
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
 
   
   
@@ -24,16 +24,16 @@
 
   
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="static/js/html5shiv.min.js"></script>
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
+        <script src="static/jquery.js"></script>
+        <script src="static/underscore.js"></script>
+        <script src="static/doctools.js"></script>
     
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <script type="text/javascript" src="static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
@@ -167,7 +167,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/db.rst.txt" rel="nofollow"> View page source</a>
+            <a href="sources/db.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -207,7 +207,7 @@ Niektóre instalatory mogą poprosić o jego nadanie lub zaczerpnąć np. nazwę
 <ol class="arabic" start="6">
 <li><p>Zaloguj się do serwera za pomocą interfejsu graficznego pgAdmin i sprawdź czy utoworzyła się automatycznie baza danych:</p>
 <blockquote>
-<div><a class="reference internal image-reference" href="_images/pgad.png"><img alt="_images/pgad.png" class="align-center" src="_images/pgad.png" style="width: 250px;" /></a>
+<div><a class="reference internal image-reference" href="images/pgad.png"><img alt="images/pgad.png" class="align-center" src="images/pgad.png" style="width: 250px;" /></a>
 <p>Jeżeli baza się nie utworzyła, kliknij prawym przyciskiem na <em>Databases</em> -&gt; <em>Create</em> i uzupełnij nazwę bazy.</p>
 </div></blockquote>
 </li>
@@ -236,7 +236,7 @@ które będą podlegać ocenie. Na masterze powinny się znaleźć tylko i wył�
 <ol class="arabic">
 <li><p>Analogicznie do tutorialu z punktu 7. uwtórz projekt spring bootowy i zamodeluj obiekt <em>Product</em> (analogicznie do obiektu <em>Car</em> w tutorialu), który jest zdefiniowany następująco:</p>
 <blockquote>
-<div><a class="reference internal image-reference" href="_images/product.png"><img alt="_images/product.png" class="align-center" src="_images/product.png" style="width: 200px;" /></a>
+<div><a class="reference internal image-reference" href="images/product.png"><img alt="images/product.png" class="align-center" src="images/product.png" style="width: 200px;" /></a>
 </div></blockquote>
 </li>
 <li><p>Połącz się do wbudowanej bazy danych H2 i wypełnij ją z poziomu kodu kilkoma (2-5) przykładowymi produktami ferowanymi przez jakiś wobrażony sklep.</p></li>
@@ -286,7 +286,7 @@ Pamiętaj o odpowienich zmianach w pliku <em>application.properties</em>:</p>
 <ol class="arabic simple">
 <li><p>Rozbuduj aplikację z ćwiczenia pierwszego rozszerzając ją o dodatkowe obiekty, zgodnie z przedstawionym diagramem:</p></li>
 </ol>
-<a class="reference internal image-reference" href="_images/db_class_2.png"><img alt="_images/db_class_2.png" class="align-center" src="_images/db_class_2.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="images/db_class_2.png"><img alt="images/db_class_2.png" class="align-center" src="images/db_class_2.png" style="width: 800px;" /></a>
 <ol class="loweralpha simple">
 <li><p>za pomocą odpowednich adnotacji w kodzie określ zależności pomiędzy encjami,</p></li>
 <li><p>zauważ, że słówkiem kluczowym w języku SQL jest słowo <em>order</em>, użyj adnotacji <em>&#64;Table</em> do zmiany nazwy tabeli aby uniknąć błędów w automatycznie genrowanych poleceniach SQL,</p></li>
