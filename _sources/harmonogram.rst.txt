@@ -1,0 +1,30 @@
+.. |ss| raw:: html
+
+   <strike>
+
+.. |se| raw:: html
+
+   </strike>
+
+Harmonogram nadsyłania sprawozdań
+=========================================
+
+Poniżej przedstawiono terminy nadsyłania sprawozdań z konkretnych ćwiczeń dla grup laboratyrjnych b (13:15) i c (17:05). Ostateczna godzina nadsyłania sprawozdań w wyznaczonych terminach to 23:59.
+
+
+| **20.03.2023 r.** - Git - podstawowe narzędzie programisty
+| **27.03.2023 r.** - REST API
+| **03.04.2023 r.** - Spring I
+| **17.04.2023 r.** - Spring Data
+| **08.05.2023 r.** - Spring MVC
+| **22.05.2023 r.** - Spring Security
+| **29.05.2023 r.** - Docker
+| **05.06.2023 r.** - Dokumentacja
+| **12.06.2023 r.** - CLOUD
+
+    .. note::
+
+        Sprawozdania muszą zostać umieszczone pod odpowiednimi zadaniami na eportalu.
+
+
+
