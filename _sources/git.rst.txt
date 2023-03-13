@@ -74,7 +74,7 @@ Zadania do realizacji podczas zajęć
 Sprawozdanie
 --------------------------
 
-Plik przedstawiający schemat z punktu 14.
+Plik przedstawiający schemat z punktu 14 oraz link do repozytorium.
 
     .. note::
         Zadanie z gita musi zostać wykonane prawidłowo. Należy zwrócić uwagę na poprawność wykonania wszytskich podpunktów oraz czy schemat odzwierciedla stan repozytorium.
