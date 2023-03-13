@@ -14,39 +14,46 @@ https://fsgeek.pl/post/badz-produktywny-podstawy-postmana/
 Przejrzenie podstawowych kodów odpowiedzi:
 https://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP
 
+Kody odpowiedzi można przejrzeć również tutaj:
+https://http.cat/
+
+Proszę wykonać kilka wybranych zapytań GET, POST, PUT, DELETE korzystając z opisu w dokumentacji:
+https://docs.api.getpostman.com/?version=latest
+Proszę nie uwzglęcniać tego w sprawozdaniu.
+
 Zadania do realizacji podczas zajęć
 -------------------------------------
 
 Wprowadzenie
 ^^^^^^^^^^^^^
 
-Proszę wykonać kilka wybranych zapytań GET, POST, PUT, DELETE korzystając z opisu w dokumentacji:
-https://docs.api.getpostman.com/?version=latest
-Proszę nie uwzglęcniać tego w sprawozdaniu.
+Ćwiczenie ma za zadanie szlifować umiejętność korzystania z różnego rodzaju dokumentacji rest api.
+Proszę pamiętać, że każda dokumentacja jest inna i nie jest wolna od błędów, z którymi trzeba sobie radzić.
 
 Ćwiczenie I
 ^^^^^^^^^^^^^
 
-Wykonaj korzystając z dokumentacji: http://dummy.restapiexample.com/
-Jest to przykładowe REST API, które reprezentuje bazę pracowników. API pozwala na
-pobieranie informacji dotyczących pracowników, tworzenie nowych pracowników,
-modyfikowanie danych istniejących pracowników oraz usuwanie pracowników.
+Wykonaj korzystając z dokumentacji: https://restful-api.dev/
+Jest to przykładowe REST API, które reprezentuje bazę obiektów. API pozwala na
+pobieranie informacji dotyczących obiuektów, tworzenie nowych obiektów,
+modyfikowanie danych istniejących obiektów oraz usuwanie obiektów. 
+Zgodnie z dokumentacją obiekt składa się z nazwy, id oraz listy parametrów, które można swobodnie definiować.
 
 .. note::
 
     Każde zapytanie wykonaj w oddzielnej karcie. Na koniec zaprezentuj wykonane
     zapytania prowadzącemu.
 
-1. Pobierz dane wszystkich pracowników.
-2. Spośród uzyskanych wyników wybierz jednego pracownika i pobierz tylko jego dane w nowym zapytaniu.
-3. Utwórz nowego pracownika.
-4. Zmodyfikuj dane nowo utworzonego pracownika zwiększając mu pensję.
-5. Pobierz dane dotyczące utworzonego pracownika.
-6. Usuń utworzonego pracownika.
+1. Pobierz dane wszystkich obiektów.
+2. Spośród uzyskanych wyników wybierz jeden oiekt i pobierz tylko jego dane w nowym zapytaniu.
+3. Utwórz nowy obiekt (inny niż telefon) i scharakteryzuj go nazwą i co najmniej trzema innymi parametrami.
+4. Zmodyfikuj dane nowo utworzonego obiektu.
+5. Pobierz dane dotyczące utworzonego obiektu.
+6. Usuń utworzony obiekt.
 
 Dodatkowo zobacz jakie kody odpowiedzi zwrócą następujące zapytania:
 
-    a) Pobranie danych nieistniejącego pracownika.
+    a) Pobranie danych nieistniejącego obiektu.
     b) Wykonanie zapytania do nieistniejącego zasobu (endpointa) np. poprzez literówkę w adresie URL zapytania.
 
 	
@@ -69,7 +76,7 @@ Sprawozdanie
 ---------------------
 
 1. W sprawozdaniu proszę zawrzeć zapytania wykonane oraz otrzymane odpowiedzi z ćwiczeń I oraz II. Jeżeli odpowiedź jest dłuższa niż 10 linijek proszę zawrzeć tylko fragment odpowiedzi.
-2. Proszę opisać trzy wybrane sposoby autoryzacji użytkownika podczas dostępu do API. Krótko - co należy dosatrczyć aby uzyskać autoryzację oraz wady i zalety, maks 8 zdań na jeden sposób.
+2. Proszę opisać trzy wybrane sposoby autoryzacji użytkownika podczas dostępu do API. Krótko - co należy dosatrczyć aby uzyskać autoryzację oraz wady i zalety, maks 7 zdań na jeden sposób.
 3. Proszę opisać swoimi słowami do czego służy postman. Maks 3 zdania.
 
 
