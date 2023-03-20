@@ -110,11 +110,11 @@ OpenJDK<span class="w"> </span>Runtime<span class="w"> </span>Environment<span c
 OpenJDK<span class="w"> </span><span class="m">64</span>-Bit<span class="w"> </span>Server<span class="w"> </span>VM<span class="w"> </span>AdoptOpenJDK<span class="w"> </span><span class="o">(</span>build<span class="w"> </span><span class="m">11</span>.0.4+11,<span class="w"> </span>mixed<span class="w"> </span>mode<span class="o">)</span>
 </pre></div>
 </div>
-<p>Jeżeli nie pojawiła się wersja to zainstaluj javę: <a class="reference external" href="https://www.oracle.com/java/technologies/javase-downloads.html">https://www.oracle.com/java/technologies/javase-downloads.html</a> .
-Sugerowana wersja: 11.</p>
+<p>Jeżeli nie pojawiła się wersja to zainstaluj javę: <a class="reference external" href="https://openjdk.org/">https://openjdk.org/</a> lub <a class="reference external" href="https://www.oracle.com/java/technologies/javase-downloads.html">https://www.oracle.com/java/technologies/javase-downloads.html</a> .
+Sugerowana wersja: 19.</p>
 <p>Upewnij się, że zmienna środowiskowa <em>JAVA_HOME</em> jest poprawnie dodana do zmiennych środowiskowych:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>%JAVA_HOME%
-C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\J</span>ava<span class="se">\j</span>dk1.7.0_51
+C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\J</span>ava<span class="se">\j</span>dk...
 </pre></div>
 </div>
 <p>Jeżeli nie wyświetliła się ścieżka do jdk to postępuj zgodnie z instukcją: <a class="reference external" href="https://mkyong.com/java/how-to-set-java_home-on-windows-10/">https://mkyong.com/java/how-to-set-java_home-on-windows-10/</a></p>
@@ -133,7 +133,7 @@ polecania “mvn” to zainstaluj mavena zgodnie z instuckją: <a class="referen
 <ol class="arabic simple">
 <li><p>Utwórz katalog projektu <em>$ mkdir [nazwa_katalogu]</em></p></li>
 <li><p>Przejdź do utworzonego katalogu <em>$ cd nazwa_katalogu</em></p></li>
-<li><p>Utwórz plik <em>pom.xml</em> i umieść w nim następującą zawartość:</p></li>
+<li><p>Utwórz plik <em>pom.xml</em> i umieść w nim następującą zawartość (sprawdź aktualność pakietów i w razie konieczności podmień na nowszy):</p></li>
 </ol>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
 <span class="w">    </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>

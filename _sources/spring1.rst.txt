@@ -13,15 +13,15 @@ Upewnij się, że masz poprawnie zainstalowaną javę za pomocą polecenia:
     OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.4+11)
     OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.4+11, mixed mode)
 
-Jeżeli nie pojawiła się wersja to zainstaluj javę: https://www.oracle.com/java/technologies/javase-downloads.html .
-Sugerowana wersja: 11.
+Jeżeli nie pojawiła się wersja to zainstaluj javę: https://openjdk.org/ lub https://www.oracle.com/java/technologies/javase-downloads.html .
+Sugerowana wersja: 19.
 
 Upewnij się, że zmienna środowiskowa *JAVA_HOME* jest poprawnie dodana do zmiennych środowiskowych:
 
 .. code-block:: bash
 
     $ echo %JAVA_HOME%
-    C:\Program Files\Java\jdk1.7.0_51
+    C:\Program Files\Java\jdk...
 
 Jeżeli nie wyświetliła się ścieżka do jdk to postępuj zgodnie z instukcją: https://mkyong.com/java/how-to-set-java_home-on-windows-10/
 
@@ -44,7 +44,7 @@ Zadania do realizacji podczas zajęć
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. Utwórz katalog projektu *$ mkdir [nazwa_katalogu]*
 2. Przejdź do utworzonego katalogu *$ cd nazwa_katalogu*
-3. Utwórz plik *pom.xml* i umieść w nim następującą zawartość:
+3. Utwórz plik *pom.xml* i umieść w nim następującą zawartość (sprawdź aktualność pakietów i w razie konieczności podmień na nowszy):
 
 .. code-block:: xml
 
