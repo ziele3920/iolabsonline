@@ -124,7 +124,6 @@ Budowanie aplikacji w kontenerze Docker
 - Budowanie obrazu:
 
 .. code-block:: bash
-.. code-block:: bash
 
     docker build -t full-spring-boot . 
 
@@ -192,15 +191,15 @@ Uruchomienie skryptów inicjalizujących bazę danych
 
     docker run --name test-db -p 5433:5432 -v /home/mateusz/dev/repo/play/notes/source/pwr/03_Cwiczenia\ /lab3/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d -e POSTGRES_PASSWORD=mypass -d postgres
 
-    .. note::
+.. note::
 
-        W przypadku problemów z mapowaniem dysku zamiast powyższej komędy można stworzyć nowy wplik Dockerfile i za jego pomocą przekopiować plik z konfiguracją:
-        .. code-block::
+    W przypadku problemów z mapowaniem dysku zamiast powyższej komędy można stworzyć nowy wplik Dockerfile i za jego pomocą przekopiować plik z konfiguracją:
+    .. code-block::
 
-                FROM postgres
-                COPY docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
+            FROM postgres
+            COPY docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 
-        i później robimy analogicznie do wcześniejszych kroków builda i runa już bez opcji -v oraz "postgres" na końcu.
+    i później robimy analogicznie do wcześniejszych kroków builda i runa już bez opcji -v oraz "postgres" na końcu.
 
 - i sprawdź czy się utworzyła baza danych o nazwie *docker*
 
@@ -467,3 +466,12 @@ Dodanie kontenera aplikacji do pliku docker-compose
 .. code-block:: bash
 
     docker-compose up
+
+Sprawozdanie
+------------------------
+
+1. Proszę podać link do repozytorium.
+2. Proszę opisać swoimi słowami czym jest docker oraz docker-compose.
+3. Proszę podać instrukcję uruchamiania aplikacji za pomocą docker-compose. Wraz z wymaganiami, co trzeba mieć zainstalowane.
+4. Proszę narysować diagram klas oraz diagram przypadków użycia przypadków.
+5. Proszę opisać REST api (endpointy).

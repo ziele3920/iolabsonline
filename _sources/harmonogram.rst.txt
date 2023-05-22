@@ -17,9 +17,9 @@ Poniżej przedstawiono terminy nadsyłania sprawozdań z konkretnych ćwiczeń d
 | **03.04.2023 r.** - Spring I
 | **17.04.2023 r.** - Spring Data
 | **08.05.2023 r.** - Spring MVC
-| **22.05.2023 r.** - Spring Security
-| **29.05.2023 r.** - Docker
-| **05.06.2023 r.** - Dokumentacja
+| **29.05.2023 r.** |ss| 22.05.2023 r. |se| - Spring Security
+| **05.06.2023 r.** |ss| 29.05.2023 r. |se| - Docker
+| |ss| **05.06.2023 r.** - Dokumentacja |se|
 | **12.06.2023 r.** - CLOUD
 
     .. note::

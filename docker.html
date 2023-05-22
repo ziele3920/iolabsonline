@@ -72,6 +72,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#dodanie-kontenera-aplikacji-do-pliku-docker-compose">Dodanie kontenera aplikacji do pliku docker-compose</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#sprawozdanie">Sprawozdanie</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dokumentacja.html">Dokumentacja</a></li>
@@ -212,9 +213,6 @@ ENTRYPOINT<span class="w"> </span><span class="o">[</span><span class="s2">&quot
 <ul class="simple">
 <li><p>Budowanie obrazu:</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>full-spring-boot<span class="w"> </span>.
 </pre></div>
 </div>
@@ -275,17 +273,17 @@ również budowanie aplikacji w środowisku CI/CD</p>
 <li><p>Natępnie uruchom kontener</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">name</span> <span class="n">test</span><span class="o">-</span><span class="n">db</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5433</span><span class="p">:</span><span class="mi">5432</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">mateusz</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">play</span><span class="o">/</span><span class="n">notes</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">pwr</span><span class="o">/</span><span class="mi">03</span><span class="n">_Cwiczenia</span>\ <span class="o">/</span><span class="n">lab3</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">-</span><span class="n">initdb</span><span class="o">.</span><span class="n">d</span><span class="p">:</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">-</span><span class="n">initdb</span><span class="o">.</span><span class="n">d</span> <span class="o">-</span><span class="n">e</span> <span class="n">POSTGRES_PASSWORD</span><span class="o">=</span><span class="n">mypass</span> <span class="o">-</span><span class="n">d</span> <span class="n">postgres</span>
-
-<span class="o">..</span> <span class="n">note</span><span class="p">::</span>
-
-    <span class="n">W</span> <span class="n">przypadku</span> <span class="n">problemów</span> <span class="n">z</span> <span class="n">mapowaniem</span> <span class="n">dysku</span> <span class="n">zamiast</span> <span class="n">powyższej</span> <span class="n">komędy</span> <span class="n">można</span> <span class="n">stworzyć</span> <span class="n">nowy</span> <span class="n">wplik</span> <span class="n">Dockerfile</span> <span class="n">i</span> <span class="n">za</span> <span class="n">jego</span> <span class="n">pomocą</span> <span class="n">przekopiować</span> <span class="n">plik</span> <span class="n">z</span> <span class="n">konfiguracją</span><span class="p">:</span>
-    <span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span>
-
-            <span class="n">FROM</span> <span class="n">postgres</span>
-            <span class="n">COPY</span> <span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">-</span><span class="n">initdb</span><span class="o">.</span><span class="n">d</span> <span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">-</span><span class="n">initdb</span><span class="o">.</span><span class="n">d</span>
-
-    <span class="n">i</span> <span class="n">później</span> <span class="n">robimy</span> <span class="n">analogicznie</span> <span class="n">do</span> <span class="n">wcześniejszych</span> <span class="n">kroków</span> <span class="n">builda</span> <span class="n">i</span> <span class="n">runa</span> <span class="n">już</span> <span class="n">bez</span> <span class="n">opcji</span> <span class="o">-</span><span class="n">v</span> <span class="n">oraz</span> <span class="s2">&quot;postgres&quot;</span> <span class="n">na</span> <span class="n">końcu</span><span class="o">.</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>W przypadku problemów z mapowaniem dysku zamiast powyższej komędy można stworzyć nowy wplik Dockerfile i za jego pomocą przekopiować plik z konfiguracją:
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">postgres</span>
+<span class="n">COPY</span> <span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">-</span><span class="n">initdb</span><span class="o">.</span><span class="n">d</span> <span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">-</span><span class="n">initdb</span><span class="o">.</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>i później robimy analogicznie do wcześniejszych kroków builda i runa już bez opcji -v oraz “postgres” na końcu.</p>
 </div>
 <ul class="simple">
 <li><p>i sprawdź czy się utworzyła baza danych o nazwie <em>docker</em></p></li>
@@ -544,6 +542,16 @@ spring.jpa.hibernate.ddl-auto<span class="w"> </span><span class="o">=</span><sp
 </pre></div>
 </div>
 </section>
+</section>
+<section id="sprawozdanie">
+<h2>Sprawozdanie<a class="headerlink" href="#sprawozdanie" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Proszę podać link do repozytorium.</p></li>
+<li><p>Proszę opisać swoimi słowami czym jest docker oraz docker-compose.</p></li>
+<li><p>Proszę podać instrukcję uruchamiania aplikacji za pomocą docker-compose. Wraz z wymaganiami, co trzeba mieć zainstalowane.</p></li>
+<li><p>Proszę narysować diagram klas oraz diagram przypadków użycia przypadków.</p></li>
+<li><p>Proszę opisać REST api (endpointy).</p></li>
+</ol>
 </section>
 </section>
 
